@@ -27,19 +27,19 @@
                             <div class="download-buttons">
                                 <div class="play-store">
                                     <a href="https://play.google.com">
-                                        <img src="{{asset('landing/image/play_store.png')}}">
+                                        <img src="{{asset('public/assets/landing')}}/image/play_store.png">
                                     </a>
                                 </div>
 
                                 <div class="apple-store">
                                     <a href="https://www.apple.com/app-store">
-                                        <img src="{{asset('landing/image/apple_store.png')}}">
+                                        <img src="{{asset('public/assets/landing')}}/image/apple_store.png">
                                     </a>
                                 </div>
 
                                 <div class="apple-store">
                                     <a href="#">
-                                        <img src="{{asset('landing/image/browse.png')}}">
+                                        <img src="{{asset('public/assets/landing')}}/image/browse.png">
                                     </a>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
 
                         <div
                             class="col-lg-5 d-flex justify-content-center justify-content-md-end text-center text-md-right top-image">
-                            <img src="{{asset('landing/image/double_screen_image.png')}}">
+                            <img src="{{asset('public/assets/landing')}}/image/double_screen_image.png">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div
                             class="col-lg-6 col-md-6  d-flex justify-content-center justify-content-md-start text-center text-md-left featured-section__image">
-                            <img src="{{asset('landing')}}/image/about_us_image.png"></img>
+                            <img src="{{asset('public/assets/landing')}}/image/about_us_image.png"></img>
                         </div>
                         <!-- <div class="col-lg-3 col-md-0"></div> -->
                         <div class="col-lg-6 col-md-6">
@@ -104,7 +104,7 @@
                         <div class="choosing-section__content">
                             <div>
                                 <div class="choosing-section__image-card">
-                                    <img src="{{asset('landing')}}/image/clean_&_cheap_icon.png"></img>
+                                    <img src="{{asset('public/assets/landing')}}/image/clean_&_cheap_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 55px 30px 54px">
                                     <p>Clean & Cheap Price</p>
@@ -113,7 +113,7 @@
 
                             <div>
                                 <div class="choosing-section__image-card">
-                                    <img src="{{asset('landing')}}/image/best_dishes_icon.png"></img>
+                                    <img src="{{asset('public/assets/landing')}}/image/best_dishes_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 54px 30px 55px">
                                     <p>Best Dishes Near You</p>
@@ -123,7 +123,7 @@
                             <div>
                                 <div class="choosing-section__image-card">
                                     <img
-                                        src="{{asset('landing')}}/image/virtual_restaurant_icon.png"></img>
+                                        src="{{asset('public/assets/landing')}}/image/virtual_restaurant_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 31px 30px 31px">
                                     <p>Your Own Virtual Restaurant</p>
@@ -149,7 +149,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="testimonial-slider" class="owl-carousel">
-                                            @foreach(include('landing/data/testimonial.php') as $data)
+                                            @foreach(include('public/assets/landing/data/testimonial.php') as $data)
                                                 <div class="testimonial">
                                                     <div class="pic">
                                                         <img src="{{$data['image']}}"
