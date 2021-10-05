@@ -392,117 +392,12 @@
                   {{-- ORDERS --}}
                   @if(\App\CentralLogics\Helpers::employee_module_permission_check('order'))
                   <li class="nav-item">
-                    <a href="#" class="nav-link link-dark {{Request::is('vendor-panel/order*')?'active':''}}">
+                    <a href="{{route('vendor.order.list',['all'])}}" class="nav-link link-dark {{Request::is('vendor-panel/order*')?'active':''}}">
                       <i class="tio-shopping-cart nav-icon"></i>
                       <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                         {{__('messages.orders')}}
                       </span>
                     </a>
-                    <ul class="submenu" style="display: {{Request::is('vendor-panel/order*')?'block':'none'}}">
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/pending_take_away')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.order.list',['pending_take_away'])}}" title="{{__('messages.pending')}}({{__('messages.take_away')}})">
-                                <span class="text-truncate">
-                                    {{__('messages.pending')}} ({{__('messages.take_away')}})
-                                        <span class="badge badge-soft-success badge-pill ml-1">
-                                        {{\App\Models\Order::where(['order_status'=>'pending','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id(), 'order_type'=>'take_away'])->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/confirmed')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.order.list',['confirmed'])}}" title="{{__('messages.confirmed')}}">
-                                <span class="text-truncate">
-                                    {{__('messages.confirmed')}}
-                                        <span class="badge badge-soft-success badge-pill ml-1">
-                                        {{\App\Models\Order::whereIn('order_status',['confirmed', 'accepted'])->whereNotNull('confirmed')->where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_id())->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/cooking')?'active':''}}">
-                            <a class="nav-link" href="{{route('vendor.order.list',['cooking'])}}" title="{{__('messages.cooking')}}">
-                                <span class="text-truncate">
-                                    {{__('messages.cooking')}}
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        {{\App\Models\Order::where(['order_status'=>'processing', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/ready_for_delivery')?'active':''}}">
-                            <a class="nav-link" href="{{route('vendor.order.list',['ready_for_delivery'])}}" title="{{__('messages.ready_for_delivery')}}">
-                                <span class="text-truncate">
-                                    {{__('messages.ready_for_delivery')}}
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        {{\App\Models\Order::where(['order_status'=>'handover', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/food_on_the_way')?'active':''}}">
-                            <a class="nav-link" href="{{route('vendor.order.list',['food_on_the_way'])}}" title="{{__('messages.foods_on_the_way')}}">
-                                <span class="text-truncate">
-                                    {{__('messages.food_on_the_way')}}
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        {{\App\Models\Order::where(['order_status'=>'picked_up', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/delivered')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.order.list',['delivered'])}}" title="">
-                                <span class="text-truncate">
-                                    {{__('messages.delivered')}}
-                                        <span class="badge badge-success badge-pill ml-1">
-                                        {{\App\Models\Order::where(['order_status'=>'delivered','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/returned')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.order.list',['returned'])}}" title="">
-                                <span class="text-truncate">
-                                    {{__('messages.returned')}}
-                                        <span class="badge badge-soft-danger bg-light badge-pill ml-1">
-                                        {{\App\Models\Order::where(['order_status'=>'returned','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/scheduled')?'active':''}}">
-                            <a class="nav-link" href="{{route('vendor.order.list',['scheduled'])}}" title="{{__('messages.scheduled')}}">
-                                <span class="text-truncate">
-                                    {{__('messages.scheduled')}}
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        {{\App\Models\Order::where('restaurant_id',\App\CentralLogics\Helpers::get_restaurant_id())->Scheduled()->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/list/all')?'active':''}}">
-                            <a class="nav-link" href="{{route('vendor.order.list',['all'])}}" title="{{__('messages.all')}} {{__('messages.order')}}">
-                                <span class="text-truncate">
-                                    {{__('messages.all')}}
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        {{\App\Models\Order::where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_id())->where(function($q){
-                                            $q->whereNotIn('order_status',['pending','failed','canceled', 'refund_requested', 'refunded'])->orWhere(function($query){
-                                                $query->where('order_status','pending')->where('order_type', 'take_away');
-                                            });
-                                        })->count()}}
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/order/create')?'active':''}}">
-                            <a class="nav-link" href="{{route('vendor.order.list',['all'])}}" title="{{__('messages.all')}} {{__('messages.order')}}">
-                                <span class="text-truncate">
-                                    Create New
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                   </li>
                   @endif
                   <!-- AddOn -->
