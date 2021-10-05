@@ -14,6 +14,26 @@ class Vendor extends Authenticatable
 {
     use Notifiable;
 
+    protected $fillable = [
+        'f_name',
+        'l_name',
+        'phone',
+        'email',
+        'email_verified_at',
+        'password',
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'bank_name',
+        'branch',
+        'holder_name',
+        'account_no',
+        'image',
+        'status',
+        'firebase_token',
+        'auth_token',
+    ];
+    
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime'
@@ -28,6 +48,11 @@ class Vendor extends Authenticatable
     public function order_transaction()
     {
         return $this->hasMany(OrderTransaction::class);
+    }
+    
+    public function subsPayment()
+    {
+        return $this->hasMany(SubscriptionPayment::class, 'vendor_id', 'id');
     }
     
     public function todays_earning()
@@ -69,10 +94,12 @@ class Vendor extends Authenticatable
     {
         return $this->hasMany(Restaurant::class);
     }
+
     public function withdrawrequests()
     {
         return $this->hasMany(WithdrawRequest::class);
     }
+    
     public function wallet()
     {
         return $this->hasOne(RestaurantWallet::class);

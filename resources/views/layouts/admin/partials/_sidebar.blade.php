@@ -41,11 +41,11 @@
                 @php($restaurant_logo=\App\Models\BusinessSetting::where(['key'=>'logo'])->first()->value)
                 <a class="navbar-brand" href="{{route('admin.dashboard')}}" aria-label="Front">
                     <img class="navbar-brand-logo" style="max-height: 55px; border-radius: 8px;max-width: 100%!important;"
-                         onerror="this.src='{{asset('public/assets/logo_mdp.jpg')}}'"
+                         onerror="this.src='{{asset('assets/logo_mdp.jpg')}}'"
                          src="{{asset('storage/app/public/business/'.$restaurant_logo)}}"
                          alt="Logo">
                     <img class="navbar-brand-logo-mini" style="max-height: 55px; border-radius: 8px;max-width: 100%!important;"
-                         onerror="this.src='{{asset('public/assets/logo_mdp.jpg')}}'"
+                         onerror="this.src='{{asset('assets/logo_mdp.jpg')}}'"
                          src="{{asset('storage/app/public/business/'.$restaurant_logo)}}" alt="Logo">
                 </a>
                 <!-- End Logo -->
@@ -634,6 +634,17 @@
                             </a>
                         </li>
                     @endif
+
+                    <li class="navbar-vertical-aside-has-menu {{Request::is('admin/subscription/add-new*')?'active':''}}">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                           href="{{route('admin.subscription.index')}}"
+                           title="{{__('messages.restaurant')}} {{__('messages.withdraws')}}"
+                        >
+                            <i class="tio-table nav-icon"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Subscription</span>
+                        </a>
+                    </li>
                 <!-- End withdraw -->
                     <!-- account -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('account'))

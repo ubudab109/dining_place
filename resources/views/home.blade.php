@@ -27,19 +27,19 @@
                             <div class="download-buttons">
                                 <div class="play-store">
                                     <a href="https://play.google.com">
-                                        <img src="{{asset('public/assets/landing')}}/image/play_store.png">
+                                        <img src="{{asset('assets/landing')}}/image/play_store.png">
                                     </a>
                                 </div>
 
                                 <div class="apple-store">
                                     <a href="https://www.apple.com/app-store">
-                                        <img src="{{asset('public/assets/landing')}}/image/apple_store.png">
+                                        <img src="{{asset('assets/landing')}}/image/apple_store.png">
                                     </a>
                                 </div>
 
                                 <div class="apple-store">
                                     <a href="#">
-                                        <img src="{{asset('public/assets/landing')}}/image/browse.png">
+                                        <img src="{{asset('assets/landing')}}/image/browse.png">
                                     </a>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
 
                         <div
                             class="col-lg-5 d-flex justify-content-center justify-content-md-end text-center text-md-right top-image">
-                            <img src="{{asset('public/assets/landing')}}/image/double_screen_image.png">
+                            <img src="{{asset('assets/landing')}}/image/double_screen_image.png">
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div
                             class="col-lg-6 col-md-6  d-flex justify-content-center justify-content-md-start text-center text-md-left featured-section__image">
-                            <img src="{{asset('public/assets/landing')}}/image/about_us_image.png"></img>
+                            <img src="{{asset('assets/landing')}}/image/about_us_image.png"></img>
                         </div>
                         <!-- <div class="col-lg-3 col-md-0"></div> -->
                         <div class="col-lg-6 col-md-6">
@@ -104,7 +104,7 @@
                         <div class="choosing-section__content">
                             <div>
                                 <div class="choosing-section__image-card">
-                                    <img src="{{asset('public/assets/landing')}}/image/clean_&_cheap_icon.png"></img>
+                                    <img src="{{asset('assets/landing')}}/image/clean_&_cheap_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 55px 30px 54px">
                                     <p>Clean & Cheap Price</p>
@@ -113,7 +113,7 @@
 
                             <div>
                                 <div class="choosing-section__image-card">
-                                    <img src="{{asset('public/assets/landing')}}/image/best_dishes_icon.png"></img>
+                                    <img src="{{asset('assets/landing')}}/image/best_dishes_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 54px 30px 55px">
                                     <p>Best Dishes Near You</p>
@@ -123,7 +123,7 @@
                             <div>
                                 <div class="choosing-section__image-card">
                                     <img
-                                        src="{{asset('public/assets/landing')}}/image/virtual_restaurant_icon.png"></img>
+                                        src="{{asset('assets/landing')}}/image/virtual_restaurant_icon.png"></img>
                                 </div>
                                 <div style="margin: 0px 31px 30px 31px">
                                     <p>Your Own Virtual Restaurant</p>
@@ -149,7 +149,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div id="testimonial-slider" class="owl-carousel">
-                                            @foreach(include('public/assets/landing/data/testimonial.php') as $data)
+                                            @foreach(include('assets/landing/data/testimonial.php') as $data)
                                                 <div class="testimonial">
                                                     <div class="pic">
                                                         <img src="{{$data['image']}}"
@@ -229,80 +229,24 @@
             <section class="mt-4" id="subcription">
                 <div class="container">
                     <div class="row mt-2">
+                        @foreach ($subscriptions as $subscription)
                         <div class="col-6">
                             <div class="card shadow rounded border-0 p-5">
                                 <div class="card-body text-center">
                                     <div class="mb-5" style="color: #ff7714;">
-                                        <h3>Lite Plan</h3>
-                                        <span>Forever Free</span>
+                                        <h3>{{$subscription->subs_name}}</h3>
+                                        <span>{{$subscription->subtitle}}</span>
                                     </div>
                                     <div>
-                                        <p>Manage your restaurant orders from your own dashboard</p>
-                                        <hr>
-                                        <p>Upload your own menu & manage availability</p>
-                                        <hr>
-                                        <p>Custom QR codes & instruction designs for your outlet and tables</p>
-                                        <hr>
-                                        <p>Receive orders contactless – no more printed menu needed!</p>
-                                        <hr>
-                                        <p>Accept payment via OVO, credit & debit card, and bank transfer from customers through their smartphones</p>
-                                        <hr>
-                                        <p>Get listed on our restaurant list</p>
-                                        <hr>
-                                        <p>Get reviews from customers</p>
-                                        <hr>
-                                        <p>Handling fee of 4% from customers payment through our website</p>
-                                        <hr>
-                                        <p>See sales reports and customers list</p>
+                                        {!! $subscription->desc !!}
                                     </div>
                                     <div class="mt-5">
-
-                                        <a href="{{ url('subcription/free-reg') }}" class="btn text-white" style="background-color: #ff7714;">Subscribe</a>
+                                        <a href="{{route('subs-reg', $subscription->id)}}" class="btn text-white" style="background-color: #ff7714;">Subscribe</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
-                            <div class="card shadow rounded border-0 p-5">
-                                <div class="card-body text-center">
-                                    <div class="mb-3" style="color: #ff7714;">
-                                        <h3>Full Plan</h3>
-                                        <span>One Time Payment per Outlet</span>
-                                    </div>
-                                    <div class="mb-4" style="color: #697279;">
-                                        <h2><b>Rp. 500000</b></h2>
-                                    </div>
-                                    <div>
-                                        <p>Manage your restaurant orders from your own dashboard</p>
-                                        <hr>
-                                        <p>Upload your own menu & manage availability</p>
-                                        <hr>
-                                        <p>Custom QR codes & instruction designs for your outlet and tables</p>
-                                        <hr>
-                                        <p>Receive orders contactless – no more printed menu needed!</p>
-                                        <hr>
-                                        <p>Accept payment via OVO, credit & debit card, and bank transfer from customers through their smartphones</p>
-                                        <hr>
-                                        <p>Get listed on our restaurant list</p>
-                                        <hr>
-                                        <p>Get reviews from customers</p>
-                                        <hr>
-                                        <p>Handling fee of 4% from customers payment through our website</p>
-                                        <hr>
-                                        <p>See sales reports and customers list</p>
-                                        <hr>
-                                        <p>Accept direct payment to outlet ( cash or card ) with 0% handling fee</p>
-                                        <hr>
-                                        <p>Add multiple languages for your menu</p>
-                                        <hr>
-                                    </div>
-                                    <div class="mt-5">
-
-                                        <button class="btn text-white" style="background-color: #ff7714;">Subscribe</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>

@@ -7,7 +7,40 @@ use App\Models\Vendor;
 
 class Restaurant extends Model
 {
+
+    protected $primaryKey = 'id';
     protected $dates = ['opening_time', 'closeing_time'];
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'phone',
+        'email',
+        'logo',
+        'latitude',
+        'longtitude',
+        'address',
+        'footer_text',
+        'minimum_order',
+        'comission',
+        'schedule_order',
+        'opening_time',
+        'closeing_time',
+        'status',
+        'vendor_id',
+        'created_at',
+        'updated_at',
+        'free_delivery',
+        'rating',
+        'cover_photo',
+        'delivery',
+        'take_away',
+        'food_section',
+        'tax',
+        'zone_id',
+        'reviews_section',
+        'subscription_id',
+    ];
 
     protected $casts = [
         'minimum_order' => 'float',
@@ -34,7 +67,7 @@ class Restaurant extends Model
 
     public function foods()
     {
-        return $this->hasMany(Food::class);
+        return $this->hasMany(Food::class, 'restaurant_id', 'id');
     }
 
     public function orders()
@@ -65,6 +98,16 @@ class Restaurant extends Model
     public function reviews()
     {
         return $this->hasManyThrough(Review::class, Food::class);
+    }
+
+    public function restaurantTable()
+    {
+        return $this->hasMany(RestaurantTable::class, 'restaurant_id', 'id');
+    }
+
+    public function reservation()
+    {
+        return $this->hasMany(ReservationCustomer::class, 'restaurant_id', 'id');
     }
 
     public function getScheduleOrderAttribute($value)

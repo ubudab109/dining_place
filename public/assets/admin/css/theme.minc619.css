@@ -21968,7 +21968,7 @@ label.btn {
 
 .nav-pills:not(.nav-segment) .nav-link.active {
     color: #fff;
-    background-color: #377dff
+    background-color: #f67280 !important
 }
 
 .nav-divider {

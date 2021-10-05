@@ -340,5 +340,19 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::post('/image-upload', 'FileManagerController@upload')->name('image-upload');
             Route::delete('/delete/{file_path}', 'FileManagerController@destroy')->name('destroy');
         });
+
+        Route::group(['prefix' => 'subscription', 'as' => 'subscription.'], function () {
+            Route::get('add-new', 'SubscriptionController@index')->name('index');
+            Route::get('edit/{id}', 'SubscriptionController@edit')->name('show');
+            Route::post('store', 'SubscriptionController@store')->name('store');
+            Route::post('update/{id}', 'SubscriptionController@update')->name('update');
+            Route::delete('delete/{id}', 'SubscriptionController@destroy')->name('delete');
+            // Route::post('store', 'BannerController@store')->name('store');
+            // Route::get('edit/{banner}', 'BannerController@edit')->name('edit');
+            // Route::post('update/{banner}', 'BannerController@update')->name('update');
+            // Route::get('status/{id}/{status}', 'BannerController@status')->name('status');
+            // Route::delete('delete/{banner}', 'BannerController@delete')->name('delete');
+            // Route::post('search', 'BannerController@search')->name('search');
+        });
     });
 });

@@ -21,6 +21,9 @@ class Food extends Model
         'updated_at' => 'datetime'
     ];
 
+    protected $appends = ['total_discount']; 
+    protected $primaryKey = 'id';
+
     public function scopeActive($query)
     {
         return $query->where('status', 1)->whereHas('restaurant', function($query){
@@ -28,6 +31,22 @@ class Food extends Model
         });
     }
 
+    public function getTotalDiscountAttribute()
+    {
+        $totalDisc = 0;
+        if ($this->discount > 0) {
+            if ($this->discount_type == 'percent') {
+                $percent = $this->discount / 100;
+                $calc = $this->price * $percent;
+                $totalDisc += $this->price - $calc;
+            } else if ($this->discount_type == 'amount') {
+                $totalDisc += $this->price - $this->discount;
+            }
+        }
+
+        return $totalDisc;
+    }
+    
     public function scopePopular($query)
     {
         return $query->orderBy('order_count', 'desc');
@@ -47,7 +66,7 @@ class Food extends Model
 
     public function restaurant()
     {
-        return $this->belongsTo(Restaurant::class);
+        return $this->belongsTo(Restaurant::class, 'restaurant_id', 'id');
     }
 
     public function category()

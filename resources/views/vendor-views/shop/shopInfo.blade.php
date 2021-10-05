@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="content container-fluid"> 
+    <p>{{asset('storage/file.txt')}}</p>
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -16,7 +17,7 @@
                 @if($shop->cover_photo)
                 <div class="row">
                     <div class="col-12"  style="max-height:250px; overflow-y: hidden;">
-                         <img src="{{asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)}}"  style="max-height:auto;width: 100%;">
+                         <img src="{{asset('storage/restaurant/cover/'.$shop->cover_photo)}}"  style="max-height:auto;width: 100%;">
                     </div>
                 </div>
                 @endif
@@ -24,21 +25,21 @@
                     @if($shop->image=='def.png')
                     <div class="col-md-4">
                         <img height="200" width="200"  class="rounded-circle border"
-                        src="{{asset('public/assets/back-end')}}/img/shop.png"
+                        src="{{asset('assets/back-end')}}/img/shop.png"
                         alt="User Pic">
                     </div>
                     
                     @else
                     
                         <div class="col-md-4">
-                            <img src="{{asset('storage/app/public/restaurant/'.$shop->logo)}}" class="rounded-circle border"
+                            <img src="{{asset('storage/restaurant/'.$shop->logo)}}" class="rounded-circle border"
                             height="200" width="200" alt="">
                         </div>
 
                     
                     @endif
                  
-                    <!-- http://localhost/Food-multivendor/public/assets/admin/img/restaurant_cover.jpg -->
+                    <!-- http://localhost/Food-multivendor/assets/admin/img/restaurant_cover.jpg -->
                     <div class="col-md-8 mt-4">
                         <span class="h4">{{__('messages.name')}} : {{$shop->name}}</span><br>
                         <span class="h5">{{__('messages.phone')}} : <a style="text-decoration:none; color:black;" href="tel:{{$shop->phone}}">{{$shop->phone}}</a></span><br>

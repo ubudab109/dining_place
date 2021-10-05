@@ -21,13 +21,16 @@
         "laravel/tinker": "^2.5",
         "laravelpkg/laravelchk": "dev-master",
         "madnest/madzipper": "*",
+        "mehradsadeghi/laravel-filter-querystring": "^1.1",
         "nexmo/laravel": "^2.4",
         "paypal/rest-api-sdk-php": "^1.14",
         "rap2hpoutre/fast-excel": "^3.0",
         "razorpay/razorpay": "^2.5",
+        "realrashid/sweet-alert": "^4.0",
         "stripe/stripe-php": "^7.77",
         "twilio/sdk": "^6.28",
-        "unicodeveloper/laravel-paystack": "^1.0"
+        "unicodeveloper/laravel-paystack": "^1.0",
+        "xendit/xendit-php-clients": "^2.14"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.5",

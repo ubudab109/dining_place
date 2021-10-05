@@ -10,6 +10,7 @@ use Grimzy\LaravelMysqlSpatial\Types\Point;
 use App\Models\Zone;
 use App\Models\Vendor;
 use App\Models\Restaurant;
+use App\Models\Subscription;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
 
@@ -32,7 +33,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $subscriptions = Subscription::all();
+        return view('home', compact('subscriptions'));
     }
 
     public function terms_and_conditions()
@@ -63,16 +65,17 @@ class HomeController extends Controller
         return view('subcription');
     }
     
-    public function subcriptionRegFree()
+    public function subcriptionRegFree($id)
     {
-        return view('subcription-reg-free');
+        $subscription = Subscription::find($id);
+        return view('subcription-reg-free', compact('subscription'));
     }
     
     public function postSubcriptionRegFree(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'f_name' => 'required',
-            'name' => 'required',
+            'restaurant_name' => 'required',
             'address' => 'required',
             'email' => 'required|unique:vendors',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|unique:vendors',
@@ -110,8 +113,8 @@ class HomeController extends Controller
         $vendor->save();
 
         $restaurant = new Restaurant;
-        $restaurant->name = $request->name;
-        $restaurant->slug = Str::slug($request->name);
+        $restaurant->name = $request->restaurant_name;
+        $restaurant->slug = Str::slug($request->restaurant_name);
         $restaurant->phone = $request->phone;
         $restaurant->email = $request->email;
         $restaurant->logo = Helpers::upload('restaurant/', 'png', $request->file('logo'));

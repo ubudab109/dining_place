@@ -39,7 +39,7 @@
                         <div class="col-md-4 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlInput1">{{__('messages.price')}}</label>
-                                <input type="number" min="0" max="100000" step="0.01" value="1" name="price" class="form-control"
+                                <input type="number" min="0" step="0.01" value="1" name="price" class="form-control"
                                        placeholder="Ex : 100" required>
                             </div>
                         </div>

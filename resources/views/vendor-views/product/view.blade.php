@@ -1,4 +1,4 @@
-@extends('layouts.vendor.app')
+@extends('layouts.landing.app')
 
 @section('title','Food Preview')
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Vendor\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Vendor;
+use Alert;
+use App\Models\SubscriptionPayment;
 
 class LoginController extends Controller
 {
@@ -25,25 +27,33 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
         $vendor = Vendor::where('email', $request->email)->first();
+        $subcription = SubscriptionPayment::where('vendor_id', $vendor->id)->first();
         if($vendor)
         {
             if($vendor->status == 0)
             {
-                return redirect()->back()->withInput($request->only('email', 'remember'))
-            ->withErrors(['Inactive vendor! Please contact to admin.']);
+                Alert::error('Error', 'Inactive vendor! Please contact to admin.');
+                return redirect()->back()->withInput($request->only('email', 'remember'));
             }
         }
+
+        if ($subcription->status == 'ACTIVE') {
+                Alert::error('Error', 'You Have Incomplete Payment, Please Complete First.');
+                return redirect()->back()->withInput($request->only('email', 'remember'));
+        }
+
         if (auth('vendor')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             return redirect()->route('vendor.dashboard');
         }
 
-        return redirect()->back()->withInput($request->only('email', 'remember'))
-            ->withErrors(['Credentials does not match.']);
+        Alert::error('Error', 'Credentials does not match.');
+
+        return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
     public function logout(Request $request)
     {
         auth()->guard('vendor')->logout();
-        return redirect()->route('vendor.auth.login');
+        return redirect()->route('home');
     }
 }

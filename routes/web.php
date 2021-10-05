@@ -19,7 +19,7 @@ Route::get('about-us', 'HomeController@about_us')->name('about-us');
 Route::get('contact-us', 'HomeController@contact_us')->name('contact-us');
 Route::get('privacy-policy', 'HomeController@privacy_policy')->name('privacy-policy');
 Route::get('subcription', 'HomeController@subcription')->name('subcription');
-Route::get('subcription/free-reg', 'HomeController@subcriptionRegFree');
+Route::get('subcription/free-reg/{id}', 'HomeController@subcriptionRegFree')->name('subs-reg');
 Route::post('subcription/free-reg', 'HomeController@postSubcriptionRegFree');
 
 Route::get('authentication-failed', function () {
@@ -36,7 +36,7 @@ Route::group(['prefix' => 'payment-mobile'], function () {
 });
 
 Route::group(['prefix' => 'restaurant'], function () {
-    Route::get('/{slug}', 'RestaurantController@getRestaurant');
+    Route::get('/{slug}/{categories?}', 'RestaurantController@getRestaurant')->name('restaurant-list');
 });
 
 // SSLCOMMERZ Start
