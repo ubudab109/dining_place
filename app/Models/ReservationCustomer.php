@@ -13,7 +13,10 @@ class ReservationCustomer extends Model
     protected $fillable = [
         'customer_name',
         'customer_phone',
+        'customer_email',
         'restaurant_id',
+        'pax',
+        'desc',
         'table_id',
         'reservation_date',
     ];

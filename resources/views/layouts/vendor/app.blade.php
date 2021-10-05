@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
     <!-- Title -->
     <title>@yield('title')</title>
     <!-- Favicon -->
@@ -242,6 +244,7 @@
     </style>
     <script src="{{asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('assets/admin')}}/css/toastr.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
 <body class="footer-offset">
@@ -273,13 +276,10 @@
                 <a class="navbar-brand" href="{{route('home')}}">
                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
                     <img  onerror="this.src='{{asset('assets/logo_mdp.jpg')}}'"
-                          src="{{asset('storage/app/business/'.$logo)}}"
+                          src="{{asset('storage/business/'.$logo)}}"
                           style="height:auto;width:100%; max-width:200px; max-height:60px">
                 </a>
-                <button style="background: #FFFFFF; border-radius: 2px;font-size: 13px" class="navbar-toggler" type="button"
-                        data-toggle="collapse" data-target="#navbarNav">
-                   ....
-                </button>
+                
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
@@ -312,7 +312,7 @@
                                             <div class="avatar avatar-sm avatar-circle mr-2">
                                                 <img class="avatar-img"
                                                      onerror="this.src='{{asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                                     src="{{asset('storage/app/public/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
+                                                     src="{{asset('storage/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
                                                      alt="Owner image">
                                             </div>
                                             <div class="media-body">
@@ -363,29 +363,32 @@
 <!-- END ONLY DEV -->
 
 <div class="container-fluid">
+    
     <main id="content" role="main" class="main pointer-event">
         <div class="d-flex">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light collapse" style="width: 280px;">
                 @php($restaurant_data=\App\CentralLogics\Helpers::get_restaurant_data())
-                <a class="navbar-brand" href="{{route('vendor.dashboard')}}" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important;">
+                <a class="navbar-brand" target="_blank" href="{{route('restaurant-list', $restaurant_data->slug)}}" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important;">
                     <img class="navbar-brand-logo"
                          style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
                          onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                         src="{{asset('storage/app/public/restaurant/'.$restaurant_data->logo)}}"
+                         src="{{asset('storage/restaurant/'.$restaurant_data->logo)}}"
                          alt="Logo">
                     {{\Illuminate\Support\Str::limit($restaurant_data->name,15)}}
                 </a>
+               
+                
                 <hr>
-                <ul class="nav nav-pills flex-column mb-auto">
+                <ul class="nav nav-pills flex-column mb-auto" id="navbarul">
                     {{-- HOME DASHBOARD --}}
-                  <li class="nav-item">
-                    <a href="{{route('vendor.dashboard')}}" class="nav-link {{Request::is('vendor-panel')?'active':''}}" aria-current="page">
-                      <i class="tio-home-vs-1-outlined nav-icon"></i>
-                      <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                          {{__('messages.dashboard')}}
-                      </span>
-                    </a>
-                  </li>
+                    <li class="nav-item">
+                        <a href="{{route('vendor.dashboard')}}" class="nav-link {{Request::is('vendor-panel')?'active':''}}" aria-current="page">
+                            <i class="tio-home-vs-1-outlined nav-icon"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Dashboard
+                            </span>
+                        </a>
+                    </li>
                   {{-- ORDERS --}}
                   @if(\App\CentralLogics\Helpers::employee_module_permission_check('order'))
                   <li class="nav-item">
@@ -597,11 +600,52 @@
                                 class="text-truncate">My Restaurant</span>
                         </a>
                     </li>
+
+                    {{-- QR --}}
+                    <li class="nav-item">
+                        <a href="{{route('vendor.qr.index')}}" class="nav-link {{Request::is('vendor-panel/qr/qr')?'active':''}}" aria-current="page">
+                            <i class="fas fa-qrcode"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                QR Code
+                            </span>
+                        </a>
+                    </li>
+
+                    {{-- TABLE --}}
+                    <li class="nav-item">
+                        <a href="{{route('vendor.table.index')}}" class="nav-link {{Request::is('vendor-panel/table')?'active':''}}" aria-current="page">
+                            <i class="fas fa-table"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Restaurant Table
+                            </span>
+                        </a>
+                    </li>
+                    
+                    {{-- Reservation --}}
+                    <li class="nav-item">
+                        <a href="{{route('vendor.reservation.list')}}" class="nav-link {{Request::is('vendor-panel/reservation')?'active':''}}" aria-current="page">
+                            <i class="fas fa-table"></i>
+                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
+                                Reservation
+                            </span>
+                        </a>
+                    </li>
                     @endif
                 </ul>
+                
                 <hr>
               </div>
-            @yield('content')
+              <span>
+                <button class="navbar-toggler border"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarul"
+                aria-expanded="false"
+                aria-label="Toggle filters">
+                    <i class="fas fa-bars"></i>
+                </button>
+             </span>
+              @yield('content')
         </div>
         <!-- Content -->
     </main>
@@ -625,7 +669,7 @@
                                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
                                     <img class="rounded float-left"
                                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                                        src="{{asset('storage/app/business/'.$logo)}}"
+                                        src="{{asset('storage/business/'.$logo)}}"
                                         style="max-width: 200px;max-height: 75px">
                                 </a>
                             </div>
@@ -795,6 +839,16 @@
 </script>
 <script>
     $(document).on('ready', function () {
+        if ($(window).width() < 922) {
+        $('#navbarul').collapse({
+        toggle: false
+        });
+    } else {
+        $('#navbarul').collapse({
+        toggle: true
+        });
+    }
+
         // ONLY DEV
         // =======================================================
         if (window.localStorage.getItem('hs-builder-popover') === null) {
@@ -892,17 +946,6 @@
     });
 </script>
 <script>
-    var audio = document.getElementById("myAudio");
-
-    function playAudio() {
-        audio.play();
-    }
-
-    function pauseAudio() {
-        audio.pause();
-    }
-</script>
-<script>
     var order_type = 'all';
     setInterval(function () {
         $.get({
@@ -965,6 +1008,29 @@
         })
     }
 </script>
+
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1493903667659848',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v12.0'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+  @yield('scripts')
 @stack('script')
 @stack('script_2')
 </body>

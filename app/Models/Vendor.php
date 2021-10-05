@@ -32,6 +32,7 @@ class Vendor extends Authenticatable
         'status',
         'firebase_token',
         'auth_token',
+        'facebook_id',
     ];
     
     protected $casts = [

@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Food;
 use Illuminate\Support\Facades\DB;
 use App\Models\Restaurant;
+use App\Models\RestaurantTable;
 
 class RestaurantController extends Controller
 {
@@ -25,8 +26,8 @@ class RestaurantController extends Controller
         }
         $categories=Category::all();
         $restaurant = $data->first();
-
+        $table = RestaurantTable::where('restaurant_id', $restaurant->id)->get();
         $onSeling = Food::where('discount', '>', 0)->get();
-        return view('restaurant/restaurant',['data'=> $restaurant, 'categories' => $categories, 'sellings' => $onSeling]);
+        return view('restaurant/restaurant',['data'=> $restaurant, 'categories' => $categories, 'sellings' => $onSeling, 'tables' => $table]);
     }
 }

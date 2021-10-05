@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,9 @@ Route::get('privacy-policy', 'HomeController@privacy_policy')->name('privacy-pol
 Route::get('subcription', 'HomeController@subcription')->name('subcription');
 Route::get('subcription/free-reg/{id}', 'HomeController@subcriptionRegFree')->name('subs-reg');
 Route::post('subcription/free-reg', 'HomeController@postSubcriptionRegFree');
+Route::get('auth/facebook', 'HomeController@facebook')->name('login-facebook');
+Route::get('auth/facebook/callback', 'HomeController@facebookCallback')->name('callback-facebook');
+Route::post('reservation','ReservationController@store')->name('reservation.store');
 
 Route::get('authentication-failed', function () {
     $errors = [];
@@ -36,7 +40,7 @@ Route::group(['prefix' => 'payment-mobile'], function () {
 });
 
 Route::group(['prefix' => 'restaurant'], function () {
-    Route::get('/{slug}/{categories?}', 'RestaurantController@getRestaurant')->name('restaurant-list');
+    Route::get('/{slug}/{categories?}/{table?}', 'RestaurantController@getRestaurant')->name('restaurant-list');
 });
 
 // SSLCOMMERZ Start

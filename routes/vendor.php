@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Vendor\TableController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -87,6 +88,12 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::delete('close/{id}', 'WalletController@close_request')->name('close-request');
         });
 
+        Route::group(['prefix' => 'qr'], function() {
+            Route::get('qr', 'QRController@index')->name('qr.index');
+            Route::post('generate', 'QRController@generate')->name('qr.generate');
+        });
+
+        
 
         // Route::group(['prefix' => 'coupon', 'as' => 'coupon.', 'middleware' => ['module:coupon']], function () {
         //     Route::get('add-new', 'CouponController@add_new')->name('add-new');
@@ -140,6 +147,19 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::get('view', 'RestaurantController@view')->name('view');
             Route::get('edit/{id}', 'RestaurantController@edit')->name('edit');
             Route::post('update/{id}', 'RestaurantController@update')->name('update');
+        });
+
+        Route::group(['prefix' => 'table'], function() {
+            Route::get('', 'TableController@index')->name('table.index');
+            Route::post('store','TableController@store')->name('table.store');
+            Route::delete('delete/{id}', 'TableController@destroy')->name('table.delete');
+            Route::get('show/{id}', 'TableController@show')->name('table.show');
+            Route::post('update/{id}', 'TableController@update')->name('table.update');
+        });
+
+        Route::group(['prefix' => 'reservation'], function(){
+            Route::get('', 'ReservationController@index')->name('reservation.list');
+            Route::post('status/{id}', 'ReservationController@updateStatus')->name('reservation.status');
         });
 
     });

@@ -118,7 +118,6 @@
                             <div class="col-12 col-md-12">
                                 <div class="card" style="background: #161616 !important">
                                     <div class="card-body">
-                                    
                                         <div class="row">
                                             <div class="col-md-4 col-sm-12 text-center">
                                                 <img src="<?php echo e(asset('storage/restaurant/'. $data->logo)); ?>" alt="" style="border-radius: 50%; width: 50%;  ">
@@ -141,13 +140,10 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-sm-12 text-center mt-2">
-                                                <button class="btn btn-primary">Reservations</button>
+                                                <button class="btn btn-primary" data-toggle="modal" data-target="#reservation">Reservations</button>
                                             </div>
                                         </div>
-                                        
-
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -232,6 +228,90 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade bd-example-modal-lg" id="reservation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Reservation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="<?php echo e(route('reservation.store')); ?>">
+                        <?php echo csrf_field(); ?>
+                        <div class="row mb-4">
+                            <div class="col">
+                            Name <span style="color: red">*</span>
+                            </div>
+                            <div class="col">
+                            <input type="text" name="customer_name" class="form-control" placeholder="Full Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                            Email <span style="color: red">*</span>
+                            </div>
+                            <div class="col mb-4">
+                                <input name="customer_email" type="email" class="form-control" placeholder="Email">
+                                <span>Your email address will not be published.</span>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                            Phone <span style="color: red">*</span>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="customer_phone" class="form-control" placeholder="Phone Number">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                            Number of Pax <span style="color: red">*</span>
+                            </div>
+                            <div class="col">
+                                <input type="text" name="pax" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                            Date & Time <span style="color: red">*</span>
+                            </div>
+                            <div class="col">
+                                <input type="datetime-local" name="reservation_date" class="form-control">
+                                <input type="hidden" name="restaurant_id" value="<?php echo e($data->id); ?>">
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                            Table
+                            </div>
+                            <div class="col">
+                                <select name="table_id" id="" class="form-control">
+                                    <option value="" disabled <?php echo e(!request()->table ? 'selected' : ''); ?>>Select Table</option>
+                                    <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($item->id); ?>" <?php echo e(request()->table === $item->id ? 'selected' : ''); ?>><?php echo e($item->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col">
+                            Additional Request
+                            </div>
+                            <div class="col">
+                                <input type="text" name="desc" class="form-control">
+                            </div>
+                        </div>
+                        
+                        <div class="row justify-content-center">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
         
     </main>
 <?php $__env->stopSection(); ?>

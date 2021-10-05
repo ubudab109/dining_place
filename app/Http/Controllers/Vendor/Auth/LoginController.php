@@ -8,6 +8,7 @@ use App\Models\Vendor;
 use Alert;
 use App\Models\SubscriptionPayment;
 
+
 class LoginController extends Controller
 {
     public function __construct()
@@ -50,6 +51,8 @@ class LoginController extends Controller
 
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
+
+   
 
     public function logout(Request $request)
     {

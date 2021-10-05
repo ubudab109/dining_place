@@ -13,6 +13,11 @@ use App\Models\Restaurant;
 use App\Models\Subscription;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Socialite;
+use Alert;
 
 class HomeController extends Controller
 {
@@ -70,7 +75,46 @@ class HomeController extends Controller
         $subscription = Subscription::find($id);
         return view('subcription-reg-free', compact('subscription'));
     }
-    
+
+    public function facebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function facebookCallback()
+    {   
+        DB::beginTransaction();
+        try {
+            $vendor = Socialite::driver('facebook')->stateless()->user();
+ 
+            /// lakukan pengecekan apakah facebook id nya sudah ada apa belum
+            $isUser = Vendor::where('facebook_id', $vendor->id)->first();
+
+            if ($isUser) {
+                Auth::login($isUser);
+                return redirect()->route('vendor.dashboard');
+            } else {
+                $createUser = new Vendor;
+                $createUser->f_name = $vendor->getName();
+                if ($vendor->getEmail() != null) {
+                    $createUser->email = $vendor->getEmail();
+                    $createUser->phone = '0';
+                }
+                $createUser->facebook_id = $vendor->getId();
+                $rand = rand(111111,999999);
+                $createUser->password = Hash::make($vendor->getName().$rand);
+                $createUser->save();
+                Auth::login($createUser);
+                return redirect()->route('vendor.dashboard');
+            }
+            DB::commit();
+        } catch (\Exception $err) {
+            DB::rollBack();
+            Alert::error('Error', $err->getMessage());
+            return redirect()->back();
+        }
+    }
+
     public function postSubcriptionRegFree(Request $request)
     {
         $validator = Validator::make($request->all(), [

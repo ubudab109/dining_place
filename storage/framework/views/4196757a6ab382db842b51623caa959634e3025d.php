@@ -254,12 +254,12 @@
             </div>
             <div class="row justify-content-center mt-4">
                 <div class="col">
-                    <button type="button" class="btn btn-primary" style="width: 102%;">
+                    <a href="<?php echo e(route('login-facebook')); ?>" type="button" class="btn btn-primary" style="width: 102%;">
                         <i class="fab fa-facebook" style="font-size: 20px;"></i>
                         <div class="col-12">
                             Login with <strong>Facebook</strong>
                         </div>
-                    </button>
+                    </a>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-danger" style="width: 102%;">
