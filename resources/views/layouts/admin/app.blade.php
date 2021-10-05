@@ -11,11 +11,11 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/vendor.min.css">
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/vendor/icon-set/style.css">
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/custom.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/vendor.min.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/custom.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
     @stack('css_or_js')
 
     <style>
@@ -104,8 +104,8 @@
     </style>
 
     <script
-        src="{{secure_asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/toastr.css">
+        src="{{URL::asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/toastr.css">
 </head>
 
 <body class="footer-offset">
@@ -115,7 +115,7 @@
         <div class="col-md-12">
             <div id="loading" style="display: none;">
                 <div style="position: fixed;z-index: 9999; left: 40%;top: 37% ;width: 100%">
-                    <img width="200" src="{{secure_asset('assets/admin/img/loader.gif')}}">
+                    <img width="200" src="{{URL::asset('assets/admin/img/loader.gif')}}">
                 </div>
             </div>
         </div>
@@ -164,15 +164,15 @@
 <!-- ========== END MAIN CONTENT ========== -->
 
 <!-- ========== END SECONDARY CONTENTS ========== -->
-<script src="{{secure_asset('assets/admin')}}/js/custom.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/custom.js"></script>
 <!-- JS Implementing Plugins -->
 
 @stack('script')
 <!-- JS Front -->
-<script src="{{secure_asset('assets/admin')}}/js/vendor.min.js"></script>
-<script src="{{secure_asset('assets/admin')}}/js/theme.min.js"></script>
-<script src="{{secure_asset('assets/admin')}}/js/sweet_alert.js"></script>
-<script src="{{secure_asset('assets/admin')}}/js/toastr.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/vendor.min.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/theme.min.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/sweet_alert.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/toastr.js"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())
@@ -306,7 +306,7 @@
 
 @stack('script_2')
 <audio id="myAudio">
-    <source src="{{secure_asset('assets/admin/sound/notification.mp3')}}" type="audio/mpeg">
+    <source src="{{URL::asset('assets/admin/sound/notification.mp3')}}" type="audio/mpeg">
 </audio>
 
 <script>
@@ -409,7 +409,7 @@
 
 <!-- IE Support -->
 <script>
-    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{secure_asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{URL::asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
 </script>
 </body>
 </html>

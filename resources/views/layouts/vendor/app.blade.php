@@ -12,16 +12,16 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{secure_asset('assets/landing/fontawesome/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{secure_asset('assets/landing/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('assets/landing/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('assets/landing/fontawesome/css/fontawesome.min.css')}}">
     <!-- CSS Implementing Plugins -->
-    {{-- <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/vendor.min.css"> --}}
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/vendor/icon-set/style.css">
+    {{-- <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/vendor.min.css"> --}}
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
     @stack('css_or_js')
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="{{secure_asset('assets/landing')}}/css/normalize.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/landing')}}/css/normalize.css">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,13 +97,13 @@
 
     
 
-    <link rel="stylesheet" href="{{secure_asset('assets/landing')}}/css/main.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/landing')}}/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/vendor.min.css">
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/vendor.min.css">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
     @stack('css_or_js')
 
     <style>
@@ -242,8 +242,8 @@
 
 
     </style>
-    <script src="{{secure_asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
-    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/toastr.css">
+    <script src="{{URL::asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/toastr.css">
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
@@ -255,7 +255,7 @@
         <div class="col-md-12">
             <div id="loading" style="display: none;">
                 <div style="position: fixed;z-index: 9999; left: 40%;top: 37% ;width: 100%">
-                    <img width="200" src="{{secure_asset('assets/admin/img/loader.gif')}}">
+                    <img width="200" src="{{URL::asset('assets/admin/img/loader.gif')}}">
                 </div>
             </div>
         </div>
@@ -275,8 +275,8 @@
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
-                    <img  onerror="this.src='{{secure_asset('assets/logo_mdp.jpg')}}'"
-                          src="{{secure_asset('storage/business/'.$logo)}}"
+                    <img  onerror="this.src='{{URL::asset('assets/logo_mdp.jpg')}}'"
+                          src="{{URL::asset('storage/business/'.$logo)}}"
                           style="height:auto;width:100%; max-width:200px; max-height:60px">
                 </a>
                 
@@ -311,8 +311,8 @@
                                         <div class="media align-items-center">
                                             <div class="avatar avatar-sm avatar-circle mr-2">
                                                 <img class="avatar-img"
-                                                     onerror="this.src='{{secure_asset('assets/admin/img/160x160/img1.jpg')}}'"
-                                                     src="{{secure_asset('storage/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
+                                                     onerror="this.src='{{URL::asset('assets/admin/img/160x160/img1.jpg')}}'"
+                                                     src="{{URL::asset('storage/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
                                                      alt="Owner image">
                                             </div>
                                             <div class="media-body">
@@ -371,8 +371,8 @@
                 <a class="navbar-brand" target="_blank" href="{{route('restaurant-list', $restaurant_data->slug)}}" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important;">
                     <img class="navbar-brand-logo"
                          style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
-                         onerror="this.src='{{secure_asset('assets/admin/img/160x160/img2.jpg')}}'"
-                         src="{{secure_asset('storage/restaurant/'.$restaurant_data->logo)}}"
+                         onerror="this.src='{{URL::asset('assets/admin/img/160x160/img2.jpg')}}'"
+                         src="{{URL::asset('storage/restaurant/'.$restaurant_data->logo)}}"
                          alt="Logo">
                     {{\Illuminate\Support\Str::limit($restaurant_data->name,15)}}
                 </a>
@@ -563,8 +563,8 @@
                                 <a class="" href="#">
                                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
                                     <img class="rounded float-left"
-                                        onerror="this.src='{{secure_asset('assets/admin/img/160x160/img2.jpg')}}'"
-                                        src="{{secure_asset('storage/business/'.$logo)}}"
+                                        onerror="this.src='{{URL::asset('assets/admin/img/160x160/img2.jpg')}}'"
+                                        src="{{URL::asset('storage/business/'.$logo)}}"
                                         style="max-width: 200px;max-height: 75px">
                                 </a>
                             </div>
@@ -690,14 +690,14 @@
 <!-- ========== END MAIN CONTENT ========== -->
 
 <!-- ========== END SECONDARY CONTENTS ========== -->
-<script src="{{secure_asset('assets/admin')}}/js/custom.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/custom.js"></script>
 <!-- JS Implementing Plugins -->
 
 <!-- JS Front -->
-<script src="{{secure_asset('assets/admin')}}/js/vendor.min.js"></script>
-<script src="{{secure_asset('assets/admin')}}/js/theme.min.js"></script>
-<script src="{{secure_asset('assets/admin')}}/js/sweet_alert.js"></script>
-<script src="{{secure_asset('assets/admin')}}/js/toastr.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/vendor.min.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/theme.min.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/sweet_alert.js"></script>
+<script src="{{URL::asset('assets/admin')}}/js/toastr.js"></script>
 {!! Toastr::message() !!}
 
 @if ($errors->any())
