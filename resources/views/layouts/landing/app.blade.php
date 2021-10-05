@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="icon" href="{{asset('assets/landing')}}/image/logo_no_bg.png">
+    <link rel="icon" href="{{secure_asset('assets/landing')}}/image/logo_no_bg.png">
 
     <!-- Bootstrap+JQuery -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
@@ -20,11 +20,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.transitions.css">
 
     <!-- fontawesome -->
-    <link rel="stylesheet" href="{{asset('assets/landing/fontawesome/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/landing/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/landing/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/landing/fontawesome/css/fontawesome.min.css')}}">
 
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="{{asset('assets/landing')}}/css/normalize.css">
+    <link rel="stylesheet" href="{{secure_asset('assets/landing')}}/css/normalize.css">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,8 +35,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{asset('assets/landing')}}/css/main.css">
-    <link rel="stylesheet" href="{{asset('assets/admin')}}/css/toastr.css">
+    <link rel="stylesheet" href="{{secure_asset('assets/landing')}}/css/main.css">
+    <link rel="stylesheet" href="{{secure_asset('assets/admin')}}/css/toastr.css">
     <style>
         a:hover {
             color: #000000!important;
@@ -160,8 +160,8 @@
             <div class="container">
                 <a class="navbar-brand" href="{{route('home')}}">
                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
-                    <img  onerror="this.src='{{asset('assets/logo_mdp.jpg')}}'"
-                          src="{{asset('storage/app/business/'.$logo)}}"
+                    <img  onerror="this.src='{{secure_asset('assets/logo_mdp.jpg')}}'"
+                          src="{{secure_asset('storage/app/business/'.$logo)}}"
                           style="height:auto;width:100%; max-width:200px; max-height:60px">
                 </a>
                 <button style="background: #FFFFFF; border-radius: 2px;font-size: 13px" class="navbar-toggler" type="button"
@@ -297,8 +297,8 @@
                                 <a class="" href="#">
                                     @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
                                     <img class="rounded float-left"
-                                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                                         src="{{asset('storage/app/business/'.$logo)}}"
+                                         onerror="this.src='{{secure_asset('assets/admin/img/160x160/img2.jpg')}}'"
+                                         src="{{secure_asset('storage/app/business/'.$logo)}}"
                                          style="max-width: 200px;max-height: 75px">
                                 </a>
                             </div>
@@ -407,12 +407,12 @@
 
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-<script src="{{asset('assets/admin')}}/js/vendor.min.js"></script>
+<script src="{{secure_asset('assets/admin')}}/js/vendor.min.js"></script>
 
 <!-- JS Front -->
-<script src="{{asset('assets/admin')}}/js/theme.min.js"></script>
-<script src="{{asset('assets/admin')}}/js/sweet_alert.js"></script>
-<script src="{{asset('assets/admin')}}/js/toastr.js"></script>
+<script src="{{secure_asset('assets/admin')}}/js/theme.min.js"></script>
+<script src="{{secure_asset('assets/admin')}}/js/sweet_alert.js"></script>
+<script src="{{secure_asset('assets/admin')}}/js/toastr.js"></script>
 @include('sweetalert::alert')
 {!! Toastr::message() !!}
 
@@ -496,7 +496,7 @@
 @endif
 <!-- IE Support -->
 <script>
-    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
+    if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{secure_asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
 </script>
 @stack('script_2')
 </body>

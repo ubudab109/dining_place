@@ -12,16 +12,16 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing/fontawesome/css/all.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing/fontawesome/css/fontawesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/landing/fontawesome/css/all.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/landing/fontawesome/css/fontawesome.min.css')); ?>">
     <!-- CSS Implementing Plugins -->
     
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/admin')); ?>/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
     <?php echo $__env->yieldPushContent('css_or_js'); ?>
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing')); ?>/css/normalize.css">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/landing')); ?>/css/normalize.css">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,13 +97,13 @@
 
     
 
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing')); ?>/css/main.css">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/landing')); ?>/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/vendor.min.css">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/admin')); ?>/css/vendor.min.css">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/admin')); ?>/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
     <?php echo $__env->yieldPushContent('css_or_js'); ?>
 
     <style>
@@ -242,8 +242,8 @@
 
 
     </style>
-    <script src="<?php echo e(asset('assets/admin')); ?>/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/toastr.css">
+    <script src="<?php echo e(secure_asset('assets/admin')); ?>/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <link rel="stylesheet" href="<?php echo e(secure_asset('assets/admin')); ?>/css/toastr.css">
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
@@ -255,7 +255,7 @@
         <div class="col-md-12">
             <div id="loading" style="display: none;">
                 <div style="position: fixed;z-index: 9999; left: 40%;top: 37% ;width: 100%">
-                    <img width="200" src="<?php echo e(asset('assets/admin/img/loader.gif')); ?>">
+                    <img width="200" src="<?php echo e(secure_asset('assets/admin/img/loader.gif')); ?>">
                 </div>
             </div>
         </div>
@@ -275,8 +275,8 @@
             <div class="container">
                 <a class="navbar-brand" href="<?php echo e(route('home')); ?>">
                     <?php ($logo=\App\CentralLogics\Helpers::get_settings('logo')); ?>
-                    <img  onerror="this.src='<?php echo e(asset('assets/logo_mdp.jpg')); ?>'"
-                          src="<?php echo e(asset('storage/business/'.$logo)); ?>"
+                    <img  onerror="this.src='<?php echo e(secure_asset('assets/logo_mdp.jpg')); ?>'"
+                          src="<?php echo e(secure_asset('storage/business/'.$logo)); ?>"
                           style="height:auto;width:100%; max-width:200px; max-height:60px">
                 </a>
                 
@@ -311,8 +311,8 @@
                                         <div class="media align-items-center">
                                             <div class="avatar avatar-sm avatar-circle mr-2">
                                                 <img class="avatar-img"
-                                                     onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img1.jpg')); ?>'"
-                                                     src="<?php echo e(asset('storage/vendor')); ?>/<?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->image); ?>"
+                                                     onerror="this.src='<?php echo e(secure_asset('assets/admin/img/160x160/img1.jpg')); ?>'"
+                                                     src="<?php echo e(secure_asset('storage/vendor')); ?>/<?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->image); ?>"
                                                      alt="Owner image">
                                             </div>
                                             <div class="media-body">
@@ -371,8 +371,8 @@
                 <a class="navbar-brand" target="_blank" href="<?php echo e(route('restaurant-list', $restaurant_data->slug)); ?>" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important;">
                     <img class="navbar-brand-logo"
                          style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
-                         onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img2.jpg')); ?>'"
-                         src="<?php echo e(asset('storage/restaurant/'.$restaurant_data->logo)); ?>"
+                         onerror="this.src='<?php echo e(secure_asset('assets/admin/img/160x160/img2.jpg')); ?>'"
+                         src="<?php echo e(secure_asset('storage/restaurant/'.$restaurant_data->logo)); ?>"
                          alt="Logo">
                     <?php echo e(\Illuminate\Support\Str::limit($restaurant_data->name,15)); ?>
 
@@ -393,135 +393,13 @@
                   
                   <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('order')): ?>
                   <li class="nav-item">
-                    <a href="#" class="nav-link link-dark <?php echo e(Request::is('vendor-panel/order*')?'active':''); ?>">
+                    <a href="<?php echo e(route('vendor.order.list',['all'])); ?>" class="nav-link link-dark <?php echo e(Request::is('vendor-panel/order*')?'active':''); ?>">
                       <i class="tio-shopping-cart nav-icon"></i>
                       <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
                         <?php echo e(__('messages.orders')); ?>
 
                       </span>
                     </a>
-                    <ul class="submenu" style="display: <?php echo e(Request::is('vendor-panel/order*')?'block':'none'); ?>">
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/pending_take_away')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['pending_take_away'])); ?>" title="<?php echo e(__('messages.pending')); ?>(<?php echo e(__('messages.take_away')); ?>)">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.pending')); ?> (<?php echo e(__('messages.take_away')); ?>)
-                                        <span class="badge badge-soft-success badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'pending','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id(), 'order_type'=>'take_away'])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/confirmed')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['confirmed'])); ?>" title="<?php echo e(__('messages.confirmed')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.confirmed')); ?>
-
-                                        <span class="badge badge-soft-success badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::whereIn('order_status',['confirmed', 'accepted'])->whereNotNull('confirmed')->where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_id())->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/cooking')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['cooking'])); ?>" title="<?php echo e(__('messages.cooking')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.cooking')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'processing', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/ready_for_delivery')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['ready_for_delivery'])); ?>" title="<?php echo e(__('messages.ready_for_delivery')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.ready_for_delivery')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'handover', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/food_on_the_way')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['food_on_the_way'])); ?>" title="<?php echo e(__('messages.foods_on_the_way')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.food_on_the_way')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'picked_up', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/delivered')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['delivered'])); ?>" title="">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.delivered')); ?>
-
-                                        <span class="badge badge-success badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'delivered','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/returned')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['returned'])); ?>" title="">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.returned')); ?>
-
-                                        <span class="badge badge-soft-danger bg-light badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'returned','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/scheduled')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['scheduled'])); ?>" title="<?php echo e(__('messages.scheduled')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.scheduled')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where('restaurant_id',\App\CentralLogics\Helpers::get_restaurant_id())->Scheduled()->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/all')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['all'])); ?>" title="<?php echo e(__('messages.all')); ?> <?php echo e(__('messages.order')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.all')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_id())->where(function($q){
-                                            $q->whereNotIn('order_status',['pending','failed','canceled', 'refund_requested', 'refunded'])->orWhere(function($query){
-                                                $query->where('order_status','pending')->where('order_type', 'take_away');
-                                            });
-                                        })->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/create')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['all'])); ?>" title="<?php echo e(__('messages.all')); ?> <?php echo e(__('messages.order')); ?>">
-                                <span class="text-truncate">
-                                    Create New
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                   </li>
                   <?php endif; ?>
                   <!-- AddOn -->
@@ -689,8 +567,8 @@
                                 <a class="" href="#">
                                     <?php ($logo=\App\CentralLogics\Helpers::get_settings('logo')); ?>
                                     <img class="rounded float-left"
-                                        onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img2.jpg')); ?>'"
-                                        src="<?php echo e(asset('storage/business/'.$logo)); ?>"
+                                        onerror="this.src='<?php echo e(secure_asset('assets/admin/img/160x160/img2.jpg')); ?>'"
+                                        src="<?php echo e(secure_asset('storage/business/'.$logo)); ?>"
                                         style="max-width: 200px;max-height: 75px">
                                 </a>
                             </div>
@@ -818,14 +696,14 @@
 <!-- ========== END MAIN CONTENT ========== -->
 
 <!-- ========== END SECONDARY CONTENTS ========== -->
-<script src="<?php echo e(asset('assets/admin')); ?>/js/custom.js"></script>
+<script src="<?php echo e(secure_asset('assets/admin')); ?>/js/custom.js"></script>
 <!-- JS Implementing Plugins -->
 
 <!-- JS Front -->
-<script src="<?php echo e(asset('assets/admin')); ?>/js/vendor.min.js"></script>
-<script src="<?php echo e(asset('assets/admin')); ?>/js/theme.min.js"></script>
-<script src="<?php echo e(asset('assets/admin')); ?>/js/sweet_alert.js"></script>
-<script src="<?php echo e(asset('assets/admin')); ?>/js/toastr.js"></script>
+<script src="<?php echo e(secure_asset('assets/admin')); ?>/js/vendor.min.js"></script>
+<script src="<?php echo e(secure_asset('assets/admin')); ?>/js/theme.min.js"></script>
+<script src="<?php echo e(secure_asset('assets/admin')); ?>/js/sweet_alert.js"></script>
+<script src="<?php echo e(secure_asset('assets/admin')); ?>/js/toastr.js"></script>
 <?php echo Toastr::message(); ?>
 
 
