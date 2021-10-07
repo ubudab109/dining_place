@@ -12,16 +12,16 @@
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing/fontawesome/css/all.min.css')); ?>">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing/fontawesome/css/fontawesome.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/landing/fontawesome/css/all.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/landing/fontawesome/css/fontawesome.min.css')); ?>">
     <!-- CSS Implementing Plugins -->
     
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
     <?php echo $__env->yieldPushContent('css_or_js'); ?>
     <!-- Normalize CSS -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing')); ?>/css/normalize.css">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/landing')); ?>/css/normalize.css">
 
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,165 +100,18 @@
     </style>
 
     
-<<<<<<< Updated upstream
-
-    <link rel="stylesheet" href="<?php echo e(asset('assets/landing')); ?>/css/main.css">
-=======
     <link href="<?php echo e(asset('assets/style-custom.css')); ?>" rel="stylesheet"/>
     
     <link rel="stylesheet" href="<?php echo e(URL::asset('assets/landing')); ?>/css/main.css">
->>>>>>> Stashed changes
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/vendor.min.css">
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/vendor/icon-set/style.css">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/css/vendor.min.css">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/vendor/icon-set/style.css">
     <!-- CSS Front Template -->
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
     <?php echo $__env->yieldPushContent('css_or_js'); ?>
-<<<<<<< Updated upstream
-
-    <style>
-        .scroll-bar {
-            max-height: calc(100vh - 100px);
-            overflow-y: auto !important;
-        }
-
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 1px #cfcfcf;
-            /*border-radius: 5px;*/
-        }
-
-        ::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            /*border-radius: 5px;*/
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FC6A57;
-        }
-        .deco-none {
-            color: inherit;
-            text-decoration: inherit;
-        }
-        .qcont{
-            text-transform: lowercase;
-        }
-        .qcont:first-letter {
-            text-transform: capitalize;
-        }
-
-
-
-        .navbar-vertical .nav-link {
-            color: #ffffff;
-        }
-
-        .navbar .nav-link:hover {
-            color: #C6FFC1;
-        }
-
-        .navbar .active > .nav-link, .navbar .nav-link.active, .navbar .nav-link.show, .navbar .show > .nav-link {
-            color: #C6FFC1;
-        }
-
-        .navbar-vertical .active .nav-indicator-icon, .navbar-vertical .nav-link:hover .nav-indicator-icon, .navbar-vertical .show > .nav-link > .nav-indicator-icon {
-            color: #C6FFC1;
-        }
-
-        .nav-subtitle {
-            display: block;
-            color: #fffbdf91;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: .03125rem;
-        }
-
-        .navbar-vertical .navbar-nav.nav-tabs .active .nav-link, .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
-            border-left-color: #C6FFC1;
-        }
-    </style>
-    <style>
-
-        /* The sidebar menu */
-        .sidebar {
-          height: 100%; /* 100% Full-height */
-          width: 0; /* 0 width - change this with JavaScript */
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Stay on top */
-          top: 0;
-          left: 0;
-          background-color: #111; /* Black*/
-          overflow-x: hidden; /* Disable horizontal scroll */
-          padding-top: 60px; /* Place content 60px from the top */
-          transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-        }
-        
-        /* The sidebar links */
-        .sidebar a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #818181;
-          display: block;
-          transition: 0.3s;
-        }
-        
-        /* When you mouse over the navigation links, change their color */
-        .sidebar a:hover {
-          color: #f1f1f1;
-        }
-        
-        /* Position and style the close button (top right corner) */
-        .sidebar .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-        }
-        
-        /* The button used to open the sidebar */
-        .openbtn {
-          font-size: 20px;
-          cursor: pointer;
-          background-color: #111;
-          color: white;
-          padding: 10px 15px;
-          border: none;
-        }
-        
-        .openbtn:hover {
-          background-color: #444;
-        }
-        
-        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-        #main {
-          transition: margin-left .5s; /* If you want a transition effect */
-          padding: 20px;
-        }
-        
-        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-        @media  screen and (max-height: 450px) {
-          .sidebar {padding-top: 15px;}
-          .sidebar a {font-size: 18px;}
-        }
-
-        
-
-        
-
-
-    </style>
-    <script src="<?php echo e(asset('assets/admin')); ?>/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
-    <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/toastr.css">
-=======
     <script src="<?php echo e(URL::asset('assets/admin')); ?>/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/css/toastr.css">
->>>>>>> Stashed changes
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
@@ -270,12 +123,19 @@
         <div class="col-md-12">
             <div id="loading" style="display: none;">
                 <div style="position: fixed;z-index: 9999; left: 40%;top: 37% ;width: 100%">
-                    <img width="200" src="<?php echo e(asset('assets/admin/img/loader.gif')); ?>">
+                    <img width="200" src="<?php echo e(URL::asset('assets/admin/img/loader.gif')); ?>">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<!-- Builder -->
+
+<!-- End Builder -->
+
+<!-- JS Preview mode only -->
 
 <header id="headerMain">
     <div class="navbar-div bg-color-primary" style="background-color: #FFFFFF;border-style: solid;border-width: 0px 0px 01px 0px;border-color: #F67280;">
@@ -283,8 +143,8 @@
             <div class="container">
                 <a class="navbar-brand" href="<?php echo e(route('home')); ?>">
                     <?php ($logo=\App\CentralLogics\Helpers::get_settings('logo')); ?>
-                    <img  onerror="this.src='<?php echo e(asset('assets/logo_mdp.jpg')); ?>'"
-                          src="<?php echo e(asset('storage/business/'.$logo)); ?>"
+                    <img  onerror="this.src='<?php echo e(URL::asset('assets/logo_mdp.jpg')); ?>'"
+                          src="<?php echo e(URL::asset('storage/business/'.$logo)); ?>"
                           style="height:auto;width:100%; max-width:200px; max-height:60px">
                 </a>
                 
@@ -319,8 +179,8 @@
                                         <div class="media align-items-center">
                                             <div class="avatar avatar-sm avatar-circle mr-2">
                                                 <img class="avatar-img"
-                                                     onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img1.jpg')); ?>'"
-                                                     src="<?php echo e(asset('storage/vendor')); ?>/<?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->image); ?>"
+                                                     onerror="this.src='<?php echo e(URL::asset('assets/admin/img/160x160/img1.jpg')); ?>'"
+                                                     src="<?php echo e(URL::asset('storage/vendor')); ?>/<?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->image); ?>"
                                                      alt="Owner image">
                                             </div>
                                             <div class="media-body">
@@ -368,23 +228,7 @@
     </div>
 </header>
 
-<<<<<<< Updated upstream
-<!-- END ONLY DEV -->
 
-<div class="container-fluid">
-    
-    <main id="content" role="main" class="main pointer-event">
-        <div class="d-flex">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light collapse" style="width: 280px;">
-                <?php ($restaurant_data=\App\CentralLogics\Helpers::get_restaurant_data()); ?>
-                <a class="navbar-brand" target="_blank" href="<?php echo e(route('restaurant-list', $restaurant_data->slug)); ?>" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important;">
-                    <img class="navbar-brand-logo"
-                         style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
-                         onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img2.jpg')); ?>'"
-                         src="<?php echo e(asset('storage/restaurant/'.$restaurant_data->logo)); ?>"
-                         alt="Logo">
-                    <?php echo e(\Illuminate\Support\Str::limit($restaurant_data->name,15)); ?>
-=======
 <div class="d-flex" id="wrapper">
     <!-- Sidebar-->
     <div class="border-end bg-white" id="sidebar-wrapper">
@@ -402,294 +246,17 @@
         </div>
         <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel')?'active':''); ?>" href="<?php echo e(route('vendor.dashboard')); ?>"><i class="fas fa-chalkboard"></i> Dashboard</a>
->>>>>>> Stashed changes
 
             
             <div class="dropright">
                 <a class="list-group-item list-group-item-action list-group-item-light dropright p-3 <?php echo e(Request::is('vendor-panel/food*')?'active':''); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" ><i class="fas fa-chart-pie"></i> Menu
                 
-<<<<<<< Updated upstream
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto" id="navbarul">
-                    
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('vendor.dashboard')); ?>" class="nav-link <?php echo e(Request::is('vendor-panel')?'active':''); ?>" aria-current="page">
-                            <i class="tio-home-vs-1-outlined nav-icon"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Dashboard
-                            </span>
-                        </a>
-                    </li>
-                  
-                  <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('order')): ?>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link link-dark <?php echo e(Request::is('vendor-panel/order*')?'active':''); ?>">
-                      <i class="tio-shopping-cart nav-icon"></i>
-                      <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                        <?php echo e(__('messages.orders')); ?>
-
-                      </span>
-                    </a>
-                    <ul class="submenu" style="display: <?php echo e(Request::is('vendor-panel/order*')?'block':'none'); ?>">
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/pending_take_away')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['pending_take_away'])); ?>" title="<?php echo e(__('messages.pending')); ?>(<?php echo e(__('messages.take_away')); ?>)">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.pending')); ?> (<?php echo e(__('messages.take_away')); ?>)
-                                        <span class="badge badge-soft-success badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'pending','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id(), 'order_type'=>'take_away'])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/confirmed')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['confirmed'])); ?>" title="<?php echo e(__('messages.confirmed')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.confirmed')); ?>
-
-                                        <span class="badge badge-soft-success badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::whereIn('order_status',['confirmed', 'accepted'])->whereNotNull('confirmed')->where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_id())->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/cooking')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['cooking'])); ?>" title="<?php echo e(__('messages.cooking')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.cooking')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'processing', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/ready_for_delivery')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['ready_for_delivery'])); ?>" title="<?php echo e(__('messages.ready_for_delivery')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.ready_for_delivery')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'handover', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/food_on_the_way')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['food_on_the_way'])); ?>" title="<?php echo e(__('messages.foods_on_the_way')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.food_on_the_way')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'picked_up', 'restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/delivered')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['delivered'])); ?>" title="">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.delivered')); ?>
-
-                                        <span class="badge badge-success badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'delivered','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/returned')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.order.list',['returned'])); ?>" title="">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.returned')); ?>
-
-                                        <span class="badge badge-soft-danger bg-light badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where(['order_status'=>'returned','restaurant_id'=>\App\CentralLogics\Helpers::get_restaurant_id()])->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/scheduled')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['scheduled'])); ?>" title="<?php echo e(__('messages.scheduled')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.scheduled')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where('restaurant_id',\App\CentralLogics\Helpers::get_restaurant_id())->Scheduled()->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/list/all')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['all'])); ?>" title="<?php echo e(__('messages.all')); ?> <?php echo e(__('messages.order')); ?>">
-                                <span class="text-truncate">
-                                    <?php echo e(__('messages.all')); ?>
-
-                                    <span class="badge badge-info badge-pill ml-1">
-                                        <?php echo e(\App\Models\Order::where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_id())->where(function($q){
-                                            $q->whereNotIn('order_status',['pending','failed','canceled', 'refund_requested', 'refunded'])->orWhere(function($query){
-                                                $query->where('order_status','pending')->where('order_type', 'take_away');
-                                            });
-                                        })->count()); ?>
-
-                                    </span>
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/order/create')?'active':''); ?>">
-                            <a class="nav-link" href="<?php echo e(route('vendor.order.list',['all'])); ?>" title="<?php echo e(__('messages.all')); ?> <?php echo e(__('messages.order')); ?>">
-                                <span class="text-truncate">
-                                    Create New
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                  </li>
-                  <?php endif; ?>
-                  <!-- AddOn -->
-                  <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('addon')): ?>
-                  <li class="nav-item">
-                      <a class="nav-link <?php echo e(Request::is('vendor-panel/addon*')?'active':''); ?>"
-                          href="<?php echo e(route('vendor.addon.add-new')); ?>" title="<?php echo e(__('messages.addons')); ?>"
-                      >
-                          <i class="tio-add-circle-outlined nav-icon"></i>
-                          <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                              <?php echo e(__('messages.addons')); ?>
-
-                          </span>
-                      </a>
-                  </li>
-                  <?php endif; ?>
-                  
-                  <li class="nav-item">
-                    <a href="#" class="nav-link link-dark <?php echo e(Request::is('vendor-panel/food*')?'active':''); ?>">
-                        <i class="tio-premium-outlined nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                            <?php echo e(__('messages.foods')); ?>
-
-                        </span>
-                    </a>
-                    <ul class="submenu" style="display: <?php echo e(Request::is('vendor-panel/order*')?'block':'none'); ?>">
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/food/add-new')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.food.add-new')); ?>"
-                                title="add new food">
-                                <span
-                                    class="text-truncate"><?php echo e(__('messages.add')); ?> <?php echo e(__('messages.new')); ?></span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/food/list')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.food.list')); ?>" title="food list">
-                                <span class="text-truncate"><?php echo e(__('messages.list')); ?></span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/food/bulk-import')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.food.bulk-import')); ?>"
-                                title="<?php echo e(__('messages.bulk_import')); ?>">
-                                <span class="text-truncate text-capitalize"><?php echo e(__('messages.bulk_import')); ?></span>
-                            </a>
-                        </li>
-                        <li class="nav-item <?php echo e(Request::is('vendor-panel/food/bulk-export')?'active':''); ?>">
-                            <a class="nav-link " href="<?php echo e(route('vendor.food.bulk-export-index')); ?>"
-                                title="<?php echo e(__('messages.bukl_export')); ?>">
-                                <span class="text-truncate text-capitalize"><?php echo e(__('messages.bulk_export')); ?></span>
-                            </a>
-                        </li>
-                    </ul>
-                  </li>
-
-                  
-                  <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('employee')): ?>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link link-dark <?php echo e(Request::is('vendor-panel/employee*')?'active':''); ?>">
-                            <i class="tio-user nav-icon"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Staff
-                            </span>
-                        </a>
-                        <ul class="submenu" style="display: <?php echo e(Request::is('vendor-panel/employee*')?'block':'none'); ?>">
-                            <li class="nav-item <?php echo e(Request::is('vendor-panel/employee/add-new')?'active':''); ?>">
-                                <a class="nav-link " href="<?php echo e(route('vendor.employee.add-new')); ?>">
-                                    <span
-                                        class="text-truncate"><?php echo e(__('messages.add')); ?> <?php echo e(__('messages.new')); ?></span>
-                                </a>
-                            </li>
-                            <li class="nav-item <?php echo e(Request::is('vendor-panel/employee/list')?'active':''); ?>">
-                                <a class="nav-link " href="<?php echo e(route('vendor.employee.list')); ?>" title="food list">
-                                    <span class="text-truncate"><?php echo e(__('messages.list')); ?></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <?php endif; ?>
-
-                    
-                    <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('restaurant_setup')): ?>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo e(Request::is('vendor-panel/business-settings/restaurant-setup')?'active':''); ?>" href="<?php echo e(route('vendor.business-settings.restaurant-setup')); ?>"
-                        >
-                            <span class="tio-settings nav-icon"></span>
-                            <span
-                                class="text-truncate"><?php echo e(__('messages.restaurant')); ?> <?php echo e(__('messages.config')); ?></span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
-                    
-                    <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('my_shop')): ?>
-                    <li class="nav-item">
-                        <a class="nav-link <?php echo e(Request::is('vendor/shop*')?'active':''); ?>" href="<?php echo e(route('vendor.shop.view')); ?>" 
-                        >
-                            <i class="tio-home nav-icon"></i>
-                            <span
-                                class="text-truncate">My Restaurant</span>
-                        </a>
-                    </li>
-
-                    
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('vendor.qr.index')); ?>" class="nav-link <?php echo e(Request::is('vendor-panel/qr/qr')?'active':''); ?>" aria-current="page">
-                            <i class="fas fa-qrcode"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                QR Code
-                            </span>
-                        </a>
-                    </li>
-
-                    
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('vendor.table.index')); ?>" class="nav-link <?php echo e(Request::is('vendor-panel/table')?'active':''); ?>" aria-current="page">
-                            <i class="fas fa-table"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Restaurant Table
-                            </span>
-                        </a>
-                    </li>
-                    
-                    
-                    <li class="nav-item">
-                        <a href="<?php echo e(route('vendor.reservation.list')); ?>" class="nav-link <?php echo e(Request::is('vendor-panel/reservation')?'active':''); ?>" aria-current="page">
-                            <i class="fas fa-table"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Reservation
-                            </span>
-                        </a>
-                    </li>
-                    <?php endif; ?>
-=======
                 </a>
                 <ul class="dropdown-menu">
                     <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.add-new')); ?>"><?php echo e(__('messages.add')); ?> <?php echo e(__('messages.new')); ?></a></li>
                     <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.list')); ?>">List</a></li>
                     <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.bulk-import')); ?>"><?php echo e(__('messages.bulk_import')); ?></a></li>
                     <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.bulk-export-index')); ?>"><?php echo e(__('messages.bulk_export')); ?></a></li>
->>>>>>> Stashed changes
                 </ul>
             </div>
             
@@ -762,32 +329,6 @@
             <?php endif; ?>
             
         </div>
-<<<<<<< Updated upstream
-        <!-- Content -->
-    </main>
-   
-</div>
-<footer>
-    <div class="footer-div">
-        <!-- Footer Start -->
-        <footer class="footer-background text-white text-lg-start">
-            <!-- Grid container -->
-            <div class="container">
-                <!--Grid row-->
-                <div class="row d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-3 mb-md-0 company_details">
-                        <div
-                            class="row d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                            <div class="col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-start text-center text-md-left"
-                                style="padding: 0">
-                                <a class="" href="#">
-                                    <?php ($logo=\App\CentralLogics\Helpers::get_settings('logo')); ?>
-                                    <img class="rounded float-left"
-                                        onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img2.jpg')); ?>'"
-                                        src="<?php echo e(asset('storage/business/'.$logo)); ?>"
-                                        style="max-width: 200px;max-height: 75px">
-=======
     </div>
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
@@ -807,7 +348,6 @@
 
                                 <a class="dropdown-item" href="<?php echo e(route('vendor.profile.view')); ?>">
                                     <span class="text-truncate pr-2" title="Settings"><?php echo e(__('messages.settings')); ?></span>
->>>>>>> Stashed changes
                                 </a>
 
                                 <div class="dropdown-divider"></div>
@@ -868,19 +408,19 @@
 <footer class="dark-bg">
     <div class="container py-5">
         <div class="row">
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/contact-us/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Contact Us</a>
             </div>
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/help-center/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Help Center</a>
             </div>
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/category/career/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Career</a>
             </div>
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/terms-of-use/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Terms and Conditions</a>
             </div>
-            <div class="col-lg-2 col-md-6 mb-4">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/privacy-policy/" target="_blank"class="text-uppercase font-weight-bold mb-4 text-white">Privacy Policy</a>
             </div>
             <div class="col-lg-2 col-md-4 mb-lg-0">
@@ -901,14 +441,14 @@
 </footer>
 
 <!-- ========== END SECONDARY CONTENTS ========== -->
-<script src="<?php echo e(asset('assets/admin')); ?>/js/custom.js"></script>
+<script src="<?php echo e(URL::asset('assets/admin')); ?>/js/custom.js"></script>
 <!-- JS Implementing Plugins -->
 
 <!-- JS Front -->
-<script src="<?php echo e(asset('assets/admin')); ?>/js/vendor.min.js"></script>
-<script src="<?php echo e(asset('assets/admin')); ?>/js/theme.min.js"></script>
-<script src="<?php echo e(asset('assets/admin')); ?>/js/sweet_alert.js"></script>
-<script src="<?php echo e(asset('assets/admin')); ?>/js/toastr.js"></script>
+<script src="<?php echo e(URL::asset('assets/admin')); ?>/js/vendor.min.js"></script>
+<script src="<?php echo e(URL::asset('assets/admin')); ?>/js/theme.min.js"></script>
+<script src="<?php echo e(URL::asset('assets/admin')); ?>/js/sweet_alert.js"></script>
+<script src="<?php echo e(URL::asset('assets/admin')); ?>/js/toastr.js"></script>
 <?php echo Toastr::message(); ?>
 
 
