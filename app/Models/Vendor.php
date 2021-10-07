@@ -106,4 +106,9 @@ class Vendor extends Authenticatable
         return $this->hasOne(RestaurantWallet::class);
     }
 
+    public function notifications()
+    {
+        return $this->hasMany(UserNotification::class, 'vendor_id', 'id');
+    }
+
 }

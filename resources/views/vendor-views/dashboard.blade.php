@@ -25,7 +25,7 @@
 @endpush
 
 @section('content')
-    <div class="content container-fluid">
+    <div class="content container-fluid" style="margin-top: 30px;">
         @if(auth('vendor')->check())
         <!-- Page Header -->
         <div class="page-header">

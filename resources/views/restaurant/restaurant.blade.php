@@ -97,6 +97,10 @@
             .pagination {
                 margin-top: 20px;
             }
+
+            .active-language {
+                background: #f67280;
+            }
     </style>
 @endsection
 @section('content')
@@ -154,11 +158,24 @@
                 <div class="row">
                     <div class="col-12 col-sm-3">
                         <div class="card bg-light mb-3">
+                            <div class="card-header bg-custom text-white text-uppercase"><i class="fa fa-list"></i> Languages</div>
+                            <ul class="list-group category_block">
+                                @foreach ($languages as $item) 
+                                    <li class="list-group-item {{request()->language == $item->id ? 'active-language' : ''}}"><a href="/r/{{$data->slug}}?language={{$item->id}}">
+                                        <div class="row justify-content-between">
+                                            <img src="{{asset('storage/language/'.$item->logo)}}" alt="" width="50" height="50">
+                                            {{$data->language_id == $item->id ? 'Default' : ''}}
+                                        </div>
+                                    </a></li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div class="card bg-light mb-3">
                             <div class="card-header bg-custom text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
                             <ul class="list-group category_block">
-                                <li class="list-group-item"><a href="/restaurant/{{$data->slug}}">Show All</a></li>
+                                <li class="list-group-item"><a href="/r/{{$data->slug}}">Show All</a></li>
                                 @foreach ($categories as $item) 
-                                    <li class="list-group-item"><a href="/restaurant/{{$data->slug}}/{{$item->id}}">{{$item->name}}</a></li>
+                                    <li class="list-group-item"><a href="/r/{{$data->slug}}?categories={{$item->id}}">{{$item->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>

@@ -6,7 +6,6 @@
 
 @section('content')
 <div class="content container-fluid"> 
-    <p>{{asset('storage/file.txt')}}</p>
 <div class="row">
     <div class="col-md-12">
         <div class="card">

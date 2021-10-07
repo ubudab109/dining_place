@@ -93,11 +93,21 @@
         .navbar-vertical .navbar-nav.nav-tabs .active .nav-link, .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
             border-left-color: #C6FFC1;
         }
+
+        .dark-bg {
+            background-color: #161616;
+        }
     </style>
 
     
+<<<<<<< Updated upstream
 
     <link rel="stylesheet" href="<?php echo e(asset('assets/landing')); ?>/css/main.css">
+=======
+    <link href="<?php echo e(asset('assets/style-custom.css')); ?>" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/landing')); ?>/css/main.css">
+>>>>>>> Stashed changes
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/vendor.min.css">
@@ -105,6 +115,7 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/theme.minc619.css?v=1.0">
     <?php echo $__env->yieldPushContent('css_or_js'); ?>
+<<<<<<< Updated upstream
 
     <style>
         .scroll-bar {
@@ -244,6 +255,10 @@
     </style>
     <script src="<?php echo e(asset('assets/admin')); ?>/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="<?php echo e(asset('assets/admin')); ?>/css/toastr.css">
+=======
+    <script src="<?php echo e(URL::asset('assets/admin')); ?>/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <link rel="stylesheet" href="<?php echo e(URL::asset('assets/admin')); ?>/css/toastr.css">
+>>>>>>> Stashed changes
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
@@ -261,13 +276,6 @@
         </div>
     </div>
 </div>
-
-
-<!-- Builder -->
-
-<!-- End Builder -->
-
-<!-- JS Preview mode only -->
 
 <header id="headerMain">
     <div class="navbar-div bg-color-primary" style="background-color: #FFFFFF;border-style: solid;border-width: 0px 0px 01px 0px;border-color: #F67280;">
@@ -301,10 +309,10 @@
                         <li class="nav-item">
                             <?php if(auth('vendor')->check()): ?>
                                 <div class="btn-group dropdown">
-                                    <a href="<?php echo e(url('/vendor-panel')); ?>" style="color: #000000;" class="nav-link navbar-font"><i class="fas fa-user"></i><?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->f_name); ?></a>
-                                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
+                                    <a href="<?php echo e(url('/vendor-panel')); ?>" style="color: #000000;" class="nav-link navbar-font"><i class="fas fa-user"></i> Hi, <?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->f_name); ?></a>
+                                    <a type="button" class="btn btn-light dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </a>
                                     <div class="dropdown-menu">
                                       <!-- Dropdown menu links -->
                                       <div class="dropdown-item-text">
@@ -360,6 +368,7 @@
     </div>
 </header>
 
+<<<<<<< Updated upstream
 <!-- END ONLY DEV -->
 
 <div class="container-fluid">
@@ -375,10 +384,31 @@
                          src="<?php echo e(asset('storage/restaurant/'.$restaurant_data->logo)); ?>"
                          alt="Logo">
                     <?php echo e(\Illuminate\Support\Str::limit($restaurant_data->name,15)); ?>
+=======
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        <?php ($restaurant_data=\App\CentralLogics\Helpers::get_restaurant_data()); ?>
+        <div class="sidebar-heading border-bottom bg-light">
+            <a class="navbar-brand" target="_blank" href="<?php echo e(route('restaurant-list', $restaurant_data->slug)); ?>" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important; color:rgba(0, 0, 0, 0.829); font-weight: bolder;">
+                <img class="navbar-brand-logo"
+                     style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
+                     onerror="this.src='<?php echo e(URL::asset('assets/admin/img/160x160/img2.jpg')); ?>'"
+                     src="<?php echo e(URL::asset('storage/restaurant/'.$restaurant_data->logo)); ?>"
+                     alt="Logo">
+                <?php echo e(\Illuminate\Support\Str::limit($restaurant_data->name,15)); ?>
 
-                </a>
-               
+            </a>
+        </div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel')?'active':''); ?>" href="<?php echo e(route('vendor.dashboard')); ?>"><i class="fas fa-chalkboard"></i> Dashboard</a>
+>>>>>>> Stashed changes
+
+            
+            <div class="dropright">
+                <a class="list-group-item list-group-item-action list-group-item-light dropright p-3 <?php echo e(Request::is('vendor-panel/food*')?'active':''); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" ><i class="fas fa-chart-pie"></i> Menu
                 
+<<<<<<< Updated upstream
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto" id="navbarul">
                     
@@ -652,22 +682,87 @@
                         </a>
                     </li>
                     <?php endif; ?>
+=======
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.add-new')); ?>"><?php echo e(__('messages.add')); ?> <?php echo e(__('messages.new')); ?></a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.list')); ?>">List</a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.bulk-import')); ?>"><?php echo e(__('messages.bulk_import')); ?></a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.food.bulk-export-index')); ?>"><?php echo e(__('messages.bulk_export')); ?></a></li>
+>>>>>>> Stashed changes
                 </ul>
+            </div>
+            
+
+            
+            <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('order')): ?>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/order*')?'active':''); ?>" href="<?php echo e(route('vendor.order.list',['all'])); ?>"><i class="fas fa-shopping-cart"></i> Order</a>
+            <?php endif; ?>
+            
+            
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/shop/payment')?'active':''); ?>" href="<?php echo e(route('vendor.shop.edit-payment')); ?>"> <i class="fas fa-money-bill"></i> Payment Method</a>
+            
+            
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/qr/qr')?'active':''); ?>" href="<?php echo e(route('vendor.qr.index')); ?>"> <i class="fas fa-qrcode"></i> QR Code Design</a>
+            
+
+            
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/language')?'active':''); ?>" href="<?php echo e(route('vendor.language.index')); ?>"> <i class="fas fa-language"></i> Language</a>
+            
+
+            
+            <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('addon')): ?>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/addon*')?'active':''); ?>" href="<?php echo e(route('vendor.addon.add-new')); ?>"> <i class="fas fa-puzzle-piece"></i> <?php echo e(__('messages.addons')); ?></a>
+            <?php endif; ?>
+            
+
+            
+            <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('restaurant_setup')): ?>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/business-settings/restaurant-setup')?'active':''); ?>" href="<?php echo e(route('vendor.business-settings.restaurant-setup')); ?>"> <i class="fas fa-cogs"></i> Settings</a>
+            <?php endif; ?>
+            
+
+            
+            <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('wallet')): ?>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/wallet*')?'active':''); ?>" href="<?php echo e(route('vendor.wallet.index')); ?>"> <i class="far fa-credit-card"></i> Withdrawals</a>
+            <?php endif; ?>
+            
+
+            
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/report*')?'active':''); ?>" href="<?php echo e(route('vendor.report.dashboard')); ?>"> <i class="fas fa-chart-pie"></i> Report</a>
+            
+
+            
+            <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('employee')): ?>
+            <div class="dropright">
+                <a class="list-group-item list-group-item-action list-group-item-light dropright p-3 <?php echo e(Request::is('vendor-panel/employee*')?'active':''); ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" ><i class="far fa-user"></i> Staff
                 
-                <hr>
-              </div>
-              <span>
-                <button class="navbar-toggler border"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarul"
-                aria-expanded="false"
-                aria-label="Toggle filters">
-                    <i class="fas fa-bars"></i>
-                </button>
-             </span>
-              <?php echo $__env->yieldContent('content'); ?>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.employee.add-new')); ?>"><?php echo e(__('messages.add')); ?> <?php echo e(__('messages.new')); ?></a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="<?php echo e(route('vendor.employee.list')); ?>">List</a></li>
+                </ul>
+            </div>
+            <?php endif; ?>
+            
+
+            
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/coupon/list')?'active':''); ?>" href="<?php echo e(route('vendor.coupon.list')); ?>"> <i class="fas fa-gift"></i> Coupon</a>
+            
+
+            
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/subscription')?'active':''); ?>" href="<?php echo e(route('vendor.subscription.list')); ?>"> <i class="fas fa-money-bill-alt"></i> Subscription</a>
+            
+
+            
+            <?php if(\App\CentralLogics\Helpers::employee_module_permission_check('my_shop')): ?>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/reservation')?'active':''); ?>" href="<?php echo e(route('vendor.reservation.list')); ?>"> <i class="fas fa-user-times"></i> Reservation</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/shop*')?'active':''); ?>" href="<?php echo e(route('vendor.shop.view')); ?>"> <i class="fas fa-store"></i> Restaurant</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 <?php echo e(Request::is('vendor-panel/table')?'active':''); ?>" href="<?php echo e(route('vendor.table.index')); ?>"> <i class="fas fa-table"></i></i> Restaurant Table </a>
+            <?php endif; ?>
+            
         </div>
+<<<<<<< Updated upstream
         <!-- Content -->
     </main>
    
@@ -692,108 +787,61 @@
                                         onerror="this.src='<?php echo e(asset('assets/admin/img/160x160/img2.jpg')); ?>'"
                                         src="<?php echo e(asset('storage/business/'.$logo)); ?>"
                                         style="max-width: 200px;max-height: 75px">
+=======
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom ml-5">
+            <div class="container-fluid">
+                <button class="btn btn-light" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="<?php echo e(route('vendor.notification.index')); ?>" style="color: #000000;" ><i class="far fa-bell"></i><span style="color: red;"><?php echo e(count(\App\CentralLogics\Helpers::get_loggedin_user()->notifications()->where('status' ,1)->get())); ?></span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo e(route('vendor.reservation.list')); ?>" style="color: #000000;" ><i class="far fa-question-circle"></i><span style="color: red;"><?php echo e(count(\App\Models\ReservationCustomer::where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_data()->id)->get())); ?></span></a></li>
+                        <li class="dropdown">
+                            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i><?php echo e(\App\CentralLogics\Helpers::get_loggedin_user()->f_name); ?></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="<?php echo e(route('vendor.profile.view')); ?>">
+                                    <span class="text-truncate pr-2" title="Settings"><?php echo e(__('messages.settings')); ?></span>
+>>>>>>> Stashed changes
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="javascript:" onclick="Swal.fire({
+                                    title: 'Do you want to logout?',
+                                    showDenyButton: true,
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#FC6A57',
+                                    cancelButtonColor: '#363636',
+                                    confirmButtonText: `Yes`,
+                                    denyButtonText: `Don't Logout`,
+                                    }).then((result) => {
+                                    if (result.value) {
+                                    location.href='<?php echo e(route('vendor.auth.logout')); ?>';
+                                    } else{
+                                    Swal.fire('Canceled', '', 'info')
+                                    }
+                                    })">
+                                    <span class="text-truncate pr-2" title="Sign out"><?php echo e(__('messages.sign_out')); ?></span>
                                 </a>
                             </div>
-                        </div>
-
-                        <div class="footer-article-div">
-                                <span class="footer-article">
-                                    <?php echo e(__('messages.footer_article')); ?>
-
-                                </span>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-linkedin"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-skype"></i></a>
-                        </div>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <div class="col-lg-2 col-md-2 mb-0 mb-md-0"></div>
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-2 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4"><?php echo e(__('messages.support')); ?></span>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="<?php echo e(route('about-us')); ?>" class="footer-item text-white"><?php echo e(__('messages.about_us')); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo e(route('contact-us')); ?>" class="footer-item text-white"><?php echo e(__('messages.contact_us')); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo e(route('privacy-policy')); ?>" class="footer-item text-white"><?php echo e(__('messages.privacy_policy')); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo e(route('terms-and-conditions')); ?>" class="footer-item text-white"><?php echo e(__('messages.terms_and_condition')); ?></a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-2 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">Download</span>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="https://play.google.com" class="footer-item text-white">Play Store</a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.apple.com/app-store/" class="footer-item text-white">App Store</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-3 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">Contact Us</span>
-
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-map-marker-alt mr-2"></i>
-                                    <span><?php echo e(\App\CentralLogics\Helpers::get_settings('address')); ?></span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-envelope MR-1"></i>
-                                    <span class="ml-1"><?php echo e(\App\CentralLogics\Helpers::get_settings('email_address')); ?></span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-phone MR-1"></i>
-                                    <span class="ml-1"><?php echo e(\App\CentralLogics\Helpers::get_settings('phone')); ?></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2);font-size: 12px">
-                <?php echo e(\App\CentralLogics\Helpers::get_settings('footer_text')); ?>
-
-                <a class="text-white" href="#"><?php echo e(\App\CentralLogics\Helpers::get_settings('business_name')); ?></a>
-            </div>
-        </footer>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+            <?php echo $__env->yieldContent('content'); ?>
+        </div>
     </div>
-</footer>
+</div>
+
 <!-- End Footer -->
 
 <div class="modal fade" id="popup-modal">
@@ -817,6 +865,41 @@
 </div>
 <!-- ========== END MAIN CONTENT ========== -->
 
+<footer class="dark-bg">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-2 col-md-6 mb-4">
+                <a href="https://mydiningplace.com/contact-us/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Contact Us</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <a href="https://mydiningplace.com/help-center/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Help Center</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <a href="https://mydiningplace.com/category/career/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Career</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <a href="https://mydiningplace.com/terms-of-use/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Terms and Conditions</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4">
+                <a href="https://mydiningplace.com/privacy-policy/" target="_blank"class="text-uppercase font-weight-bold mb-4 text-white">Privacy Policy</a>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-lg-0">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a title="twitter"><i class="fab fa-1x fa-twitter text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="facebook"><i class="fab fa-1x fa-facebook-f text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="instagram"><i class="fab fa-1x fa-instagram text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="pinterest"><i class="fab fa-1x fa-youtube text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="vimeo"><i class="fab fa-1x fa-google text-white"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-left">
+            <p class="mb-0 py-2 text-white">Copyright © 2020 <a href="https://mydiningplace.com/" style="color: #F67280 !important;">mydiningplace.com</a> All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
 <!-- ========== END SECONDARY CONTENTS ========== -->
 <script src="<?php echo e(asset('assets/admin')); ?>/js/custom.js"></script>
 <!-- JS Implementing Plugins -->
@@ -839,10 +922,30 @@
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </script>
 <?php endif; ?>
+<script>
+
+window.addEventListener('DOMContentLoaded', event => {
+
+// Toggle the side navigation
+const sidebarToggle = document.body.querySelector('#sidebarToggle');
+if (sidebarToggle) {
+    // Uncomment Below to persist sidebar toggle between refreshes
+    // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+    //     document.body.classList.toggle('sb-sidenav-toggled');
+    // }
+    sidebarToggle.addEventListener('click', event => {
+        event.preventDefault();
+        document.body.classList.toggle('sb-sidenav-toggled');
+        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+    });
+}
+
+});
+</script>
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
         tooltipTriggerList.forEach(function (tooltipTriggerEl) {
             new bootstrap.Tooltip(tooltipTriggerEl)
         })
@@ -851,8 +954,7 @@
 <script>
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("mySidebar").style.width = "200px";
     }
 
     /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
@@ -1030,6 +1132,16 @@
                 $('#'+id).submit()
             }
         })
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
     }
 </script>
 

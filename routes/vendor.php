@@ -95,14 +95,16 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
 
         
 
-        // Route::group(['prefix' => 'coupon', 'as' => 'coupon.', 'middleware' => ['module:coupon']], function () {
-        //     Route::get('add-new', 'CouponController@add_new')->name('add-new');
-        //     Route::post('store', 'CouponController@store')->name('store');
-        //     Route::get('update/{id}', 'CouponController@edit')->name('update');
-        //     Route::post('update/{id}', 'CouponController@update');
-        //     Route::get('status/{id}/{status}', 'CouponController@status')->name('status');
-        //     Route::delete('delete/{id}', 'CouponController@delete')->name('delete');
-        // });
+        Route::group(['prefix' => 'coupon', 'as' => 'coupon.', 'middleware' => ['module:coupon']], function () {
+            Route::get('list', 'CoupunController@index')->name('list');
+            Route::post('store', 'CoupunController@store')->name('store');
+            Route::post('updateStatus', 'CoupunController@updateStatus')->name('status');
+            Route::delete('delete/{id}', 'CoupunController@destroy')->name('delete');
+            // Route::get('update/{id}', 'CouponController@edit')->name('update');
+            // Route::post('update/{id}', 'CouponController@update');
+            // Route::get('status/{id}/{status}', 'CouponController@status')->name('status');
+            // Route::delete('delete/{id}', 'CouponController@delete')->name('delete');
+        });
 
         Route::group(['prefix' => 'addon', 'as' => 'addon.', 'middleware' => ['module:addon']], function () {
             Route::get('add-new', 'AddOnController@index')->name('add-new');
@@ -147,6 +149,10 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::get('view', 'RestaurantController@view')->name('view');
             Route::get('edit/{id}', 'RestaurantController@edit')->name('edit');
             Route::post('update/{id}', 'RestaurantController@update')->name('update');
+            Route::post('updatePayment/{id}', 'RestaurantController@updatePaymenMethod')->name('update-payment');
+            Route::get('payment', function(){
+                return view('vendor-views.payment-method.index');
+            })->name('edit-payment');
         });
 
         Route::group(['prefix' => 'table'], function() {
@@ -162,5 +168,25 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::post('status/{id}', 'ReservationController@updateStatus')->name('reservation.status');
         });
 
+        Route::group(['prefix' => 'subscription'], function(){
+            Route::get('', 'SubscriptionController@index')->name('subscription.list');
+        });
+
+        Route::group(['prefix' => 'language'], function(){
+            Route::get('','LanguageController@index')->name('language.index');
+            Route::post('', 'LanguageController@store')->name('language.store');
+            Route::post('{id}','LanguageController@updateRestaurantLanguage')->name('language.update');
+        });
+
+        Route::group(['prefix' => 'notification'], function() {
+            Route::get('','NotificationController@index')->name('notification.index');
+        });
+
+        Route::group(['prefix' => 'report'], function() {
+            Route::get('/', 'ReportController@dashboard')->name('report.dashboard');
+            Route::get('/get-restaurant-data', 'ReportController@restaurant_data')->name('report.get-restaurant-data');
+            
+            Route::post('order-stats', 'ReportController@order_stats')->name('report.order-stats');
+        });
     });
 });

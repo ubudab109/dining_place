@@ -728,6 +728,15 @@ class Helpers
         return auth('vendor')->user()->restaurants[0]->id;
     }
 
+    public static function get_restaurant_language()
+    {
+        if(auth('vendor_employee')->check())
+        {
+            return auth('vendor_employee')->user()->restaurant->id;
+        }
+        return auth('vendor')->user()->restaurants[0]->language_id;
+    }
+
     public static function get_vendor_id()
     {
         if(auth('vendor')->check())

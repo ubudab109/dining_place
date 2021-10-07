@@ -86,6 +86,19 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-12 col-12">
+                            <div class="form-group">
+                                <label class="input-label" for="exampleFormControlSelect1">Language<span
+                                        class="input-label-secondary"></span></label>
+                                <select name="language_id" id="language"
+                                        class="form-control js-select2-custom" required>
+                                        <option value="" selected disabled>Select Language</option>
+                                    @foreach ($languages as $item)
+                                        <option value="{{$item->id}}">{{$item->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                         {{--<div class="col-md-4 col-6">
                             <div class="form-group">
                                 <label class="input-label" for="exampleFormControlSelect1">Sub Sub Category<span

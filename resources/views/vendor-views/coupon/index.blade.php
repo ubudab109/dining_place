@@ -176,13 +176,11 @@
                                     <td>{{$coupon['expire_date']}}</td>
                                     <td>
                                         @if($coupon['status']==1)
-                                            <div style="padding: 10px;border: 1px solid;cursor: pointer"
-                                                 onclick="location.href='{{route('vendor.coupon.status',[$coupon['id'],0])}}'">
+                                            <div style="padding: 10px;border: 1px solid;cursor: pointer">
                                                 <span class="legend-indicator bg-success"></span>{{__('messages.active')}}
                                             </div>
                                         @else
-                                            <div style="padding: 10px;border: 1px solid;cursor: pointer"
-                                                 onclick="location.href='{{route('vendor.coupon.status',[$coupon['id'],1])}}'">
+                                            <div style="padding: 10px;border: 1px solid;cursor: pointer">
                                                 <span class="legend-indicator bg-danger"></span>{{__('messages.disabled')}}
                                             </div>
                                         @endif
@@ -196,8 +194,8 @@
                                                 <i class="tio-settings"></i>
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item"
-                                                   href="{{route('vendor.coupon.update',[$coupon['id']])}}">{{__('messages.edit')}}</a>
+                                                {{-- <a class="dropdown-item"
+                                                   href="{{route('vendor.coupon.update',[$coupon['id']])}}">{{__('messages.edit')}}</a> --}}
                                                 <a class="dropdown-item" href="javascript:"
                                                    onclick="form_alert('coupon-{{$coupon['id']}}','Want to delete this coupon ?')">{{__('messages.delete')}}</a>
                                                 <form action="{{route('vendor.coupon.delete',[$coupon['id']])}}"

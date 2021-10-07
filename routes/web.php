@@ -39,8 +39,8 @@ Route::group(['prefix' => 'payment-mobile'], function () {
     Route::get('set-payment-method/{name}', 'PaymentController@set_payment_method')->name('set-payment-method');
 });
 
-Route::group(['prefix' => 'restaurant'], function () {
-    Route::get('/{slug}/{categories?}/{table?}', 'RestaurantController@getRestaurant')->name('restaurant-list');
+Route::group(['prefix' => 'r'], function () {
+    Route::get('{slug}/{categories?}/{lang?}', 'RestaurantController@getRestaurant')->name('restaurant-list');
 });
 
 // SSLCOMMERZ Start
