@@ -7,6 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Coupon extends Model
 {
+    protected $table = 'coupons';
+    protected $fillable = [
+        'title',
+        'code',
+        'start_date',
+        'expire_date',
+        'min_purchase',
+        'max_discount',
+        'discount_type',
+        'coupun_type',
+        'limit',
+        'data',
+    ];
+
+
     protected $casts = [
         'min_purchase' => 'float',
         'max_discount' => 'float',

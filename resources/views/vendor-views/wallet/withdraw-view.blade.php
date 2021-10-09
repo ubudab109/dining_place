@@ -92,7 +92,7 @@
                             @csrf
                             <input type="hidden" name="id" value="{{$seller->id}}">
                             <input type="hidden" name="approved" value="1">
-                            <button type="submit" class="btn btn-primary">{{__('messages.Approve')}}</button>
+                            <button type="submit" class="btn btn-pink">{{__('messages.Approve')}}</button>
                         </form>
                         <form class="d-inline-block" action="{{route('admin.sellers.withdraw_status')}}" method="POST">
                             @csrf

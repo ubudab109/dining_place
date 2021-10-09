@@ -38,7 +38,7 @@
         <div class="row" id="printableArea" style="font-family: emoji;">
             <div class="col-md-12">
                 <center>
-                    <input type="button" class="btn btn-primary non-printable" onclick="printDiv('printableArea')"
+                    <input type="button" class="btn btn-pink non-printable" onclick="printDiv('printableArea')"
                            value="Proceed, If thermal printer is ready."/>
                     <a href="{{url()->previous()}}" class="btn btn-danger non-printable">Back</a>
                 </center>

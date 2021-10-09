@@ -6,7 +6,6 @@
 
 <?php $__env->startSection('content'); ?>
 <div class="content container-fluid"> 
-    <p><?php echo e(asset('storage/file.txt')); ?></p>
 <div class="row">
     <div class="col-md-12">
         <div class="card">

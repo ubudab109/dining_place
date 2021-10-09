@@ -6,6 +6,8 @@ use App\Models\ReservationCustomer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Alert;
+use App\Models\Restaurant;
+use App\Models\Vendor;
 
 class ReservationController extends Controller
 {
@@ -42,6 +44,8 @@ class ReservationController extends Controller
                 Alert::info('Sorry','This Table Has Been Reserved Before');
                 return redirect()->back();
             } else {
+                $restaurant = Restaurant::find($request->restaurant_id);
+                $vendor = Vendor::find($restaurant->vendor_id);
                 ReservationCustomer::create([
                     'customer_name'     => $request->customer_name,
                     'customer_phone'    => $request->customer_phone,
@@ -51,6 +55,9 @@ class ReservationController extends Controller
                     'reservation_date'  => $request->reservation_date,
                     'pax'               => $request->pax,
                     'desc'              => $request->desc,
+                ]);
+                $vendor->notifications()->create([
+                    'data'      => 'There are customers who make reservations',
                 ]);
                 DB::commit();
                 Alert::success('Success','Your Reservation Has Been Noted');

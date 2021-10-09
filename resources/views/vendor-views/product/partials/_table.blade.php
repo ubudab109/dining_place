@@ -13,7 +13,8 @@
         <td>
         {{$food->category}}
         </td>
-        <td>{{\App\CentralLogics\Helpers::format_currency($food['price'])}}</td>
+        <td>Rp. {{number_format($food['price'], 0)}}</td>
+        <td>{{($food->language->name)}}</td>
         <td>
             <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox{{$food->id}}">
                 <input type="checkbox" onclick="location.href='{{route('vendor.food.status',[$food['id'],$food->status?0:1])}}'"class="toggle-switch-input" id="stocksCheckbox{{$food->id}}" {{$food->status?'checked':''}}>

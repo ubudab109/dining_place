@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use App\CentralLogics\Helpers;
 use App\CentralLogics\ProductLogic;
+use App\Models\LanguageRestaurant;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\DB;
 
@@ -21,7 +22,8 @@ class FoodController extends Controller
     public function index()
     {
         $categories = Category::where(['position' => 0])->get();
-        return view('vendor-views.product.index', compact('categories'));
+        $languages = LanguageRestaurant::where('restaurant_id', Helpers::get_restaurant_id())->get();
+        return view('vendor-views.product.index', compact('categories','languages'));
     }
 
     public function store(Request $request)
@@ -33,6 +35,7 @@ class FoodController extends Controller
             'price' => 'required|numeric|min:0.01',
             'description' => 'max:1000',
             'discount' => 'required|numeric|min:0',
+            'language_id'   => 'required|integer',
         ], [
             'name.required' => 'Food name is required!',
             'category_id.required' => 'category  is required!',
@@ -132,6 +135,7 @@ class FoodController extends Controller
         $food->attributes = $request->has('attribute_id') ? json_encode($request->attribute_id) : json_encode([]);
         $food->add_ons = $request->has('addon_ids') ? json_encode($request->addon_ids) : json_encode([]);
         $food->restaurant_id = Helpers::get_restaurant_id();
+        $food->language_id = $request->language_id;
         $food->save();
 
         return response()->json([], 200);
@@ -149,7 +153,8 @@ class FoodController extends Controller
         $product = Food::find($id);
         $product_category = json_decode($product->category_ids);
         $categories = Category::where(['parent_id' => 0])->get();
-        return view('vendor-views.product.edit', compact('product', 'product_category', 'categories'));
+        $languages = LanguageRestaurant::where('restaurant_id', Helpers::get_restaurant_id())->get();
+        return view('vendor-views.product.edit', compact('product', 'product_category', 'categories','languages'));
     }
 
     public function status(Request $request)
@@ -169,6 +174,7 @@ class FoodController extends Controller
             'price' => 'required|numeric|min:0.01',
             'description' => 'max:1000',
             'discount' => 'required|numeric|min:0',
+            'language_id'   => 'required|integer'
         ], [
             'name.required' => 'Food name is required!',
             'category_id.required' => 'category  is required!',
@@ -269,6 +275,7 @@ class FoodController extends Controller
         $p->discount_type = $request->discount_type;
         $p->attributes = $request->has('attribute_id') ? json_encode($request->attribute_id) : json_encode([]);
         $p->add_ons = $request->has('addon_ids') ? json_encode($request->addon_ids) : json_encode([]);
+        $p->language_id = $request->language_id;
 
         $p->save();
 

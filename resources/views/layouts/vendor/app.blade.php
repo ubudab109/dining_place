@@ -93,10 +93,15 @@
         .navbar-vertical .navbar-nav.nav-tabs .active .nav-link, .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
             border-left-color: #C6FFC1;
         }
+
+        .dark-bg {
+            background-color: #161616;
+        }
     </style>
 
-    
-
+    {{-- STYLE CUSTOME --}}
+    <link href="{{asset('assets/style-custom.css')}}" rel="stylesheet"/>
+    {{-- END --}}
     <link rel="stylesheet" href="{{URL::asset('assets/landing')}}/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
@@ -105,143 +110,6 @@
     <!-- CSS Front Template -->
     <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/theme.minc619.css?v=1.0">
     @stack('css_or_js')
-
-    <style>
-        .scroll-bar {
-            max-height: calc(100vh - 100px);
-            overflow-y: auto !important;
-        }
-
-        ::-webkit-scrollbar-track {
-            box-shadow: inset 0 0 1px #cfcfcf;
-            /*border-radius: 5px;*/
-        }
-
-        ::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #c1c1c1;
-            /*border-radius: 5px;*/
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FC6A57;
-        }
-        .deco-none {
-            color: inherit;
-            text-decoration: inherit;
-        }
-        .qcont{
-            text-transform: lowercase;
-        }
-        .qcont:first-letter {
-            text-transform: capitalize;
-        }
-
-
-
-        .navbar-vertical .nav-link {
-            color: #ffffff;
-        }
-
-        .navbar .nav-link:hover {
-            color: #C6FFC1;
-        }
-
-        .navbar .active > .nav-link, .navbar .nav-link.active, .navbar .nav-link.show, .navbar .show > .nav-link {
-            color: #C6FFC1;
-        }
-
-        .navbar-vertical .active .nav-indicator-icon, .navbar-vertical .nav-link:hover .nav-indicator-icon, .navbar-vertical .show > .nav-link > .nav-indicator-icon {
-            color: #C6FFC1;
-        }
-
-        .nav-subtitle {
-            display: block;
-            color: #fffbdf91;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: .03125rem;
-        }
-
-        .navbar-vertical .navbar-nav.nav-tabs .active .nav-link, .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
-            border-left-color: #C6FFC1;
-        }
-    </style>
-    <style>
-
-        /* The sidebar menu */
-        .sidebar {
-          height: 100%; /* 100% Full-height */
-          width: 0; /* 0 width - change this with JavaScript */
-          position: fixed; /* Stay in place */
-          z-index: 1; /* Stay on top */
-          top: 0;
-          left: 0;
-          background-color: #111; /* Black*/
-          overflow-x: hidden; /* Disable horizontal scroll */
-          padding-top: 60px; /* Place content 60px from the top */
-          transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-        }
-        
-        /* The sidebar links */
-        .sidebar a {
-          padding: 8px 8px 8px 32px;
-          text-decoration: none;
-          font-size: 25px;
-          color: #818181;
-          display: block;
-          transition: 0.3s;
-        }
-        
-        /* When you mouse over the navigation links, change their color */
-        .sidebar a:hover {
-          color: #f1f1f1;
-        }
-        
-        /* Position and style the close button (top right corner) */
-        .sidebar .closebtn {
-          position: absolute;
-          top: 0;
-          right: 25px;
-          font-size: 36px;
-          margin-left: 50px;
-        }
-        
-        /* The button used to open the sidebar */
-        .openbtn {
-          font-size: 20px;
-          cursor: pointer;
-          background-color: #111;
-          color: white;
-          padding: 10px 15px;
-          border: none;
-        }
-        
-        .openbtn:hover {
-          background-color: #444;
-        }
-        
-        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-        #main {
-          transition: margin-left .5s; /* If you want a transition effect */
-          padding: 20px;
-        }
-        
-        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-        @media screen and (max-height: 450px) {
-          .sidebar {padding-top: 15px;}
-          .sidebar a {font-size: 18px;}
-        }
-
-        
-
-        
-
-
-    </style>
     <script src="{{URL::asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/toastr.css">
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
@@ -301,10 +169,10 @@
                         <li class="nav-item">
                             @if(auth('vendor')->check())
                                 <div class="btn-group dropdown">
-                                    <a href="{{ url('/vendor-panel') }}" style="color: #000000;" class="nav-link navbar-font"><i class="fas fa-user"></i>{{\App\CentralLogics\Helpers::get_loggedin_user()->f_name}}</a>
-                                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <span class="sr-only">Toggle Dropdown</span>
-                                    </button>
+                                    <a href="{{ url('/vendor-panel') }}" style="color: #000000;" class="nav-link navbar-font"><i class="fas fa-user"></i> Hi, {{\App\CentralLogics\Helpers::get_loggedin_user()->f_name}}</a>
+                                    <a type="button" class="btn btn-light dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </a>
                                     <div class="dropdown-menu">
                                       <!-- Dropdown menu links -->
                                       <div class="dropdown-item-text">
@@ -360,312 +228,159 @@
     </div>
 </header>
 
-<!-- END ONLY DEV -->
 
-<div class="container-fluid">
-    
-    <main id="content" role="main" class="main pointer-event">
-        <div class="d-flex">
-            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light collapse" style="width: 280px;">
-                @php($restaurant_data=\App\CentralLogics\Helpers::get_restaurant_data())
-                <a class="navbar-brand" target="_blank" href="{{route('restaurant-list', $restaurant_data->slug)}}" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important;">
-                    <img class="navbar-brand-logo"
-                         style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
-                         onerror="this.src='{{URL::asset('assets/admin/img/160x160/img2.jpg')}}'"
-                         src="{{URL::asset('storage/restaurant/'.$restaurant_data->logo)}}"
-                         alt="Logo">
-                    {{\Illuminate\Support\Str::limit($restaurant_data->name,15)}}
-                </a>
-               
-                
-                <hr>
-                <ul class="nav nav-pills flex-column mb-auto" id="navbarul">
-                    {{-- HOME DASHBOARD --}}
-                    <li class="nav-item">
-                        <a href="{{route('vendor.dashboard')}}" class="nav-link {{Request::is('vendor-panel')?'active':''}}" aria-current="page">
-                            <i class="tio-home-vs-1-outlined nav-icon"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Dashboard
-                            </span>
-                        </a>
-                    </li>
-                  {{-- ORDERS --}}
-                  @if(\App\CentralLogics\Helpers::employee_module_permission_check('order'))
-                  <li class="nav-item">
-                    <a href="{{route('vendor.order.list',['all'])}}" class="nav-link link-dark {{Request::is('vendor-panel/order*')?'active':''}}">
-                      <i class="tio-shopping-cart nav-icon"></i>
-                      <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                        {{__('messages.orders')}}
-                      </span>
-                    </a>
-                  </li>
-                  @endif
-                  <!-- AddOn -->
-                  @if(\App\CentralLogics\Helpers::employee_module_permission_check('addon'))
-                  <li class="nav-item">
-                      <a class="nav-link {{Request::is('vendor-panel/addon*')?'active':''}}"
-                          href="{{route('vendor.addon.add-new')}}" title="{{__('messages.addons')}}"
-                      >
-                          <i class="tio-add-circle-outlined nav-icon"></i>
-                          <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                              {{__('messages.addons')}}
-                          </span>
-                      </a>
-                  </li>
-                  @endif
-                  {{-- Food --}}
-                  <li class="nav-item">
-                    <a href="#" class="nav-link link-dark {{Request::is('vendor-panel/food*')?'active':''}}">
-                        <i class="tio-premium-outlined nav-icon"></i>
-                        <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                            {{__('messages.foods')}}
-                        </span>
-                    </a>
-                    <ul class="submenu" style="display: {{Request::is('vendor-panel/order*')?'block':'none'}}">
-                        <li class="nav-item {{Request::is('vendor-panel/food/add-new')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.food.add-new')}}"
-                                title="add new food">
-                                <span
-                                    class="text-truncate">{{__('messages.add')}} {{__('messages.new')}}</span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/food/list')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.food.list')}}" title="food list">
-                                <span class="text-truncate">{{__('messages.list')}}</span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/food/bulk-import')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.food.bulk-import')}}"
-                                title="{{__('messages.bulk_import')}}">
-                                <span class="text-truncate text-capitalize">{{__('messages.bulk_import')}}</span>
-                            </a>
-                        </li>
-                        <li class="nav-item {{Request::is('vendor-panel/food/bulk-export')?'active':''}}">
-                            <a class="nav-link " href="{{route('vendor.food.bulk-export-index')}}"
-                                title="{{__('messages.bukl_export')}}">
-                                <span class="text-truncate text-capitalize">{{__('messages.bulk_export')}}</span>
-                            </a>
-                        </li>
-                    </ul>
-                  </li>
-
-                  {{-- STAFF --}}
-                  @if(\App\CentralLogics\Helpers::employee_module_permission_check('employee'))
-                    <li class="nav-item">
-                        <a href="#" class="nav-link link-dark {{Request::is('vendor-panel/employee*')?'active':''}}">
-                            <i class="tio-user nav-icon"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Staff
-                            </span>
-                        </a>
-                        <ul class="submenu" style="display: {{Request::is('vendor-panel/employee*')?'block':'none'}}">
-                            <li class="nav-item {{Request::is('vendor-panel/employee/add-new')?'active':''}}">
-                                <a class="nav-link " href="{{route('vendor.employee.add-new')}}">
-                                    <span
-                                        class="text-truncate">{{__('messages.add')}} {{__('messages.new')}}</span>
-                                </a>
-                            </li>
-                            <li class="nav-item {{Request::is('vendor-panel/employee/list')?'active':''}}">
-                                <a class="nav-link " href="{{route('vendor.employee.list')}}" title="food list">
-                                    <span class="text-truncate">{{__('messages.list')}}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    @endif
-
-                    {{-- RESTAURAN CONFIG --}}
-                    @if(\App\CentralLogics\Helpers::employee_module_permission_check('restaurant_setup'))
-                    <li class="nav-item">
-                        <a class="nav-link {{Request::is('vendor-panel/business-settings/restaurant-setup')?'active':''}}" href="{{route('vendor.business-settings.restaurant-setup')}}"
-                        >
-                            <span class="tio-settings nav-icon"></span>
-                            <span
-                                class="text-truncate">{{__('messages.restaurant')}} {{__('messages.config')}}</span>
-                        </a>
-                    </li>
-                    @endif
-                    
-                    @if(\App\CentralLogics\Helpers::employee_module_permission_check('my_shop'))
-                    <li class="nav-item">
-                        <a class="nav-link {{Request::is('vendor/shop*')?'active':''}}" href="{{route('vendor.shop.view')}}" 
-                        >
-                            <i class="tio-home nav-icon"></i>
-                            <span
-                                class="text-truncate">My Restaurant</span>
-                        </a>
-                    </li>
-
-                    {{-- QR --}}
-                    <li class="nav-item">
-                        <a href="{{route('vendor.qr.index')}}" class="nav-link {{Request::is('vendor-panel/qr/qr')?'active':''}}" aria-current="page">
-                            <i class="fas fa-qrcode"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                QR Code
-                            </span>
-                        </a>
-                    </li>
-
-                    {{-- TABLE --}}
-                    <li class="nav-item">
-                        <a href="{{route('vendor.table.index')}}" class="nav-link {{Request::is('vendor-panel/table')?'active':''}}" aria-current="page">
-                            <i class="fas fa-table"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Restaurant Table
-                            </span>
-                        </a>
-                    </li>
-                    
-                    {{-- Reservation --}}
-                    <li class="nav-item">
-                        <a href="{{route('vendor.reservation.list')}}" class="nav-link {{Request::is('vendor-panel/reservation')?'active':''}}" aria-current="page">
-                            <i class="fas fa-table"></i>
-                            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">
-                                Reservation
-                            </span>
-                        </a>
-                    </li>
-                    @endif
-                </ul>
-                
-                <hr>
-              </div>
-              <span>
-                <button class="navbar-toggler border"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarul"
-                aria-expanded="false"
-                aria-label="Toggle filters">
-                    <i class="fas fa-bars"></i>
-                </button>
-             </span>
-              @yield('content')
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar-->
+    <div class="border-end bg-white" id="sidebar-wrapper">
+        @php($restaurant_data=\App\CentralLogics\Helpers::get_restaurant_data())
+        <div class="sidebar-heading border-bottom bg-light">
+            <a class="navbar-brand" target="_blank" href="{{route('restaurant-list', $restaurant_data->slug)}}" aria-label="Front" style="padding-top: 0!important;padding-bottom: 0!important; color:rgba(0, 0, 0, 0.829); font-weight: bolder;">
+                <img class="navbar-brand-logo"
+                     style="border-radius: 50%;height: 55px;width: 55px!important; border: 5px solid #80808012"
+                     onerror="this.src='{{URL::asset('assets/admin/img/160x160/img2.jpg')}}'"
+                     src="{{URL::asset('storage/restaurant/'.$restaurant_data->logo)}}"
+                     alt="Logo">
+                {{\Illuminate\Support\Str::limit($restaurant_data->name,15)}}
+            </a>
         </div>
-        <!-- Content -->
-    </main>
-   
-</div>
-<footer>
-    <div class="footer-div">
-        <!-- Footer Start -->
-        <footer class="footer-background text-white text-lg-start">
-            <!-- Grid container -->
-            <div class="container">
-                <!--Grid row-->
-                <div class="row d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-3 mb-md-0 company_details">
-                        <div
-                            class="row d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                            <div class="col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-start text-center text-md-left"
-                                style="padding: 0">
-                                <a class="" href="#">
-                                    @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
-                                    <img class="rounded float-left"
-                                        onerror="this.src='{{URL::asset('assets/admin/img/160x160/img2.jpg')}}'"
-                                        src="{{URL::asset('storage/business/'.$logo)}}"
-                                        style="max-width: 200px;max-height: 75px">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel')?'active':''}}" href="{{route('vendor.dashboard')}}"><i class="fas fa-chalkboard"></i> Dashboard</a>
+
+            {{-- FOOD --}}
+            <div class="dropright">
+                <a class="list-group-item list-group-item-action list-group-item-light dropright p-3 {{Request::is('vendor-panel/food*')?'active':''}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" ><i class="fas fa-chart-pie"></i> Menu
+                
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('vendor.food.add-new')}}">{{__('messages.add')}} {{__('messages.new')}}</a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('vendor.food.list')}}">List</a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('vendor.food.bulk-import')}}">{{__('messages.bulk_import')}}</a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('vendor.food.bulk-export-index')}}">{{__('messages.bulk_export')}}</a></li>
+                </ul>
+            </div>
+            {{-- END FOOD --}}
+
+            {{-- ORDER --}}
+            @if(\App\CentralLogics\Helpers::employee_module_permission_check('order'))
+                <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/order*')?'active':''}}" href="{{route('vendor.order.list',['all'])}}"><i class="fas fa-shopping-cart"></i> Order</a>
+            @endif
+            {{-- END ORDER --}}
+            {{-- PAYMENT  --}}
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/shop/payment')?'active':''}}" href="{{route('vendor.shop.edit-payment')}}"> <i class="fas fa-money-bill"></i> Payment Method</a>
+            {{-- END --}}
+            {{-- QR --}}
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/qr/qr')?'active':''}}" href="{{route('vendor.qr.index')}}"> <i class="fas fa-qrcode"></i> QR Code Design</a>
+            {{-- END QR --}}
+
+            {{-- LANGUAGE --}}
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/language')?'active':''}}" href="{{route('vendor.language.index')}}"> <i class="fas fa-language"></i> Language</a>
+            {{-- END LANGUAGE --}}
+
+            {{-- ADDON --}}
+            @if(\App\CentralLogics\Helpers::employee_module_permission_check('addon'))
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/addon*')?'active':''}}" href="{{route('vendor.addon.add-new')}}"> <i class="fas fa-puzzle-piece"></i> {{__('messages.addons')}}</a>
+            @endif
+            {{-- END ADDON --}}
+
+            {{-- RESTAURANT CONFIG --}}
+            @if(\App\CentralLogics\Helpers::employee_module_permission_check('restaurant_setup'))
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/business-settings/restaurant-setup')?'active':''}}" href="{{route('vendor.business-settings.restaurant-setup')}}"> <i class="fas fa-cogs"></i> Settings</a>
+            @endif
+            {{-- END RESTAURANT CONFIG --}}
+
+            {{-- WITHDRAWAL --}}
+            @if(\App\CentralLogics\Helpers::employee_module_permission_check('wallet'))
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/wallet*')?'active':''}}" href="{{route('vendor.wallet.index')}}"> <i class="far fa-credit-card"></i> Withdrawals</a>
+            @endif
+            {{-- END WITHDRAWAL --}}
+
+            {{-- REPORT --}}
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/report*')?'active':''}}" href="{{route('vendor.report.dashboard')}}"> <i class="fas fa-chart-pie"></i> Report</a>
+            {{-- END --}}
+
+            {{-- STAFF --}}
+            @if(\App\CentralLogics\Helpers::employee_module_permission_check('employee'))
+            <div class="dropright">
+                <a class="list-group-item list-group-item-action list-group-item-light dropright p-3 {{Request::is('vendor-panel/employee*')?'active':''}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#!" ><i class="far fa-user"></i> Staff
+                
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('vendor.employee.add-new')}}">{{__('messages.add')}} {{__('messages.new')}}</a></li>
+                    <li><a class="list-group-item list-group-item-action list-group-item-light p-3" href="{{route('vendor.employee.list')}}">List</a></li>
+                </ul>
+            </div>
+            @endif
+            {{-- END STAFF --}}
+
+            {{-- COUPON --}}
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/coupon/list')?'active':''}}" href="{{route('vendor.coupon.list')}}"> <i class="fas fa-gift"></i> Coupon</a>
+            {{-- END COUPON --}}
+
+            {{-- Subscription --}}
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/subscription')?'active':''}}" href="{{route('vendor.subscription.list')}}"> <i class="fas fa-money-bill-alt"></i> Subscription</a>
+            {{-- END --}}
+
+            {{-- RESERVATION AND RERSTAURANT--}}
+            @if(\App\CentralLogics\Helpers::employee_module_permission_check('my_shop'))
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/reservation')?'active':''}}" href="{{route('vendor.reservation.list')}}"> <i class="fas fa-user-times"></i> Reservation</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/shop*')?'active':''}}" href="{{route('vendor.shop.view')}}"> <i class="fas fa-store"></i> Restaurant</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3 {{Request::is('vendor-panel/table')?'active':''}}" href="{{route('vendor.table.index')}}"> <i class="fas fa-table"></i></i> Restaurant Table </a>
+            @endif
+            {{-- END --}}
+        </div>
+    </div>
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom ml-5">
+            <div class="container-fluid">
+                <button class="btn btn-light" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{{route('vendor.notification.index')}}" style="color: #000000;" ><i class="far fa-bell"></i><span style="color: red;">{{count(\App\CentralLogics\Helpers::get_loggedin_user()->notifications()->where('status' ,1)->get())}}</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{route('vendor.reservation.list')}}" style="color: #000000;" ><i class="far fa-question-circle"></i><span style="color: red;">{{count(\App\Models\ReservationCustomer::where('restaurant_id', \App\CentralLogics\Helpers::get_restaurant_data()->id)->get())}}</span></a></li>
+                        <li class="dropdown">
+                            <a class="nav-link" id="navbarDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>{{\App\CentralLogics\Helpers::get_loggedin_user()->f_name}}</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="{{route('vendor.profile.view')}}">
+                                    <span class="text-truncate pr-2" title="Settings">{{__('messages.settings')}}</span>
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+
+                                <a class="dropdown-item" href="javascript:" onclick="Swal.fire({
+                                    title: 'Do you want to logout?',
+                                    showDenyButton: true,
+                                    showCancelButton: true,
+                                    confirmButtonColor: '#FC6A57',
+                                    cancelButtonColor: '#363636',
+                                    confirmButtonText: `Yes`,
+                                    denyButtonText: `Don't Logout`,
+                                    }).then((result) => {
+                                    if (result.value) {
+                                    location.href='{{route('vendor.auth.logout')}}';
+                                    } else{
+                                    Swal.fire('Canceled', '', 'info')
+                                    }
+                                    })">
+                                    <span class="text-truncate pr-2" title="Sign out">{{__('messages.sign_out')}}</span>
                                 </a>
                             </div>
-                        </div>
-
-                        <div class="footer-article-div">
-                                <span class="footer-article">
-                                    {{__('messages.footer_article')}}
-                                </span>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-linkedin"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-skype"></i></a>
-                        </div>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <div class="col-lg-2 col-md-2 mb-0 mb-md-0"></div>
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-2 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">{{__('messages.support')}}</span>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="{{route('about-us')}}" class="footer-item text-white">{{__('messages.about_us')}}</a>
-                            </li>
-                            <li>
-                                <a href="{{route('contact-us')}}" class="footer-item text-white">{{__('messages.contact_us')}}</a>
-                            </li>
-                            <li>
-                                <a href="{{route('privacy-policy')}}" class="footer-item text-white">{{__('messages.privacy_policy')}}</a>
-                            </li>
-                            <li>
-                                <a href="{{route('terms-and-conditions')}}" class="footer-item text-white">{{__('messages.terms_and_condition')}}</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-2 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">Download</span>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="https://play.google.com" class="footer-item text-white">Play Store</a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.apple.com/app-store/" class="footer-item text-white">App Store</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-3 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">Contact Us</span>
-
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-map-marker-alt mr-2"></i>
-                                    <span>{{\App\CentralLogics\Helpers::get_settings('address')}}</span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-envelope MR-1"></i>
-                                    <span class="ml-1">{{\App\CentralLogics\Helpers::get_settings('email_address')}}</span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-phone MR-1"></i>
-                                    <span class="ml-1">{{\App\CentralLogics\Helpers::get_settings('phone')}}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <!-- Copyright -->
-            <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2);font-size: 12px">
-                {{\App\CentralLogics\Helpers::get_settings('footer_text')}}
-                <a class="text-white" href="#">{{\App\CentralLogics\Helpers::get_settings('business_name')}}</a>
-            </div>
-        </footer>
+        </nav>
+        <!-- Page content-->
+        <div class="container-fluid">
+            @yield('content')
+        </div>
     </div>
-</footer>
+</div>
+
 <!-- End Footer -->
 
 <div class="modal fade" id="popup-modal">
@@ -689,6 +404,41 @@
 </div>
 <!-- ========== END MAIN CONTENT ========== -->
 
+<footer class="dark-bg">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <a href="https://mydiningplace.com/contact-us/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Contact Us</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <a href="https://mydiningplace.com/help-center/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Help Center</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <a href="https://mydiningplace.com/category/career/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Career</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <a href="https://mydiningplace.com/terms-of-use/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Terms and Conditions</a>
+            </div>
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <a href="https://mydiningplace.com/privacy-policy/" target="_blank"class="text-uppercase font-weight-bold mb-4 text-white">Privacy Policy</a>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-lg-0">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a title="twitter"><i class="fab fa-1x fa-twitter text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="facebook"><i class="fab fa-1x fa-facebook-f text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="instagram"><i class="fab fa-1x fa-instagram text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="pinterest"><i class="fab fa-1x fa-youtube text-white"></i></a></li>
+                    <li class="list-inline-item"><a title="vimeo"><i class="fab fa-1x fa-google text-white"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-left">
+            <p class="mb-0 py-2 text-white">Copyright © 2020 <a href="https://mydiningplace.com/" style="color: #F67280 !important;">mydiningplace.com</a> All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+
 <!-- ========== END SECONDARY CONTENTS ========== -->
 <script src="{{URL::asset('assets/admin')}}/js/custom.js"></script>
 <!-- JS Implementing Plugins -->
@@ -710,10 +460,30 @@
         @endforeach
     </script>
 @endif
+<script>
+
+window.addEventListener('DOMContentLoaded', event => {
+
+// Toggle the side navigation
+const sidebarToggle = document.body.querySelector('#sidebarToggle');
+if (sidebarToggle) {
+    // Uncomment Below to persist sidebar toggle between refreshes
+    // if (localStorage.getItem('sb|sidebar-toggle') === 'true') {
+    //     document.body.classList.toggle('sb-sidenav-toggled');
+    // }
+    sidebarToggle.addEventListener('click', event => {
+        event.preventDefault();
+        document.body.classList.toggle('sb-sidenav-toggled');
+        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
+    });
+}
+
+});
+</script>
 <!-- JS Plugins Init. -->
 <script>
     $(document).on('ready', function () {
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'))
         tooltipTriggerList.forEach(function (tooltipTriggerEl) {
             new bootstrap.Tooltip(tooltipTriggerEl)
         })
@@ -722,8 +492,7 @@
 <script>
     /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
     function openNav() {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("mySidebar").style.width = "200px";
     }
 
     /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
@@ -901,6 +670,16 @@
                 $('#'+id).submit()
             }
         })
+    }
+
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
     }
 </script>
 

@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="{{route('vendor.employee.add-new')}}" class="btn btn-primary  float-right">
+                <a href="{{route('vendor.employee.add-new')}}" class="btn btn-pink  float-right">
                     <i class="tio-add-circle"></i>
                     <span class="text">{{trans('messages.add')}} {{trans('messages.new')}}</span>
                 </a>

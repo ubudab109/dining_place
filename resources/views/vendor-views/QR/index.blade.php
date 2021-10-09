@@ -3,44 +3,83 @@
 @push('css_or_js')
     <!-- Custom styles for this page -->
 @endpush
+@section('style')
+<style>
+  .wcfm-clearfix {
+    clear: both;
+}
 
+
+.template_qrcode_raw_store, .template_qrcode_raw {
+    margin: 0 auto;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+#qrcode_store {
+    margin-top: 10px;
+}
+</style>
+    
+@endsection
 @section('content')
-<div class="content container-fluid"> 
-  <div class="row">
-    <div class="col-sm-4">
-      <h3 class="card-title">Restaurant’s QR Code Design</h3>
-      <p class="card-text">Use the design below to display in front of your restaurant</p>
-      <div class="card">
-        <div class="card-body">
-          <div class="row mb-5 justify-content-center">
-            <h1 style="font-size: 20px; font-weight: bold; line-height: 30px;">Scan QR Code Below To See Our Menu</h1>
-          </div>
-          <div class="row justify-content-center mb-5">
-            <img src="{{asset('storage/restaurant/'. $restaurant->logo)}}" alt="" style="border-radius: 50%; width: 30%;  ">
-          </div>
-          <div class="row justify-content-center text-center mb-5">
-            <p>Now you can order contactless and pay cashless through your smartphone with us through My Dining Place!</p>
-          </div>
-          <div class="row justify-content-center">
-            
-            {!! QrCode::size(200)->generate(route('restaurant-list', $restaurant->slug)); !!}
-          </div>
-          <div class="row justify-content-center mt-4">
-            <img src="https://mydiningplace.com/wp-content/uploads/2020/12/IMG-20201214-WA0002.jpg" width="150">
-          </div>
-          <div class="row justify-content-center">
-            <p class="qr_code_desc" style="font-weight:300;padding-top: 15px">www.mydiningplace.com</p>
-          </div>
-          <div class="row justify-content-center">
-            <img src="https://mydiningplace.com/wp-content/uploads/2020/12/download.png" width="150">
-          </div>
+<div class="content container"> 
+  <div class="store_code_wrapper" style="display: flex;
+  width: 100%; justify-content: space-between;">
+    <div class="store_code" id="store-code-2" style="width:400px;border:1px solid #ccc;padding: 20px;background:#fff">
+      <div class="row" style="padding: inherit;">
+        <div class="qr_code_title_store" style="float:left;width:60%">
+          <p style="font-size: 27px;font-weight:1000;line-height: 30px; color: black">Scan QR Code Below To See Our Menu</p>
+        </div>
+        <div class="qr_code_logo_store" style="float:left;width:40%; text-align:right">
+          <img src="{{asset('storage/restaurant/'.$restaurant->logo)}}" width="90">
         </div>
       </div>
-    </div>
-    <div class="col-sm-6 mt-8">
-      <div class="row justify-content-center">
-        {!! QrCode::size(200)->generate(route('restaurant-list', $restaurant->slug)); !!}
+      <div class="wcfm-clearfix"></div>
+      <div class="row" style="padding: inherit; color: black">
+        <p class="qr_code_desc_store"> Now you can order contactless and pay cashless through your smartphone with us through My Dining Place!</p>
       </div>
+      <br>
+      <div id="qrcode_store" class="row justify-content-center">
+        @php
+            $png = QrCode::format('png')->size(200)->generate(route('restaurant-list', $restaurant->slug));
+            $png = base64_encode($png);
+            echo "<img class='img-qr' src='data:image/png;base64," . $png . "' width='50' height='300'>";
+        @endphp
+      </div>
+      <br>
+      <div class="wcfm-clearfix"></div>
+      <div class="qr_code_site_logo" style="float:left;text-align:left">
+        <img src="{{asset('assets/dining.jpg')}}" width="150">
+        <p class="qr_code_desc" style="font-weight:300;padding-top: 15px">www.mydiningplace.com</p>
+      </div>	
+      <div class="qr_code_site_logo" style="float:left;width:50%;text-align:right">
+        <img src="{{asset('assets/download.png')}}" width="150">
+      </div>
+      <div class="wcfm-clearfix"></div>
+    </div>
+    <div class="template_qrcode_raw_store">
+      <div id="qrcode_raw_store" class="row justify-content-left">
+        @php
+            $png = QrCode::format('png')->size(200)->generate(route('restaurant-list', $restaurant->slug));
+            $png = base64_encode($png);
+            echo "<img src='data:image/png;base64," . $png . "'>";
+        @endphp
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-lg-4 col-sm-8">
+      <button class="btn btn-danger mr-2" type="button" onclick="downloadTemplate()">Download Template</button>
+    </div>
+    <div class="col-lg-4 col-sm-8">
+      <a class="btn btn-danger" href="data:image/png;base64,{{$png}}" download>Download Raw</a>
     </div>
   </div>
   <div class="row">
@@ -66,7 +105,7 @@
             </div>
           </form>
           <div class="form-group mt-3 text-left">
-            <button type="button" onclick="generate()" class="btn btn-primary">Generate</button>
+            <button type="button" onclick="generate()" class="btn btn-pink">Generate</button>
           </div>
         </div>
 
@@ -74,39 +113,99 @@
     </div>
   </div>
   <div class="row mt-8">
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="row mb-5 justify-content-center">
-            <h1 style="font-size: 20px; font-weight: bold; line-height: 30px;">Scan QR Code Below To See Our Menu</h1>
-          </div>
-          <div class="row justify-content-center mb-5">
-            <img src="{{asset('storage/restaurant/'. $restaurant->logo)}}" alt="" style="border-radius: 50%; width: 30%;  ">
-          </div>
-          <div class="row justify-content-center text-center mb-5">
-            <p>Now you can order contactless and pay cashless through your smartphone with us through My Dining Place!</p>
-          </div>
-          <div class="row justify-content-center">
-            <div id="qrcode-2"></div>
-          </div>
-          <div class="row justify-content-center mt-4">
-            <img src="https://mydiningplace.com/wp-content/uploads/2020/12/IMG-20201214-WA0002.jpg" width="150">
-          </div>
-          <div class="row justify-content-center">
-            <p class="qr_code_desc" style="font-weight:300;padding-top: 15px">www.mydiningplace.com</p>
-          </div>
-          <div class="row justify-content-center">
-            <img src="https://mydiningplace.com/wp-content/uploads/2020/12/download.png" width="150">
-          </div>
+    <div class="store_code_wrapper" style="display: flex;
+  width: 100%; justify-content: space-between;">
+    <div class="store_code" id="store_code-1" style="width:400px;border:1px solid #ccc;padding: 20px;background:#fff">
+      <div class="row" style="padding: inherit;">
+        <div class="qr_code_title_store" style="float:left;width:60%">
+          <p style="font-size: 27px;font-weight:1000;line-height: 30px; color: black">Scan QR Code Below To See Our Menu</p>
+        </div>
+        <div class="qr_code_logo_store" style="float:left;width:40%; text-align:right">
+          <img src="{{asset('storage/restaurant/'.$restaurant->logo)}}" width="90">
         </div>
       </div>
+      <div class="wcfm-clearfix"></div>
+      <div class="row" style="padding: inherit; color: black">
+        <p class="qr_code_desc_store">Table Number <span id="number_table"></span> </p>
+      </div>
+      <br>
+      <div id="qrcode_store-1" class="row justify-content-center">
+       
+      </div>
+      <br>
+      <div class="wcfm-clearfix"></div>
+      <div class="qr_code_site_logo" style="float:left;text-align:left">
+        <img src="{{asset('assets/dining.jpg')}}" width="150">
+        <p class="qr_code_desc" style="font-weight:300;padding-top: 15px">www.mydiningplace.com</p>
+      </div>	
+      <div class="qr_code_site_logo" style="float:left;width:50%;text-align:right">
+        <img src="{{asset('assets/download.png')}}" width="150">
+      </div>
+      <div class="wcfm-clearfix"></div>
     </div>
+    <div class="template_qrcode_raw_store">
+      <div id="qrcode_raw_store-1" class="row justify-content-left">
+        
+      </div>
     </div>
+    
+  </div>
+  </div>
+  <div class="row justify-content-center" id="downloadButton">
+    
+  </div>
   </div>
 </div>
 @endsection
 @section('scripts')
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 <script>
+
+  function downloadTemplateRaw()
+  {
+    html2canvas(document.getElementById("qrcode_raw_store-1"),		{
+			allowTaint: true,
+			useCORS: true
+		}).then(function (canvas) {
+			var anchorTag = document.createElement("a");
+			document.body.appendChild(anchorTag);
+			anchorTag.download = "qrCode.jpg";
+			anchorTag.href = canvas.toDataURL();
+			anchorTag.target = '_blank';
+			anchorTag.click();
+		});
+  }
+
+
+  function downloadTemplateNew()
+  {
+    html2canvas(document.getElementById("store_code-1"),		{
+			allowTaint: true,
+			useCORS: true
+		}).then(function (canvas) {
+			var anchorTag = document.createElement("a");
+			document.body.appendChild(anchorTag);
+			anchorTag.download = "qrCode.jpg";
+			anchorTag.href = canvas.toDataURL();
+			anchorTag.target = '_blank';
+			anchorTag.click();
+		});
+  }
+  function downloadTemplate()
+  {
+    html2canvas(document.getElementById("store-code-2"),		{
+			allowTaint: true,
+			useCORS: true
+		}).then(function (canvas) {
+			var anchorTag = document.createElement("a");
+			document.body.appendChild(anchorTag);
+			anchorTag.download = "qrCode.jpg";
+			anchorTag.href = canvas.toDataURL();
+			anchorTag.target = '_blank';
+			anchorTag.click();
+		});
+  }
+
   function generate()
   {
     var title = $("#title").val();
@@ -118,9 +217,28 @@
       var url = "{{route('restaurant-list', ':slug')}}?table=:table"
       url = url.replace(':slug', slug);
       url = url.replace(':table', table);
-      new QRCode(document.getElementById("qrcode-2"), {
+      $("#number_table").text(table);
+      new QRCode(document.getElementById("qrcode_store-1"), {
         text: url,
+        width: 500,
+	      height: 500,
       });
+
+      var qrRaw = new QRCode(document.getElementById("qrcode_raw_store-1"), {
+        text: url,
+        
+      });
+
+      $("#downloadButton").html(`
+        <div class='row justify-content-center mt-5 mb-5'>
+          <div class='col-lg-4 col-sm-8'>
+            <a class="btn btn-danger mr-2" type="button" onclick="downloadTemplateNew()">Download Template</a>
+          </div>
+          <div class='col-lg-4 col-sm-8'>
+            <a class="btn btn-danger" onclick="downloadTemplateRaw()" download>Download Raw</a>
+          </div>
+        </div>
+      `)
     }
   }
 </script>

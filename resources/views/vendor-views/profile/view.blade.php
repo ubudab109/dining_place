@@ -33,7 +33,7 @@
                                 : {{$data->account_no ? $data->account_no : 'No Data found'}}</h6>
 
 
-                            <a class="btn btn-primary"
+                            <a class="btn btn-pink"
                                href="{{route('vendor.profile.bankInfo',[$data->id])}}">{{__('messages.edit')}}</a>
                         </div>
                     </div>

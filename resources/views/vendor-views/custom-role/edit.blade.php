@@ -128,7 +128,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">{{trans('messages.update')}}</button>
+                        <button type="submit" class="btn btn-pink">{{trans('messages.update')}}</button>
                     </form>
                 </div>
             </div>

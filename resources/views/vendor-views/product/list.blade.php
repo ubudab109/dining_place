@@ -14,7 +14,7 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <h1 class="page-header-title"><i class="tio-filter-list"></i> {{__('messages.food')}} {{__('messages.list')}}</h1>
                 </div>
-                <a href="{{route('vendor.food.add-new')}}" class="btn btn-primary pull-right"><i
+                <a href="{{route('vendor.food.add-new')}}" class="btn btn-pink pull-right"><i
                                 class="tio-add-circle"></i> {{__('messages.add')}} {{__('messages.new')}} {{__('messages.food')}}</a>
             </div>
         </div>
@@ -180,6 +180,7 @@
                                 <th style="width: 20%">{{__('messages.name')}}</th>
                                 <th style="width: 20%">{{__('messages.type')}}</th>
                                 <th>{{__('messages.price')}}</th>
+                                <th>Language</th>
                                 <th>{{__('messages.status')}}</th>
                                 <th>{{__('messages.action')}}</th>
                             </tr>
@@ -201,7 +202,8 @@
                                     <td>
                                     {{$food->category}}
                                     </td>
-                                    <td>{{($food['price'])}}</td>
+                                    <td>Rp. {{number_format($food['price'], 0)}}</td>
+                                    <td>{{($food->language->name)}}</td>
                                     <td>
                                         <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox{{$food->id}}">
                                             <input type="checkbox" onclick="location.href='{{route('vendor.food.status',[$food['id'],$food->status?0:1])}}'"class="toggle-switch-input" id="stocksCheckbox{{$food->id}}" {{$food->status?'checked':''}}>

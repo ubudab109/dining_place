@@ -40,6 +40,8 @@ class Restaurant extends Model
         'zone_id',
         'reviews_section',
         'subscription_id',
+        'payment_website',
+        'language_id',
     ];
 
     protected $casts = [
@@ -49,6 +51,7 @@ class Restaurant extends Model
         'schedule_order'=>'boolean',
         'free_delivery'=>'boolean',
         'vendor_id'=>'integer',
+        'payment_website' => 'boolean',
     ];
 
     /**
@@ -68,6 +71,11 @@ class Restaurant extends Model
     public function foods()
     {
         return $this->hasMany(Food::class, 'restaurant_id', 'id');
+    }
+
+    public function language()
+    {
+        return $this->hasMany(LanguageRestaurant::class, 'restaurant_id', 'id');
     }
 
     public function orders()

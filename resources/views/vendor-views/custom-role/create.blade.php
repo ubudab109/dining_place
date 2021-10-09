@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">{{__('messages.submit')}}</button>
+                        <button type="submit" class="btn btn-pink">{{__('messages.submit')}}</button>
                     </form>
                 </div>
             </div>

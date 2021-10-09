@@ -41,4 +41,16 @@ class RestaurantController extends Controller
         return redirect()->route('vendor.shop.view');
     }
 
+    public function updatePaymenMethod(Request $request, $id)
+    {
+        Restaurant::find($id)->update([
+            'payment_website'   => $request->payment,
+        ]);
+
+        Toastr::info(trans('messages.restaurant_data_updated'));
+
+        return redirect()->back();
+
+    }
+
 }

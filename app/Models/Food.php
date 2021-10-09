@@ -21,6 +21,33 @@ class Food extends Model
         'updated_at' => 'datetime'
     ];
 
+    protected $fillable = [
+        'name',
+        'description',
+        'image',
+        'category_id',
+        'category_ids',
+        'variations',
+        'add_ons',
+        'attributes',
+        'choice_options',
+        'price',
+        'tax',
+        'tax_type',
+        'discount',
+        'discount_type',
+        'available_time_starts',
+        'available_time_ends',
+        'set_menu',
+        'status',
+        'restaurant_id',
+        'created_at',
+        'updated_at',
+        'order_count',
+        'language_id',
+    ];
+
+
     protected $appends = ['total_discount']; 
     protected $primaryKey = 'id';
 
@@ -45,6 +72,11 @@ class Food extends Model
         }
 
         return $totalDisc;
+    }
+    
+    public function language()
+    {
+        return $this->belongsTo(LanguageRestaurant::class, 'language_id', 'id');
     }
     
     public function scopePopular($query)

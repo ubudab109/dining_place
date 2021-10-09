@@ -97,6 +97,10 @@
             .pagination {
                 margin-top: 20px;
             }
+
+            .active-language {
+                background: #f67280;
+            }
     </style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
@@ -154,11 +158,25 @@
                 <div class="row">
                     <div class="col-12 col-sm-3">
                         <div class="card bg-light mb-3">
+                            <div class="card-header bg-custom text-white text-uppercase"><i class="fa fa-list"></i> Languages</div>
+                            <ul class="list-group category_block">
+                                <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
+                                    <li class="list-group-item <?php echo e(request()->language == $item->id ? 'active-language' : ''); ?>"><a href="/r/<?php echo e($data->slug); ?>?language=<?php echo e($item->id); ?>">
+                                        <div class="row justify-content-between">
+                                            <img src="<?php echo e(asset('storage/language/'.$item->logo)); ?>" alt="" width="50" height="50">
+                                            <?php echo e($data->language_id == $item->id ? 'Default' : ''); ?>
+
+                                        </div>
+                                    </a></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            </ul>
+                        </div>
+                        <div class="card bg-light mb-3">
                             <div class="card-header bg-custom text-white text-uppercase"><i class="fa fa-list"></i> Categories</div>
                             <ul class="list-group category_block">
-                                <li class="list-group-item"><a href="/restaurant/<?php echo e($data->slug); ?>">Show All</a></li>
+                                <li class="list-group-item"><a href="/r/<?php echo e($data->slug); ?>">Show All</a></li>
                                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
-                                    <li class="list-group-item"><a href="/restaurant/<?php echo e($data->slug); ?>/<?php echo e($item->id); ?>"><?php echo e($item->name); ?></a></li>
+                                    <li class="list-group-item"><a href="/r/<?php echo e($data->slug); ?>?categories=<?php echo e($item->id); ?>"><?php echo e($item->name); ?></a></li>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </ul>
                         </div>

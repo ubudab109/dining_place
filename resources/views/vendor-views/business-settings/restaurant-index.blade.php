@@ -81,7 +81,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">{{__('messages.update')}}</button>
+                            <button type="submit" class="btn btn-pink">{{__('messages.update')}}</button>
                         </form>
                     </div>
                 </div>

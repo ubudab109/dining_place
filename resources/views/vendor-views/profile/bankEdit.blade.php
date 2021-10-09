@@ -71,7 +71,7 @@
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary" id="btn_update">Update</button>
+                            <button type="submit" class="btn btn-pink" id="btn_update">Update</button>
                             <a class="btn btn-danger" href="{{route('vendor.profile.view')}}">Cancel</a>
                         </form>
                     </div>

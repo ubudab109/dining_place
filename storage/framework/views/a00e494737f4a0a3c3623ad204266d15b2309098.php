@@ -86,6 +86,19 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-md-12 col-12">
+                            <div class="form-group">
+                                <label class="input-label" for="exampleFormControlSelect1">Language<span
+                                        class="input-label-secondary"></span></label>
+                                <select name="language_id" id="language"
+                                        class="form-control js-select2-custom" required>
+                                        <option value="" selected disabled>Select Language</option>
+                                    <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($item->id); ?>"><?php echo e($item->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                        </div>
                         
                     </div>
 
@@ -166,7 +179,7 @@
                         </center>
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary"><?php echo e(__('messages.submit')); ?></button>
+                    <button type="submit" class="btn btn-pink"><?php echo e(__('messages.submit')); ?></button>
                 </form>
             </div>
         </div>
