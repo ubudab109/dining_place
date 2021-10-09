@@ -14,7 +14,7 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <h1 class="page-header-title"><i class="tio-filter-list"></i> <?php echo e(__('messages.food')); ?> <?php echo e(__('messages.list')); ?></h1>
                 </div>
-                <a href="<?php echo e(route('vendor.food.add-new')); ?>" class="btn btn-primary pull-right"><i
+                <a href="<?php echo e(route('vendor.food.add-new')); ?>" class="btn btn-pink pull-right"><i
                                 class="tio-add-circle"></i> <?php echo e(__('messages.add')); ?> <?php echo e(__('messages.new')); ?> <?php echo e(__('messages.food')); ?></a>
             </div>
         </div>
@@ -168,6 +168,7 @@
                                 <th style="width: 20%"><?php echo e(__('messages.name')); ?></th>
                                 <th style="width: 20%"><?php echo e(__('messages.type')); ?></th>
                                 <th><?php echo e(__('messages.price')); ?></th>
+                                <th>Language</th>
                                 <th><?php echo e(__('messages.status')); ?></th>
                                 <th><?php echo e(__('messages.action')); ?></th>
                             </tr>
@@ -190,7 +191,8 @@
                                     <?php echo e($food->category); ?>
 
                                     </td>
-                                    <td><?php echo e(($food['price'])); ?></td>
+                                    <td>Rp. <?php echo e(number_format($food['price'], 0)); ?></td>
+                                    <td><?php echo e(($food->language->name)); ?></td>
                                     <td>
                                         <label class="toggle-switch toggle-switch-sm" for="stocksCheckbox<?php echo e($food->id); ?>">
                                             <input type="checkbox" onclick="location.href='<?php echo e(route('vendor.food.status',[$food['id'],$food->status?0:1])); ?>'"class="toggle-switch-input" id="stocksCheckbox<?php echo e($food->id); ?>" <?php echo e($food->status?'checked':''); ?>>

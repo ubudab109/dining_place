@@ -124,7 +124,7 @@
                         </div>
 
                         <div class="card-footer pl-0">
-                            <button type="submit" class="btn btn-primary">{{__('messages.update')}}</button>
+                            <button type="submit" class="btn btn-pink">{{__('messages.update')}}</button>
                         </div>
                     </form>
                 </div>

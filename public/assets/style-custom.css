@@ -11323,4 +11323,9 @@ body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
   body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     margin-left: -15rem;
   }
+
+  .btn-pink {
+    background-color: #F67280 !important;
+    color: white !important;
+  }
 }

@@ -30,7 +30,7 @@
                                 <input type="text" name="name" value="" class="form-control" placeholder="Table Name" required>
                             </div>
                             <div class="form-group pt-2">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-pink">Save</button>
                             </div>
                             
                         </form>
@@ -119,7 +119,7 @@
                                         <input type="text" id="name_edit" name="name" value="" class="form-control" placeholder="Subscription Name" required>
                                     </div>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-pink">Save changes</button>
                                 </form>
                             </div>
                         </div>

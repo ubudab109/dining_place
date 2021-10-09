@@ -87,7 +87,7 @@
                             src="{{asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)}}" alt="Product thumbnail"/>
                         </center>  
                         <br>
-                        <button type="submit" class="btn btn-primary text-capitalize" id="btn_update">{{__('messages.update')}}</button>
+                        <button type="submit" class="btn btn-pink text-capitalize" id="btn_update">{{__('messages.update')}}</button>
                         <a class="btn btn-danger text-capitalize" href="{{route('vendor.shop.view')}}">{{__('messages.cancel')}}</a>
                     </form>
                 </div>

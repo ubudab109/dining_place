@@ -105,7 +105,7 @@ p {
             </div>
           </form>
           <div class="form-group mt-3 text-left">
-            <button type="button" onclick="generate()" class="btn btn-primary">Generate</button>
+            <button type="button" onclick="generate()" class="btn btn-pink">Generate</button>
           </div>
         </div>
 

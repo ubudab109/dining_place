@@ -36,7 +36,7 @@
                                 </div>
                                 <input id="datatableSearch_" type="search" name="search" class="form-control"
                                        placeholder="Search" aria-label="Search" required>
-                                <button type="submit" class="btn btn-primary">search</button>
+                                <button type="submit" class="btn btn-pink">search</button>
                             </div>
                             <!-- End Search -->
                         </form>

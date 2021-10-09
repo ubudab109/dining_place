@@ -15,7 +15,7 @@
                     <h1 class="page-header-title">{{$product['name']}}</h1>
                 </div>
                 <div class="col-6">
-                    <a href="{{route('vendor.food.edit',[$product['id']])}}" class="btn btn-primary float-right">
+                    <a href="{{route('vendor.food.edit',[$product['id']])}}" class="btn btn-pink float-right">
                         <i class="tio-edit"></i> {{__('messages.edit')}}
                     </a>
                 </div>

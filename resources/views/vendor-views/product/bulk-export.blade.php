@@ -65,7 +65,7 @@
                                 <input type="date" name="to_date" class="form-control">
                             </div>
                         </div>
-                        <button class="btn btn-primary" type="submit">{{__('messages.submit')}}</button>
+                        <button class="btn btn-pink" type="submit">{{__('messages.submit')}}</button>
                     </div>
                 </form>
             </div>

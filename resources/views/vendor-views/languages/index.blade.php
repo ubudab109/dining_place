@@ -43,7 +43,7 @@
             <div class="form-group">
               <input type="file" name="logo" class="form-control" id="">
             </div>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-pink" type="submit">Submit</button>
           </form>
         </div>
       </div>

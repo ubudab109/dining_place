@@ -84,13 +84,13 @@
                         @php($order_delivery_verification = (boolean)\App\Models\BusinessSetting::where(['key' => 'order_delivery_verification'])->first()->value)
                         <div class="hs-unfold float-right">
                             @if($order['order_status']=='pending' && $order['order_type']=='take_away')
-                            <a class="btn btn-sm btn-primary" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'confirmed'])}}','Change status to confirmed ?')" href="javascript:">{{__('messages.confirm_this_order')}}</a>
+                            <a class="btn btn-sm btn-pink" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'confirmed'])}}','Change status to confirmed ?')" href="javascript:">{{__('messages.confirm_this_order')}}</a>
                             @elseif ($order['order_status']=='confirmed' || $order['order_status']=='accepted')
-                            <a class="btn btn-sm btn-primary" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'processing'])}}','Change status to cooking ?')" href="javascript:">{{__('messages.Proceed_for_cooking')}}</a>
+                            <a class="btn btn-sm btn-pink" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'processing'])}}','Change status to cooking ?')" href="javascript:">{{__('messages.Proceed_for_cooking')}}</a>
                             @elseif ($order['order_status']=='processing')
-                            <a class="btn btn-sm btn-primary" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'handover'])}}','Change status to ready for handover ?')" href="javascript:">{{__('messages.make_ready_for_handover')}}</a>    
+                            <a class="btn btn-sm btn-pink" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'handover'])}}','Change status to ready for handover ?')" href="javascript:">{{__('messages.make_ready_for_handover')}}</a>    
                             @elseif ($order['order_status']=='handover' && $order['order_type']=='take_away')
-                            <a class="btn btn-sm btn-primary" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'delivered'])}}','Change status to delivered (payment status will be paid if not) ?', {{$order_delivery_verification?'true':'false'}})" href="javascript:">{{__('messages.maek_delivered')}}</a>    
+                            <a class="btn btn-sm btn-pink" onclick="order_status_change_alert('{{route('vendor.order.status',['id'=>$order['id'],'order_status'=>'delivered'])}}','Change status to delivered (payment status will be paid if not) ?', {{$order_delivery_verification?'true':'false'}})" href="javascript:">{{__('messages.maek_delivered')}}</a>    
                             @endif
                         </div>
                         <!-- End Unfold -->
@@ -600,7 +600,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-white" data-dismiss="modal">{{__('messages.close')}}</button>
-                            <button type="submit" class="btn btn-primary">{{__('messages.save')}} {{__('messages.changes')}}</button>
+                            <button type="submit" class="btn btn-pink">{{__('messages.save')}} {{__('messages.changes')}}</button>
                         </div>
                     </form>
                 @endif

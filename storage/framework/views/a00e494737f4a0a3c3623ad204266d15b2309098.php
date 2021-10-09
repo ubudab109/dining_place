@@ -179,7 +179,7 @@
                         </center>
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary"><?php echo e(__('messages.submit')); ?></button>
+                    <button type="submit" class="btn btn-pink"><?php echo e(__('messages.submit')); ?></button>
                 </form>
             </div>
         </div>

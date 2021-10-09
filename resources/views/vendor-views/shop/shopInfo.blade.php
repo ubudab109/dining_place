@@ -45,7 +45,7 @@
                         <span class="h5">{{__('messages.address')}} : {{$shop->address}}</span><br>
                         <span class="h5">{{__('messages.admin_commission')}} : {{(isset($shop->comission)?$shop->comission:\App\Models\BusinessSetting::where('key','admin_commission')->first()->value)}}%</span><br>
                         <span class="h5">{{__('messages.vat/tax')}} : {{$shop->tax}}%</span><br>
-                        <a class="btn btn-primary mt-1" href="{{route('vendor.shop.edit',[$shop->id])}}">EDIT</a>
+                        <a class="btn btn-pink mt-1" href="{{route('vendor.shop.edit',[$shop->id])}}">EDIT</a>
                     </div>
                 </div>
                 
