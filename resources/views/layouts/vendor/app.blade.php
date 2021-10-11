@@ -115,7 +115,7 @@
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
 
-<body class="footer-offset">
+<body>
 
 {{--loader--}}
 <div class="container">
@@ -404,9 +404,15 @@
 </div>
 <!-- ========== END MAIN CONTENT ========== -->
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <footer class="dark-bg">
-    <div class="container py-5">
-        <div class="row">
+    <div class="container-fluid py-5">
+        <div class="row" style="font-size: 10px;">
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/contact-us/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Contact Us</a>
             </div>
@@ -422,7 +428,7 @@
             <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                 <a href="https://mydiningplace.com/privacy-policy/" target="_blank"class="text-uppercase font-weight-bold mb-4 text-white">Privacy Policy</a>
             </div>
-            <div class="col-lg-2 col-md-4 mb-lg-0">
+            <div class="col-lg-2 col-md-4 mb-lg-0" style="font-size: 10px;">
                 <ul class="list-inline">
                     <li class="list-inline-item"><a title="twitter"><i class="fab fa-1x fa-twitter text-white"></i></a></li>
                     <li class="list-inline-item"><a title="facebook"><i class="fab fa-1x fa-facebook-f text-white"></i></a></li>
@@ -433,7 +439,7 @@
             </div>
         </div>
         
-        <div class="text-left">
+        <div class="text-left" style="font-size: 10px;">
             <p class="mb-0 py-2 text-white">Copyright © 2020 <a href="https://mydiningplace.com/" style="color: #F67280 !important;">mydiningplace.com</a> All Rights Reserved</p>
         </div>
     </div>
