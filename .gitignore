@@ -15,3 +15,4 @@ yarn-error.log
 error_log
 storage/logs/laravel.log
 storage/framework/views/fcc145a2ce99439c7915cbbc1dc8b79051e26dd2.php
+*.php
