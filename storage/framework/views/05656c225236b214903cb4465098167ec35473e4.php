@@ -93,14 +93,7 @@
 
                                     </span>
                                 </div>
-                                <div class="d-flex align-items-center mt-2 mb-2">
-                                    <span class="h5 mb-0">
-                                        <span class="legend-indicator bg-primary"
-                                              style="background-color: #4CA1A3!important;"></span>
-                                        <?php echo e(__('messages.commission_given')); ?> : <?php echo e(\App\CentralLogics\Helpers::format_currency(array_sum($commission))); ?>
-
-                                    </span>
-                                </div>
+                                
                             </div>
 
                             <div class="col-sm-auto align-self-sm-end">

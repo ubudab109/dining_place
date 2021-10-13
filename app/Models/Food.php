@@ -58,6 +58,11 @@ class Food extends Model
         });
     }
 
+    public function exclude()
+    {
+        return $this->hasMany(ExcludeCoupons::class, 'food_id', 'id');
+    }
+
     public function getTotalDiscountAttribute()
     {
         $totalDisc = 0;

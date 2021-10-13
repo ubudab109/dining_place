@@ -146,6 +146,33 @@
         .navbar-vertical .navbar-nav.nav-tabs .active .nav-link, .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
             border-left-color: #C6FFC1;
         }
+<<<<<<< Updated upstream
+=======
+
+        .dark-bg {
+            background-color: #161616;
+        }
+
+        .font-custome {
+            font-family: "Poppins", Sans-serif;
+        }
+
+        .font-describe {
+            font-family: "Poppins", Sans-serif;
+            line-height: 1.6em;
+            font-size: 14px;
+        }
+
+        .font-auth {
+            font-family: "Poppins", Sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .hover-red:hover {
+            color: #F67280 !important;
+        }
+>>>>>>> Stashed changes
     </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     @yield('styler')
@@ -172,14 +199,17 @@
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a style="color: #000000;" class="nav-link navbar-font" href="{{route('home')}}">{{__('messages.home')}} <span
+                            <a style="color: #697279; font-size: 14px; font-weight: 600;" class="nav-link navbar-font font-custome" href="{{route('home')}}">{{__('messages.home')}} <span
                                     class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: #000000;" class="nav-link navbar-font" href="{{route('home')}}#about-us">{{__('messages.about_us')}}</a>
+                            <a style="color: #697279; font-size: 14px; font-weight: 600;" class="nav-link navbar-font font-custome" href="{{route('home')}}#about-us">{{__('messages.about_us')}}</a>
                         </li>
                         <li class="nav-item">
-                            <a style="color: #000000;" class="nav-link navbar-font" href="{{route('home')}}#subcription">Subcription</a>
+                            <a style="color: #697279; font-size: 14px; font-weight: 600;" class="nav-link navbar-font font-custome" href="{{route('home')}}#subcription">Pricing Plan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: #697279; font-size: 14px; font-weight: 600;" class="nav-link navbar-font font-custome" href="{{route('home')}}#subcription">Blog</a>
                         </li>
                     </ul>
                 </div>
@@ -188,9 +218,9 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             @if(auth('vendor')->check())
-                                <a href="{{ url('/vendor-panel') }}" style="color: #000000;" class="nav-link navbar-font"><i class="fas fa-user"></i>{{\App\CentralLogics\Helpers::get_loggedin_user()->f_name}}</a>
+                                <a href="{{ url('/vendor-panel') }}" style="color: #697279;" class="nav-link navbar-font font-auth"><i class="far fa-user"></i> Hi, {{\App\CentralLogics\Helpers::get_loggedin_user()->f_name}}</a>
                             @else
-                                <a data-target="#custom-login-wrapper" href="#custom-login-wrapper" data-toggle="modal" style="color: #000000;" class="nav-link navbar-font"><i class="fas fa-user"></i> Login Or Register </a>
+                                <a data-target="#custom-login-wrapper" href="#custom-login-wrapper" data-toggle="modal" style="color: #697279;" class="nav-link navbar-font font-auth"><i class="fas fa-user"></i> Login Or Register </a>
                             @endif
                         </li>
                     </ul>
@@ -304,6 +334,7 @@
                             </div>
                         </div>
 
+<<<<<<< Updated upstream
                         <div class="footer-article-div">
                                 <span class="footer-article">
                                     {{__('messages.footer_article')}}
@@ -398,6 +429,49 @@
                 <a class="text-white" href="#">{{\App\CentralLogics\Helpers::get_settings('business_name')}}</a>
             </div>
         </footer>
+=======
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<footer class="dark-bg">
+    <div class="container-fluid py-5">
+        <div class="row" style="font-size: 10px;">
+            <div class="col-lg-8 col-md-4 mb-lg-0" style="font-size: 12px;">
+                <ul class="list-inline">
+                    <li class="list-inline-item mr-5">
+                        <a href="https://mydiningplace.com/contact-us/" target="_blank" class="mb-4 text-white hover-red">Contact Us</a>
+                    </li>
+                    <li class="list-inline-item mr-5">
+                        <a href="https://mydiningplace.com/help-center/" target="_blank" class="mb-4 text-white hover-red">Help Center</a>
+                    </li>
+                    <li class="list-inline-item mr-5">
+                        <a href="https://mydiningplace.com/category/career/" target="_blank" class="mb-4 text-white hover-red">Career</a>
+                    </li>
+                    <li class="list-inline-item mr-5">
+                        <a href="https://mydiningplace.com/terms-of-use/" target="_blank" class="mb-4 text-white hover-red">Terms and Conditions</a>
+                    </li>
+                    <li class="list-inline-item mr-5">
+                        <a href="https://mydiningplace.com/privacy-policy/" target="_blank"class="mb-4 text-white hover-red">Privacy Policy</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-2 col-md-4 mb-lg-0" style="font-size: 14px;">
+                <ul class="list-inline">
+                    <li class="list-inline-item mr-3"><a title="twitter"><i class="fab fa-1x fa-twitter text-white"></i></a></li>
+                    <li class="list-inline-item mr-3"><a title="facebook"><i class="fab fa-1x fa-facebook-f text-white"></i></a></li>
+                    <li class="list-inline-item mr-3"><a title="pinterest"><i class="fab fa-1x fa-youtube text-white"></i></a></li>
+                    <li class="list-inline-item mr-3"><a title="instagram"><i class="fab fa-1x fa-instagram text-white"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-left ml-3" style="font-size: 12px;">
+            <p class="mb-0 py-2 text-white">Copyright © 2020 <a href="https://mydiningplace.com/" style="color: #F67280 !important;">mydiningplace.com</a> All Rights Reserved</p>
+        </div>
+>>>>>>> Stashed changes
     </div>
 </footer>
 
@@ -405,9 +479,15 @@
 <!-- Scrips Starts -->
 @include('sweetalert::alert')
 
+<<<<<<< Updated upstream
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
 <script src="{{asset('assets/admin')}}/js/vendor.min.js"></script>
+=======
+{{-- <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> --}}
+<script src="{{URL::asset('assets/admin')}}/js/vendor.min.js"></script>
+>>>>>>> Stashed changes
 
 <!-- JS Front -->
 <script src="{{asset('assets/admin')}}/js/theme.min.js"></script>
@@ -499,6 +579,7 @@
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
 </script>
 @stack('script_2')
+@yield('scrips')
 </body>
 
 </html>

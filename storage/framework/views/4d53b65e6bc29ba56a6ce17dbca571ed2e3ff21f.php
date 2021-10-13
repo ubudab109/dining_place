@@ -28,72 +28,38 @@
 <?php $__env->stopPush(); ?>
 <?php $__env->startSection('content'); ?>
     <!-- Content Row -->
-    <div class="content container-fluid"> 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="h3 mb-0 text-capitalize"><?php echo e(__('messages.edit')); ?> <?php echo e(__('messages.restaurant')); ?> <?php echo e(__('messages.info')); ?></h1>
-                </div>
-                <div class="card-body">
-                    <form action="<?php echo e(route('vendor.shop.update',[$shop->id])); ?>" method="post"
-                          enctype="multipart/form-data">
-                        <?php echo csrf_field(); ?>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name"><?php echo e(__('messages.restaurant')); ?> <?php echo e(__('messages.name')); ?> <span class="text-danger">*</span></label>
-                                    <input type="text" name="name" value="<?php echo e($shop->name); ?>" class="form-control" id="name"
-                                            required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name"><?php echo e(__('messages.contact')); ?> <?php echo e(__('messages.number')); ?><span class="text-danger">*</span></label>
-                                    <input type="text" name="contact" value="<?php echo e($shop->phone); ?>" class="form-control" id="name"
-                                            required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address"><?php echo e(__('messages.address')); ?><span class="text-danger">*</span></label>
-                                    <textarea type="text" rows="4" name="address" value="" class="form-control" id="address"
-                                            required><?php echo e($shop->address); ?></textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name"><?php echo e(__('messages.upload')); ?> <?php echo e(__('messages.logo')); ?></label>
-                                    <div class="custom-file">
-                                        <input type="file" name="image" id="customFileUpload" class="custom-file-input"
-                                            accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                        <label class="custom-file-label" for="customFileUpload"><?php echo e(__('messages.choose')); ?> <?php echo e(__('messages.file')); ?></label>
-                                    </div>
-                                </div> 
-                                <center>
-                                    <img style="width: auto;border: 1px solid; border-radius: 10px; max-height:200px;" id="viewer"
-                                    onerror="this.src='<?php echo e(asset('assets/admin/img/image-place-holder.png')); ?>'"
-                                    src="<?php echo e(asset('storage/app/public/restaurant/'.$shop->logo)); ?>" alt="Product thumbnail"/>
-                                </center>  
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name"><?php echo e(__('messages.upload')); ?> <?php echo e(__('messages.cover')); ?> <?php echo e(__('messages.photo')); ?> <span class="text-danger">(<?php echo e(__('messages.ratio')); ?> 2:1)</span></label>
-                            <div class="custom-file">
-                                <input type="file" name="photo" id="coverImageUpload" class="custom-file-input"
-                                    accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                <label class="custom-file-label" for="customFileUpload"><?php echo e(__('messages.choose')); ?> <?php echo e(__('messages.file')); ?></label>
-                            </div>
-                        </div> 
-                        <center>
-                            <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
-                            onerror="this.src='<?php echo e(asset('assets/admin/img/restaurant_cover.jpg')); ?>'"
-                            src="<?php echo e(asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)); ?>" alt="Product thumbnail"/>
-                        </center>  
-                        <br>
-                        <button type="submit" class="btn btn-primary text-capitalize" id="btn_update"><?php echo e(__('messages.update')); ?></button>
-                        <a class="btn btn-danger text-capitalize" href="<?php echo e(route('vendor.shop.view')); ?>"><?php echo e(__('messages.cancel')); ?></a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="content container-fluid">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home">Restaurant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1">Address</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2">Document</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu4">Bank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu5">Settings</a>
+            </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+    
+            <div class="tab-pane container active" id="home"><?php echo $__env->make('vendor-views.shop.partials._edit-info', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+            <div class="tab-pane fade container fade" id="menu1"><?php echo $__env->make('vendor-views.shop.partials._edit-address', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+            <div class="tab-pane fade container fade" id="menu2"><?php echo $__env->make('vendor-views.shop.partials._edit-document', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+            <div class="tab-pane fade container fade" id="menu3"><?php echo $__env->make('vendor-views.shop.partials._edit-social', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+            <div class="tab-pane fade container fade" id="menu4"><?php echo $__env->make('vendor-views.shop.partials._edit-bank', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+            <div class="tab-pane fade container fade" id="menu5"><?php echo $__env->make('vendor-views.shop.partials._edit-setting', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?></div>
+          </div>
     </div>
 <?php $__env->stopSection(); ?>
 

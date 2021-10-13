@@ -46,6 +46,16 @@ class Vendor extends Authenticatable
         'remember_token',
     ];
 
+    public function chat()
+    {
+        return $this->hasMany(Chat::class, 'vendor_id', 'id');
+    }
+
+    public function restaurant()
+    {
+        return $this->hasOne(Restaurant::class, 'vendor_id', 'id');
+    }
+
     public function order_transaction()
     {
         return $this->hasMany(OrderTransaction::class);

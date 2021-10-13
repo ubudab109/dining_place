@@ -163,7 +163,7 @@
                                 @foreach ($languages as $item) 
                                     <li class="list-group-item {{request()->language == $item->id ? 'active-language' : ''}}"><a href="/r/{{$data->slug}}?language={{$item->id}}">
                                         <div class="row justify-content-between">
-                                            <img src="{{asset('storage/language/'.$item->logo)}}" alt="" width="50" height="50">
+                                            <img src="{{asset('assets/flags_new/'.$item->languages->flag->flag)}}" alt="">
                                             {{$data->language_id == $item->id ? 'Default' : ''}}
                                         </div>
                                     </a></li>

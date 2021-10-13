@@ -243,8 +243,8 @@
                         <th>{{__('messages.payment')}} {{__('messages.status')}}</th>
                         <th>{{__('messages.total')}}</th>
                         <th>{{__('messages.order')}} {{__('messages.status')}}</th>
-                        <th>{{__('messages.order')}} {{__('messages.type')}}</th>
-                        <th>{{__('messages.actions')}}</th>
+                        {{-- <th>{{__('messages.order')}} {{__('messages.type')}}</th>
+                        <th>{{__('messages.actions')}}</th> --}}
                     </tr>
                     </thead>
 
@@ -306,7 +306,7 @@
                                     </span>
                                 @endif
                             </td>
-                            <td class="text-capitalize">
+                            {{-- <td class="text-capitalize">
                                 @if($order['order_type']=='take_away')
                                     <span class="badge badge-soft-info ml-2 ml-sm-3">
                                         <span class="legend-indicator bg-info"></span>{{__('messages.take_away')}}
@@ -324,7 +324,7 @@
                                 <a class="btn btn-sm btn-white" target="_blank"
                                            href="{{route('vendor.order.generate-invoice',[$order['id']])}}"><i
                                                 class="tio-download"></i> {{__('messages.invoice')}}</a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
                     </tbody>

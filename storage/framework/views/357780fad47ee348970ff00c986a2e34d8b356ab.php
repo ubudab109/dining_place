@@ -250,8 +250,7 @@
                         <th><?php echo e(__('messages.payment')); ?> <?php echo e(__('messages.status')); ?></th>
                         <th><?php echo e(__('messages.total')); ?></th>
                         <th><?php echo e(__('messages.order')); ?> <?php echo e(__('messages.status')); ?></th>
-                        <th><?php echo e(__('messages.order')); ?> <?php echo e(__('messages.type')); ?></th>
-                        <th><?php echo e(__('messages.actions')); ?></th>
+                        
                     </tr>
                     </thead>
 
@@ -322,27 +321,7 @@
                                     </span>
                                 <?php endif; ?>
                             </td>
-                            <td class="text-capitalize">
-                                <?php if($order['order_type']=='take_away'): ?>
-                                    <span class="badge badge-soft-info ml-2 ml-sm-3">
-                                        <span class="legend-indicator bg-info"></span><?php echo e(__('messages.take_away')); ?>
-
-                                    </span>
-                                <?php else: ?>
-                                    <span class="badge badge-soft-success ml-2 ml-sm-3">
-                                      <span class="legend-indicator bg-success"></span><?php echo e(__('messages.delivery')); ?>
-
-                                    </span>
-                                <?php endif; ?>
-                            </td>
-                            <td>
-                                <a class="btn btn-sm btn-white"
-                                           href="<?php echo e(route('vendor.order.details',['id'=>$order['id']])); ?>"><i
-                                                class="tio-visible"></i> <?php echo e(__('messages.view')); ?></a>
-                                <a class="btn btn-sm btn-white" target="_blank"
-                                           href="<?php echo e(route('vendor.order.generate-invoice',[$order['id']])); ?>"><i
-                                                class="tio-download"></i> <?php echo e(__('messages.invoice')); ?></a>
-                            </td>
+                            
                         </tr>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>

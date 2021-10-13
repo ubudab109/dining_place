@@ -582,6 +582,16 @@
                             </a>
                         </li>
                     @endif
+
+                    <li class="navbar-vertical-aside-has-menu {{Request::is('admin/chat')?'active':''}}">
+                        <a class="js-navbar-vertical-aside-menu-link nav-link"
+                           href="{{route('admin.chat.index')}}" title="Chat Box"
+                        >
+                            <i class="far fa-comments mr-2"></i>
+                            <span
+                                class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Chat Box</span>
+                        </a>
+                    </li>
                 <!-- End Banner -->
                     <!-- Coupon -->
                     @if(\App\CentralLogics\Helpers::module_permission_check('coupon'))

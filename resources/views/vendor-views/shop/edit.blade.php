@@ -28,72 +28,38 @@
 @endpush
 @section('content')
     <!-- Content Row -->
-    <div class="content container-fluid"> 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="h3 mb-0 text-capitalize">{{__('messages.edit')}} {{__('messages.restaurant')}} {{__('messages.info')}}</h1>
-                </div>
-                <div class="card-body">
-                    <form action="{{route('vendor.shop.update',[$shop->id])}}" method="post"
-                          enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">{{__('messages.restaurant')}} {{__('messages.name')}} <span class="text-danger">*</span></label>
-                                    <input type="text" name="name" value="{{$shop->name}}" class="form-control" id="name"
-                                            required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">{{__('messages.contact')}} {{__('messages.number')}}<span class="text-danger">*</span></label>
-                                    <input type="text" name="contact" value="{{$shop->phone}}" class="form-control" id="name"
-                                            required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="address">{{__('messages.address')}}<span class="text-danger">*</span></label>
-                                    <textarea type="text" rows="4" name="address" value="" class="form-control" id="address"
-                                            required>{{$shop->address}}</textarea>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="name">{{__('messages.upload')}} {{__('messages.logo')}}</label>
-                                    <div class="custom-file">
-                                        <input type="file" name="image" id="customFileUpload" class="custom-file-input"
-                                            accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                        <label class="custom-file-label" for="customFileUpload">{{__('messages.choose')}} {{__('messages.file')}}</label>
-                                    </div>
-                                </div> 
-                                <center>
-                                    <img style="width: auto;border: 1px solid; border-radius: 10px; max-height:200px;" id="viewer"
-                                    onerror="this.src='{{asset('assets/admin/img/image-place-holder.png')}}'"
-                                    src="{{asset('storage/app/public/restaurant/'.$shop->logo)}}" alt="Product thumbnail"/>
-                                </center>  
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">{{__('messages.upload')}} {{__('messages.cover')}} {{__('messages.photo')}} <span class="text-danger">({{__('messages.ratio')}} 2:1)</span></label>
-                            <div class="custom-file">
-                                <input type="file" name="photo" id="coverImageUpload" class="custom-file-input"
-                                    accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
-                                <label class="custom-file-label" for="customFileUpload">{{__('messages.choose')}} {{__('messages.file')}}</label>
-                            </div>
-                        </div> 
-                        <center>
-                            <img style="max-width: 100%;border: 1px solid; border-radius: 10px; max-height:200px;" id="coverImageViewer"
-                            onerror="this.src='{{asset('assets/admin/img/restaurant_cover.jpg')}}'"
-                            src="{{asset('storage/app/public/restaurant/cover/'.$shop->cover_photo)}}" alt="Product thumbnail"/>
-                        </center>  
-                        <br>
-                        <button type="submit" class="btn btn-pink text-capitalize" id="btn_update">{{__('messages.update')}}</button>
-                        <a class="btn btn-danger text-capitalize" href="{{route('vendor.shop.view')}}">{{__('messages.cancel')}}</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="content container-fluid">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home">Restaurant</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1">Address</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2">Document</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#menu3">Info</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu4">Bank</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu5">Settings</a>
+            </li>
+          </ul>
+          
+          <!-- Tab panes -->
+          <div class="tab-content">
+    
+            <div class="tab-pane container active" id="home">@include('vendor-views.shop.partials._edit-info')</div>
+            <div class="tab-pane fade container fade" id="menu1">@include('vendor-views.shop.partials._edit-address')</div>
+            <div class="tab-pane fade container fade" id="menu2">@include('vendor-views.shop.partials._edit-document')</div>
+            <div class="tab-pane fade container fade" id="menu3">@include('vendor-views.shop.partials._edit-social')</div>
+            <div class="tab-pane fade container fade" id="menu4">@include('vendor-views.shop.partials._edit-bank')</div>
+            <div class="tab-pane fade container fade" id="menu5">@include('vendor-views.shop.partials._edit-setting')</div>
+          </div>
     </div>
 @endsection
 

@@ -1,6 +1,10 @@
 <?php
 
+use App\CentralLogics\Helpers;
 use App\Http\Controllers\Vendor\TableController;
+use App\Models\Chat;
+use App\Models\Food;
+use App\Models\Vendor;
 use Illuminate\Support\Facades\Route;
 
 
@@ -97,9 +101,14 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
 
         Route::group(['prefix' => 'coupon', 'as' => 'coupon.', 'middleware' => ['module:coupon']], function () {
             Route::get('list', 'CoupunController@index')->name('list');
+            Route::get('create', function() {
+                $foods = Food::where('restaurant_id', Helpers::get_restaurant_id())->get();
+                return view('vendor-views.coupon.create', compact('foods'));
+            })->name('create');
             Route::post('store', 'CoupunController@store')->name('store');
             Route::post('updateStatus', 'CoupunController@updateStatus')->name('status');
             Route::delete('delete/{id}', 'CoupunController@destroy')->name('delete');
+            Route::get('show/{id}', 'CoupunController@show')->name('show');
             // Route::get('update/{id}', 'CouponController@edit')->name('update');
             // Route::post('update/{id}', 'CouponController@update');
             // Route::get('status/{id}/{status}', 'CouponController@status')->name('status');
@@ -150,6 +159,10 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
             Route::get('edit/{id}', 'RestaurantController@edit')->name('edit');
             Route::post('update/{id}', 'RestaurantController@update')->name('update');
             Route::post('updatePayment/{id}', 'RestaurantController@updatePaymenMethod')->name('update-payment');
+            Route::post('updateAddress/{id}', 'RestaurantController@updateAddress')->name('update-address');
+            Route::post('updateDocument/{id}', 'RestaurantController@updateDocument')->name('update-document');
+            Route::post('updateInfo/{id}', 'RestaurantController@updateInfo')->name('update-social');
+            Route::post('updateBank', 'RestaurantController@updateBank')->name('update-bank');
             Route::get('payment', function(){
                 return view('vendor-views.payment-method.index');
             })->name('edit-payment');
@@ -166,6 +179,7 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
         Route::group(['prefix' => 'reservation'], function(){
             Route::get('', 'ReservationController@index')->name('reservation.list');
             Route::post('status/{id}', 'ReservationController@updateStatus')->name('reservation.status');
+            Route::get('show/{id}', 'ReservationController@show')->name('reservation.show');
         });
 
         Route::group(['prefix' => 'subscription'], function(){
@@ -175,18 +189,35 @@ Route::group(['namespace' => 'Vendor', 'as' => 'vendor.'], function () {
         Route::group(['prefix' => 'language'], function(){
             Route::get('','LanguageController@index')->name('language.index');
             Route::post('', 'LanguageController@store')->name('language.store');
-            Route::post('{id}','LanguageController@updateRestaurantLanguage')->name('language.update');
+            Route::put('','LanguageController@updateRestaurantLanguage')->name('language.update');
         });
 
         Route::group(['prefix' => 'notification'], function() {
             Route::get('','NotificationController@index')->name('notification.index');
         });
 
+        Route::get('invoice', 'SubscriptionController@invoice')->name('print-invoice');
         Route::group(['prefix' => 'report'], function() {
             Route::get('/', 'ReportController@dashboard')->name('report.dashboard');
             Route::get('/get-restaurant-data', 'ReportController@restaurant_data')->name('report.get-restaurant-data');
             
             Route::post('order-stats', 'ReportController@order_stats')->name('report.order-stats');
+        });
+
+        Route::group(['prefix' => 'customer'] , function() {
+            Route::get('list','CustomerController@index')->name('customer.list');
+        });
+
+        Route::group(['prefix' => 'chat'] , function() {
+            Route::get('',function() {
+                $vendor = Vendor::find(Helpers::get_vendor_id());
+                $chats = Chat::where('vendor_id', Helpers::get_vendor_id())->get();
+                $chatsAdmin = Chat::where('vendor_id', Helpers::get_vendor_id())->where('admin_messages','!=',null)->get();
+                $chatsAdminNew = Chat::where('vendor_id', Helpers::get_vendor_id())->where('admin_messages','!=',null)->orderBy('created_at', 'desc')->get();
+                return view('vendor-views.chat.index', compact('vendor', 'chats','chatsAdmin','chatsAdminNew'));
+            })->name('chat.index');
+            Route::post('post', 'ChatController@store')->name('store.chat');
+            Route::get('get', 'ChatController@getChat')->name('get.chat');
         });
     });
 });

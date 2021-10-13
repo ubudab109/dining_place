@@ -12,16 +12,19 @@
       <p class="card-text">Your current language is <?php echo e($languageRestaurant->name); ?></p>
       <div class="card">
         <div class="card-body">
-          <form action="">
+          <form action="<?php echo e(route('vendor.language.update')); ?>" method="POST">
             <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
             <div class="form-group">
               <label for="">Set your Main Menu’s Language</label>
-              <select name="" id="" class="form-control">
+              <select name="id_lang" id="" class="form-control">
                 <?php $__currentLoopData = $restaurant->language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <option value="<?php echo e($item->id); ?>" <?php echo e($restaurant->language_id == $item->id ? 'selected' : ''); ?>><?php echo e($item->name); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </select>
             </div>
+            <button class="btn btn-pink" type="submit">Submit</button>
+            
           </form>
         </div>
       </div>
@@ -38,12 +41,14 @@
           <form action="<?php echo e(route('vendor.language.store')); ?>" method="POST" enctype="multipart/form-data">
             <?php echo csrf_field(); ?>
             <div class="form-group">
-              <input type="text" name="name" id="" class="form-control" placeholder="Language Name">
+              <select name="code" id="" class="form-control">
+                <option value="" selected disabled>Select Language</option>
+                <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                   <option value="<?php echo e($item->code); ?>"><?php echo e($item->english_name); ?></option> 
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+              </select>
             </div>
-            <div class="form-group">
-              <input type="file" name="logo" class="form-control" id="">
-            </div>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-pink" type="submit">Submit</button>
           </form>
         </div>
       </div>
@@ -54,7 +59,7 @@
   <div class="row">
     <div class="col-8">
       <?php $__currentLoopData = $restaurant->language; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <img src="<?php echo e(asset('storage/language/'.$item->logo)); ?>" width="100" height="100" />
+        <img src="<?php echo e(asset('assets/flags_new/'.$item->languages->flag->flag)); ?>"/>
       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
   </div>

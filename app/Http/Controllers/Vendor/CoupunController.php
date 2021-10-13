@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Vendor;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
+use App\Models\ExcludeCoupons;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -33,11 +34,12 @@ class CoupunController extends Controller
             'max_discount'      => 'required|required',
             'discount_type'     => 'required',
             'limit'             => 'nullable',
+            'food_id'           => 'array',
         ]);
 
         DB::beginTransaction();
         try {
-            Coupon::create([
+            $coupon = Coupon::create([
                 'title'         => $request->title,
                 'code'          => $request->code,
                 'start_date'    => $request->start_date,
@@ -47,6 +49,16 @@ class CoupunController extends Controller
                 'discount_type' => $request->max_discount,
                 'limit'         => $request->limit
             ]);
+
+            if ($request->food_id) {
+                foreach ($request->input('food_id') as $val) {
+                    $data = [
+                        'food_id'   => (int)$val,
+                        'coupon_id' => $coupon->id,
+                    ];
+                    ExcludeCoupons::create($data);
+                }
+            }
             Toastr::success('Successfully Added Coupon');
             DB::commit();
             return redirect()->route('vendor.coupon.list');
@@ -66,10 +78,14 @@ class CoupunController extends Controller
         return back();
     }
 
+    public function show($id)
+    {
+        $coupon = Coupon::with('exclude.food')->find($id);
+        return response()->json($coupon, 200);
+    }
+
     function destroy($id)
     {
         Coupon::find($id)->delete();
-        Toastr::success('Successfully Delete Coupon');
-        return back();
     }
 }

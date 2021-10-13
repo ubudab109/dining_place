@@ -109,7 +109,7 @@
                             </div>
                             <!-- End Checkbox -->
 
-                            <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-pink">Sign in</button>
                             <div class="text-center">
                                 <span class="divider text-muted m-4">OR</span>
                             </div>
@@ -173,7 +173,7 @@
                             </div>
                             <!-- End Checkbox -->
 
-                            <button type="submit" class="btn btn-lg btn-block btn-primary">Sign in</button>
+                            <button type="submit" class="btn btn-lg btn-block btn-pink">Sign in</button>
 
                             <div class="text-center">
                                 <span class="divider text-muted m-4">OR</span>
@@ -207,7 +207,7 @@
                                     <span>Password : 12345678</span>
                                 </div>
                                 <div class="col-2">
-                                    <button class="btn btn-primary" onclick="copy_cred()"><i class="tio-copy"></i>
+                                    <button class="btn btn-pink" onclick="copy_cred()"><i class="tio-copy"></i>
                                     </button>
                                 </div>
                             </div>

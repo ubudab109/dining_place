@@ -26,7 +26,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="schedule_order">
                                         <span class="pr-2"><?php echo e(__('messages.scheduled')); ?> <?php echo e(__('messages.order')); ?>:</span> 
@@ -37,18 +37,8 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="delivery">
-                                        <span class="pr-2"><?php echo e(__('messages.delivery')); ?>:</span> 
-                                        <input type="checkbox" name="delivery" class="toggle-switch-input" onclick="location.href='<?php echo e(route('vendor.business-settings.toggle-settings',[$restaurant->id,$restaurant->delivery?0:1, 'delivery'])); ?>'" id="delivery" <?php echo e($restaurant->delivery?'checked':''); ?>>
-                                        <span class="toggle-switch-label">
-                                            <span class="toggle-switch-indicator"></span>
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="take_away">
                                         <span class="pr-2 text-capitalize"><?php echo e(__('messages.take_away')); ?>:</span> 
@@ -82,7 +72,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary"><?php echo e(__('messages.update')); ?></button>
+                            <button type="submit" class="btn btn-pink"><?php echo e(__('messages.update')); ?></button>
                         </form>
                     </div>
                 </div>

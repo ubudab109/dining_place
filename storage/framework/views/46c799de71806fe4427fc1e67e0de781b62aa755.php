@@ -196,7 +196,7 @@
                         </center>
                     </div>
                     <hr>
-                    <button type="submit" class="btn btn-primary"><?php echo e(__('messages.update')); ?></button>
+                    <button type="submit" class="btn btn-pink"><?php echo e(__('messages.update')); ?></button>
                 </form>
             </div>
         </div>

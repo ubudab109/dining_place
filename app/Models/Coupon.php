@@ -27,6 +27,12 @@ class Coupon extends Model
         'max_discount' => 'float',
         'discount' => 'float',
     ];
+
+    public function exclude()
+    {
+        return $this->hasMany(ExcludeCoupons::class, 'coupon_id', 'id');
+    }
+    
     public function scopeActive($query)
     {
         return $query->where('status', '=', 1);

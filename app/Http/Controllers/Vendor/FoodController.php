@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use App\CentralLogics\Helpers;
 use App\CentralLogics\ProductLogic;
+use App\Models\AddOn;
 use App\Models\LanguageRestaurant;
 use Rap2hpoutre\FastExcel\FastExcel;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,7 @@ class FoodController extends Controller
     public function index()
     {
         $categories = Category::where(['position' => 0])->get();
+        $addons = AddOn::orderBy('name')->paginate(25);
         $languages = LanguageRestaurant::where('restaurant_id', Helpers::get_restaurant_id())->get();
         return view('vendor-views.product.index', compact('categories','languages'));
     }
@@ -347,7 +349,8 @@ class FoodController extends Controller
     public function list()
     {
         $foods = Food::latest()->paginate(25);
-        return view('vendor-views.product.list', compact('foods'));
+        $addons = AddOn::orderBy('name')->paginate(25);
+        return view('vendor-views.product.list', compact('foods','addons'));
     }
 
     public function search(Request $request){

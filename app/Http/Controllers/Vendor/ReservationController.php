@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Vendor;
 use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\ReservationCustomer;
+use App\Models\RestaurantTable;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -12,7 +13,20 @@ class ReservationController extends Controller
     function index()
     {
         $reservations = ReservationCustomer::where('restaurant_id', Helpers::get_restaurant_id())->paginate(25);
-        return view('vendor-views.reservation.index',compact('reservations'));
+        $tables = RestaurantTable::where('restaurant_id', Helpers::get_restaurant_id())->get();
+        $events = [];
+        $appoint = ReservationCustomer::all();
+        foreach($appoint as $appointment) {
+            $events[] = [
+                'id'    => $appointment->id,
+                'title' => 'Reservation'.' '. $appointment->customer_name,
+                'start' => $appointment->reservation_date,
+                'backgroundColor'   => '#F67280',
+                // 'display' => 'background',
+                // 'url'   => 'detail('.$appointment->id.')',
+            ];
+        }
+        return view('vendor-views.reservation.index',compact('reservations','tables', 'events'));
 
     }
 
@@ -35,6 +49,12 @@ class ReservationController extends Controller
             'status' => $request->status
         ]);
 
-        return back();
+        return response()->json(true, 200);
+    }
+
+    public function show($id)
+    {
+        $reservation = ReservationCustomer::with('restaurantTable')->find($id);
+        return response()->json($reservation, 200);
     }
 }

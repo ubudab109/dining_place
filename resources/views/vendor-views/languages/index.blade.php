@@ -12,16 +12,19 @@
       <p class="card-text">Your current language is {{$languageRestaurant->name}}</p>
       <div class="card">
         <div class="card-body">
-          <form action="">
+          <form action="{{route('vendor.language.update')}}" method="POST">
             @csrf
+            @method('PUT')
             <div class="form-group">
               <label for="">Set your Main Menu’s Language</label>
-              <select name="" id="" class="form-control">
+              <select name="id_lang" id="" class="form-control">
                 @foreach ($restaurant->language as $item)
                   <option value="{{$item->id}}" {{$restaurant->language_id == $item->id ? 'selected' : ''}}>{{$item->name}}</option>
                 @endforeach
               </select>
             </div>
+            <button class="btn btn-pink" type="submit">Submit</button>
+            
           </form>
         </div>
       </div>
@@ -38,10 +41,12 @@
           <form action="{{route('vendor.language.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-              <input type="text" name="name" id="" class="form-control" placeholder="Language Name">
-            </div>
-            <div class="form-group">
-              <input type="file" name="logo" class="form-control" id="">
+              <select name="code" id="" class="form-control">
+                <option value="" selected disabled>Select Language</option>
+                @foreach ($languages as $item)
+                   <option value="{{$item->code}}">{{$item->english_name}}</option> 
+                @endforeach
+              </select>
             </div>
             <button class="btn btn-pink" type="submit">Submit</button>
           </form>
@@ -54,7 +59,7 @@
   <div class="row">
     <div class="col-8">
       @foreach ($restaurant->language as $item)
-        <img src="{{asset('storage/language/'.$item->logo)}}" width="100" height="100" />
+        <img src="{{asset('assets/flags_new/'.$item->languages->flag->flag)}}"/>
       @endforeach
     </div>
   </div>

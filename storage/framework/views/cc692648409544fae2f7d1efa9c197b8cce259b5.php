@@ -30,7 +30,7 @@
                                 <input type="text" name="name" value="" class="form-control" placeholder="Table Name" required>
                             </div>
                             <div class="form-group pt-2">
-                                <button type="submit" class="btn btn-primary">Save</button>
+                                <button type="submit" class="btn btn-pink">Save</button>
                             </div>
                             
                         </form>
@@ -68,8 +68,6 @@
                                 }'>
                                 <thead class="thead-light">
                                     <tr>
-                                        <th><?php echo e(__('messages.#')); ?></th>
-                                        <th><?php echo e(__('messages.id')); ?></th>
                                         <th style="width: 50%"><?php echo e(__('messages.name')); ?></th>
                                         <th style="width: 50%">action</th>
                                     </tr>
@@ -78,8 +76,6 @@
                                 <tbody id="table-div">
                                 <?php $__currentLoopData = $tables; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $table): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
-                                        <td><?php echo e($key+$tables->firstItem()); ?></td>
-                                        <td><?php echo e($table->id); ?></td>
                                         <td>
                                         <span class="d-block font-size-sm text-body">
                                             <?php echo e($table->name); ?>
@@ -120,7 +116,7 @@
                                         <input type="text" id="name_edit" name="name" value="" class="form-control" placeholder="Subscription Name" required>
                                     </div>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-pink">Save changes</button>
                                 </form>
                             </div>
                         </div>

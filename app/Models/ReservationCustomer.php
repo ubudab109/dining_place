@@ -15,6 +15,7 @@ class ReservationCustomer extends Model
         'customer_phone',
         'customer_email',
         'restaurant_id',
+        'status',
         'pax',
         'desc',
         'table_id',

@@ -26,12 +26,12 @@
         ?>
                     <!-- Earnings (Monthly) Card Example -->
             <div class="for-card col-md-4 mb-1">
-                <div class="card for-card-body-2 shadow h-100 text-white"  style="background: #8d8d8d;">
+                <div class="card for-card-body-2 shadow h-100 text-white"  style="background: #f9fafc; font-weight: 20px; color: #818283 !important;">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="font-weight-bold  text-uppercase for-card-text mb-1">
-                                    {{__('messages.withdraw_able_balance')}}
+                                    Balance
                                 </div>
                                 <div
                                     class="for-card-count">{{$wallet->balance}}
@@ -39,21 +39,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer"  style="background: #8d8d8d; border:none;">
+                    <div class="card-footer">
                         @if(\App\CentralLogics\Helpers::get_vendor_data()->account_no==null || \App\CentralLogics\Helpers::get_vendor_data()->bank_name==null)
                         <a tabindex="0" class="btn btn w-100 btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="{{__('messages.warning_missing_bank_info')}}" data-content="{{__('messages.warning_add_bank_info')}}">{{__('messages.request')}} {{__('messages.withdraw')}}</a>
                         @else   
-                        <a class="btn w-100" style="background: #f9fafc;" href="javascript:" data-toggle="modal" data-target="#balance-modal">{{__('messages.request')}} {{__('messages.withdraw')}}</a>
+                        <a class="btn w-100 btn-pink" href="javascript:" data-toggle="modal" data-target="#balance-modal">{{__('messages.request')}} {{__('messages.withdraw')}}</a>
                         @endif
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-8">
+            {{-- <div class="col-md-8" >
                 <div class="row">
                     <!-- Panding Withdraw Card Example -->
                     <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card  shadow h-100 for-card-body-3  badge-secondary" >
+                        <div class="card  shadow h-100 for-card-body-3  badge-secondary"  style="background: #f9fafc; font-weight: 20px; color: #818283 !important;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -71,8 +71,8 @@
                     </div>
 
                     <!-- Earnings (Monthly) Card Example -->
-                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card  shadow h-100 for-card-body-3 text-white"  style="background: #2C2E43;">
+                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1" >
+                        <div class="card  shadow h-100 for-card-body-3 text-white"   style="background: #f9fafc; font-weight: 20px; color: #818283 !important;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -90,8 +90,8 @@
                     </div>
 
                     <!-- Collected Cash Card Example -->
-                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card r shadow h-100 for-card-body-4  badge-dark">
+                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1" >
+                        <div class="card r shadow h-100 for-card-body-4  badge-dark"  style="background: #f9fafc; font-weight: 20px; color: #818283 !important;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -110,7 +110,7 @@
 
                     <!-- Pending Requests Card Example -->
                     <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card r shadow h-100 for-card-body-4 text-white" style="background:#362222;">
+                        <div class="card r shadow h-100 for-card-body-4 text-white"  style="background: #f9fafc; font-weight: 20px; color: #818283 !important;">
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
@@ -128,7 +128,7 @@
                     </div>
                 </div>
     
-            </div>
+            </div> --}}
         </div>
     </div>
 

@@ -49,6 +49,9 @@ class DashboardController extends Controller
             ->orderBy("count", 'desc')
             ->take(6)
             ->get();
+
+        $totalSell = OrderDetail::with(['food'])->whereIn('food_id', $food_ids)->count();
+        $totalOrder = Order::where('restaurant_id', Helpers::get_restaurant_id())->count();
         $most_rated_foods = Food::rightJoin('reviews', 'reviews.food_id', '=', 'food.id')
             ->whereIn('food_id', $food_ids)
             ->groupBy('food_id')
@@ -62,7 +65,7 @@ class DashboardController extends Controller
         $data['top_sell'] = $top_sell;
         $data['most_rated_foods'] = $most_rated_foods;
 
-        return view('vendor-views.dashboard', compact('data', 'earning', 'commission', 'params'));
+        return view('vendor-views.dashboard', compact('data', 'earning', 'commission', 'params','totalSell','totalOrder'));
     }
 
     public function restaurant_data()

@@ -436,9 +436,8 @@ class Helpers
 
     public static function format_currency($value)
     {
-        $currency_symbol_position = BusinessSetting::where(['key' => 'currency_symbol_position'])->first()->value;
-
-        return $currency_symbol_position=='right'?$value.' '.self::currency_symbol():self::currency_symbol().' '.$value;
+        $currency_symbol_position = 'Rp. '.number_format($value, 0);
+        return $currency_symbol_position;
     }
     public static function send_push_notif_to_device($fcm_token, $data)
     {

@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Chat;
+use App\Models\Vendor;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,7 +15,20 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
     /*authentication*/
 
     Route::group(['middleware' => ['admin']], function () {
-
+        Route::group(['prefix' => 'chat'] , function() {
+            Route::get('',function() {
+                $vendors = Vendor::paginate(25);
+                return view('admin-views.chat.index', compact('vendors'));
+            })->name('chat.index');
+            Route::get('show/{id}',function($id) {
+                $chats = Chat::where('vendor_id',$id)->get();
+                $vendor = Vendor::find($id);
+                $chatsAdmin = Chat::where('vendor_id', $id)->where('admin_messages','!=',null)->get();
+                return view('admin-views.chat.show', compact('chats','vendor','chatsAdmin'));
+            })->name('chat.show');
+            Route::post('post', 'ChatController@store')->name('store.chat');
+            Route::get('get', 'ChatController@getChat')->name('get.chat');
+        });
         Route::get('settings', 'SystemController@settings')->name('settings');
         Route::post('settings', 'SystemController@settings_update');
         Route::post('settings-password', 'SystemController@settings_password_update')->name('settings-password');

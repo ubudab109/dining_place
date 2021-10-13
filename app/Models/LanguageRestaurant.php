@@ -11,7 +11,7 @@ class LanguageRestaurant extends Model
     protected $table = 'language_restaurant';
     protected $fillable = [
         'name',
-        'logo',
+        'code',
         'restaurant_id',
         'created_at',
         'updated_at',
@@ -20,5 +20,10 @@ class LanguageRestaurant extends Model
     public function restaurant()
     {
         return $this->belongsTo(Restaurant::class, 'restaurant_id', 'id');
+    }
+
+    public function languages()
+    {
+        return $this->belongsTo(Languages::class, 'code', 'code');
     }
 }

@@ -8,6 +8,8 @@
     <title>@yield('title')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="{{URL::asset('assets/landing/fontawesome/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{URL::asset('assets/landing/fontawesome/css/fontawesome.min.css')}}">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
@@ -104,8 +106,14 @@
     </style>
 
     <script
+<<<<<<< Updated upstream
         src="{{asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('assets/admin')}}/css/toastr.css">
+=======
+        src="{{URL::asset('assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
+    <link rel="stylesheet" href="{{URL::asset('assets/admin')}}/css/toastr.css">
+    @yield('styler')
+>>>>>>> Stashed changes
 </head>
 
 <body class="footer-offset">
@@ -411,5 +419,7 @@
 <script>
     if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="{{asset('assets/admin')}}/vendor/babel-polyfill/polyfill.min.js"><\/script>');
 </script>
+
+@yield('scripts')
 </body>
 </html>

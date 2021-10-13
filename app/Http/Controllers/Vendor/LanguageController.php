@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Vendor;
 use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\LanguageRestaurant;
+use App\Models\Languages;
 use App\Models\Restaurant;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class LanguageController extends Controller
 {
     function index()
     {
-        $languages = LanguageRestaurant::all();
+        $languages = Languages::with('flag')->orderBy('english_name','asc')->get();
         $restaurant = Restaurant::find(Helpers::get_restaurant_id());
         $languageRestaurant = LanguageRestaurant::find($restaurant->language_id);
         return view('vendor-views.languages.index', compact('languages','restaurant','languageRestaurant'));
@@ -23,13 +24,13 @@ class LanguageController extends Controller
     {
         $restaurant = Restaurant::find(Helpers::get_restaurant_id());
         $request->validate([
-            'name'      => 'required',
-            'logo'      => 'required',
+            'code'      => 'required',
         ]);
 
+        $lang = Languages::where('code', $request->code)->first();
         LanguageRestaurant::create([
-            'name'          => $request->name,
-            'logo'          => Helpers::upload('language/', 'png', $request->file('logo')),
+            'name'          => $lang->english_name,
+            'code'          => $lang->code,
             'restaurant_id' => $restaurant->id,
         ]);
 
@@ -37,12 +38,12 @@ class LanguageController extends Controller
         return back();
     }
 
-    function updateRestaurantLanguage(Request $request, $id)
+    function updateRestaurantLanguage(Request $request)
     {
         $restaurant = Restaurant::find(Helpers::get_restaurant_id());
 
         $restaurant->update([
-            'language_id'   => $request->language,
+            'language_id'   => $request->id_lang,
         ]);
 
         Toastr::info('Language Restaurant Updated Successfully');

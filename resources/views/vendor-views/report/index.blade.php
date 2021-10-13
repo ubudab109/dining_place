@@ -87,13 +87,13 @@
                                         {{__('messages.total_earning')}} : {{\App\CentralLogics\Helpers::format_currency(array_sum($earning))}}
                                     </span>
                                 </div>
-                                <div class="d-flex align-items-center mt-2 mb-2">
+                                {{-- <div class="d-flex align-items-center mt-2 mb-2">
                                     <span class="h5 mb-0">
                                         <span class="legend-indicator bg-primary"
                                               style="background-color: #4CA1A3!important;"></span>
                                         {{__('messages.commission_given')}} : {{\App\CentralLogics\Helpers::format_currency(array_sum($commission))}}
                                     </span>
-                                </div>
+                                </div> --}}
                             </div>
 
                             <div class="col-sm-auto align-self-sm-end">

@@ -68,8 +68,6 @@
                                 }'>
                                 <thead class="thead-light">
                                     <tr>
-                                        <th>{{__('messages.#')}}</th>
-                                        <th>{{__('messages.id')}}</th>
                                         <th style="width: 50%">{{__('messages.name')}}</th>
                                         <th style="width: 50%">action</th>
                                     </tr>
@@ -78,8 +76,6 @@
                                 <tbody id="table-div">
                                 @foreach($tables as $key => $table)
                                     <tr>
-                                        <td>{{$key+$tables->firstItem()}}</td>
-                                        <td>{{$table->id}}</td>
                                         <td>
                                         <span class="d-block font-size-sm text-body">
                                             {{$table->name}}

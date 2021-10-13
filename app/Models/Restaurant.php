@@ -68,6 +68,16 @@ class Restaurant extends Model
         return $this->belongsTo(Vendor::class);
     }
 
+    public function document()
+    {
+        return $this->hasOne(RestaurantDocument::class, 'restaurant_id', 'id');
+    }
+
+    public function info()
+    {
+        return $this->hasOne(RestaurantInfo::class, 'restaurant_id', 'id');
+    }
+    
     public function foods()
     {
         return $this->hasMany(Food::class, 'restaurant_id', 'id');

@@ -45,7 +45,7 @@
                         <span class="h5"><?php echo e(__('messages.address')); ?> : <?php echo e($shop->address); ?></span><br>
                         <span class="h5"><?php echo e(__('messages.admin_commission')); ?> : <?php echo e((isset($shop->comission)?$shop->comission:\App\Models\BusinessSetting::where('key','admin_commission')->first()->value)); ?>%</span><br>
                         <span class="h5"><?php echo e(__('messages.vat/tax')); ?> : <?php echo e($shop->tax); ?>%</span><br>
-                        <a class="btn btn-primary mt-1" href="<?php echo e(route('vendor.shop.edit',[$shop->id])); ?>">EDIT</a>
+                        <a class="btn btn-pink mt-1" href="<?php echo e(route('vendor.shop.edit',[$shop->id])); ?>">EDIT</a>
                     </div>
                 </div>
                 

@@ -25,7 +25,7 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="schedule_order">
                                         <span class="pr-2">{{__('messages.scheduled')}} {{__('messages.order')}}:</span> 
@@ -36,7 +36,7 @@
                                     </label>
                                 </div>
                             </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            {{-- <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="delivery">
                                         <span class="pr-2">{{__('messages.delivery')}}:</span> 
@@ -46,8 +46,8 @@
                                         </span>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12">
+                            </div> --}}
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="toggle-switch toggle-switch-sm d-flex justify-content-between border border-secondary rounded px-4 form-control" for="take_away">
                                         <span class="pr-2 text-capitalize">{{__('messages.take_away')}}:</span> 

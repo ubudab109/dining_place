@@ -163,7 +163,7 @@
                                 <?php $__currentLoopData = $languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> 
                                     <li class="list-group-item <?php echo e(request()->language == $item->id ? 'active-language' : ''); ?>"><a href="/r/<?php echo e($data->slug); ?>?language=<?php echo e($item->id); ?>">
                                         <div class="row justify-content-between">
-                                            <img src="<?php echo e(asset('storage/language/'.$item->logo)); ?>" alt="" width="50" height="50">
+                                            <img src="<?php echo e(asset('assets/flags_new/'.$item->languages->flag->flag)); ?>" alt="">
                                             <?php echo e($data->language_id == $item->id ? 'Default' : ''); ?>
 
                                         </div>

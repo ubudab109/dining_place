@@ -26,13 +26,12 @@
         ?>
                     <!-- Earnings (Monthly) Card Example -->
             <div class="for-card col-md-4 mb-1">
-                <div class="card for-card-body-2 shadow h-100 text-white"  style="background: #8d8d8d;">
+                <div class="card for-card-body-2 shadow h-100 text-white"  style="background: #f9fafc; font-weight: 20px; color: #818283 !important;">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="font-weight-bold  text-uppercase for-card-text mb-1">
-                                    <?php echo e(__('messages.withdraw_able_balance')); ?>
-
+                                    Balance
                                 </div>
                                 <div
                                     class="for-card-count"><?php echo e($wallet->balance); ?>
@@ -41,96 +40,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-footer"  style="background: #8d8d8d; border:none;">
+                    <div class="card-footer">
                         <?php if(\App\CentralLogics\Helpers::get_vendor_data()->account_no==null || \App\CentralLogics\Helpers::get_vendor_data()->bank_name==null): ?>
                         <a tabindex="0" class="btn btn w-100 btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="<?php echo e(__('messages.warning_missing_bank_info')); ?>" data-content="<?php echo e(__('messages.warning_add_bank_info')); ?>"><?php echo e(__('messages.request')); ?> <?php echo e(__('messages.withdraw')); ?></a>
                         <?php else: ?>   
-                        <a class="btn w-100" style="background: #f9fafc;" href="javascript:" data-toggle="modal" data-target="#balance-modal"><?php echo e(__('messages.request')); ?> <?php echo e(__('messages.withdraw')); ?></a>
+                        <a class="btn w-100 btn-pink" href="javascript:" data-toggle="modal" data-target="#balance-modal"><?php echo e(__('messages.request')); ?> <?php echo e(__('messages.withdraw')); ?></a>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-8">
-                <div class="row">
-                    <!-- Panding Withdraw Card Example -->
-                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card  shadow h-100 for-card-body-3  badge-secondary" >
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div
-                                            class=" font-weight-bold for-card-text text-uppercase mb-1"><?php echo e(__('messages.pending')); ?> <?php echo e(__('messages.withdraw')); ?></div>
-                                        <div
-                                            class="for-card-count"><?php echo e($wallet->pending_withdraw); ?></div>
-                                    </div>
-                                    <div class="col-auto for-margin">
-                                        <i class="fas fa-money-bill fa-2x for-fa-3 text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Earnings (Monthly) Card Example -->
-                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card  shadow h-100 for-card-body-3 text-white"  style="background: #2C2E43;">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div
-                                            class=" font-weight-bold for-card-text text-uppercase mb-1"><?php echo e(__('messages.withdrawn')); ?></div>
-                                        <div
-                                            class="for-card-count"><?php echo e($wallet->total_withdrawn); ?></div>
-                                    </div>
-                                    <div class="col-auto for-margin">
-                                        <i class="fas fa-money-bill fa-2x for-fa-3 text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Collected Cash Card Example -->
-                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card r shadow h-100 for-card-body-4  badge-dark">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div
-                                            class=" for-card-text font-weight-bold  text-uppercase mb-1"><?php echo e(__('messages.collected_cash')); ?></div>
-                                        <div
-                                            class="for-card-count"><?php echo e($wallet->collected_cash); ?></div>
-                                    </div>
-                                    <div class="col-auto for-margin">
-                                        <i class="fas fa-money-bill for-fa-fa-4  fa-2x text-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Pending Requests Card Example -->
-                    <div class="for-card col-lg-6 col-md-6 col-sm-6 col-12 mb-1">
-                        <div class="card r shadow h-100 for-card-body-4 text-white" style="background:#362222;">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col mr-2">
-                                        <div
-                                            class=" for-card-text font-weight-bold  text-uppercase mb-1"><?php echo e(__('messages.total_earning')); ?></div>
-                                        <div
-                                            class="for-card-count"><?php echo e($wallet->total_earning); ?></div>
-                                    </div>
-                                    <div class="col-auto for-margin">
-                                        <i class="fas fa-money-bill for-fa-fa-4  fa-2x text-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
+            
         </div>
     </div>
 
@@ -155,7 +75,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Request</button>
+                        <button type="submit" class="btn btn-pink">Request</button>
                     </div>
                 </form>
             </div>

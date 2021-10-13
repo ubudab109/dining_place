@@ -29,7 +29,7 @@ p {
     
 @endsection
 @section('content')
-<div class="content container"> 
+<div class="content container mt-5"> 
   <div class="store_code_wrapper" style="display: flex;
   width: 100%; justify-content: space-between;">
     <div class="store_code" id="store-code-2" style="width:400px;border:1px solid #ccc;padding: 20px;background:#fff">
@@ -76,10 +76,10 @@ p {
   </div>
   <div class="row justify-content-center mt-5 mb-5">
     <div class="col-lg-4 col-sm-8">
-      <button class="btn btn-danger mr-2" type="button" onclick="downloadTemplate()">Download Template</button>
+      <button class="btn btn-pink mr-2" type="button" onclick="downloadTemplate()">Download Template</button>
     </div>
     <div class="col-lg-4 col-sm-8">
-      <a class="btn btn-danger" href="data:image/png;base64,{{$png}}" download>Download Raw</a>
+      <a class="btn btn-pink" href="data:image/png;base64,{{$png}}" download>Download Raw</a>
     </div>
   </div>
   <div class="row">
@@ -126,10 +126,14 @@ p {
       </div>
       <div class="wcfm-clearfix"></div>
       <div class="row" style="padding: inherit; color: black">
+        <p class="qr_code_desc_store">Title <span id="title_text"></span> </p>
         <p class="qr_code_desc_store">Table Number <span id="number_table"></span> </p>
       </div>
       <br>
-      <div id="qrcode_store-1" class="row justify-content-center">
+      <div id="qrcode_store-1" class="row justify-content-center" style="display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;">
        
       </div>
       <br>
@@ -144,7 +148,10 @@ p {
       <div class="wcfm-clearfix"></div>
     </div>
     <div class="template_qrcode_raw_store">
-      <div id="qrcode_raw_store-1" class="row justify-content-left">
+      <div id="qrcode_raw_store-1" class="row justify-content-left" style="display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;">
         
       </div>
     </div>
@@ -211,13 +218,18 @@ p {
     var title = $("#title").val();
     var slug = $("#slug").val();
     var table = $("#table").val();
+    var tableT = $("#table option:selected" ).text();;
     if (title == '' || table == '') {
       alert('Please Fill First')
     } else {
       var url = "{{route('restaurant-list', ':slug')}}?table=:table"
       url = url.replace(':slug', slug);
       url = url.replace(':table', table);
-      $("#number_table").text(table);
+      $("#number_table").text(tableT);
+      $("#title_text").text(title);
+      $("#qrcode_store-1").empty();
+      $("#qrcode_raw_store-1").empty();
+
       new QRCode(document.getElementById("qrcode_store-1"), {
         text: url,
         width: 500,
@@ -232,10 +244,10 @@ p {
       $("#downloadButton").html(`
         <div class='row justify-content-center mt-5 mb-5'>
           <div class='col-lg-4 col-sm-8'>
-            <a class="btn btn-danger mr-2" type="button" onclick="downloadTemplateNew()">Download Template</a>
+            <a class="btn btn-pink mr-2" type="button" onclick="downloadTemplateNew()">Download Template</a>
           </div>
           <div class='col-lg-4 col-sm-8'>
-            <a class="btn btn-danger" onclick="downloadTemplateRaw()" download>Download Raw</a>
+            <a class="btn btn-pink" onclick="downloadTemplateRaw()" download>Download Raw</a>
           </div>
         </div>
       `)

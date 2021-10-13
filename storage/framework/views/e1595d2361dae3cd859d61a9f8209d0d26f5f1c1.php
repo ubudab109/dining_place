@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="col-sm-auto">
-                    <a class="btn btn-primary" href="<?php echo e(route('vendor.dashboard')); ?>">
+                    <a class="btn btn-pink" href="<?php echo e(route('vendor.dashboard')); ?>">
                         <i class="tio-home mr-1"></i> Dashboard
                     </a>
                 </div>
@@ -157,7 +157,7 @@
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <button type="button" onclick="<?php echo e(env('APP_MODE')!='demo'?"form_alert('vendor-settings-form','Want to update owner info ?')":"call_demo()"); ?>" class="btn btn-primary">Save changes</button>
+                                <button type="button" onclick="<?php echo e(env('APP_MODE')!='demo'?"form_alert('vendor-settings-form','Want to update owner info ?')":"call_demo()"); ?>" class="btn btn-pink">Save changes</button>
                             </div>
 
                             <!-- End Form -->
@@ -222,7 +222,7 @@
                             <!-- End Form Group -->
 
                             <div class="d-flex justify-content-end">
-                                <button type="button" onclick="<?php echo e(env('APP_MODE')!='demo'?"form_alert('changePasswordForm','Want to update admin password ?')":"call_demo()"); ?>" class="btn btn-primary">Save Changes</button>
+                                <button type="button" onclick="<?php echo e(env('APP_MODE')!='demo'?"form_alert('changePasswordForm','Want to update admin password ?')":"call_demo()"); ?>" class="btn btn-pink">Save Changes</button>
                             </div>
                         </form>
                         <!-- End Form -->

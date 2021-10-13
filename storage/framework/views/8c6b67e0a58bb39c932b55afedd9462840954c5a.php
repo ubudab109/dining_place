@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-md-4">
-                <a href="<?php echo e(route('vendor.employee.add-new')); ?>" class="btn btn-primary  float-right">
+                <a href="<?php echo e(route('vendor.employee.add-new')); ?>" class="btn btn-pink  float-right">
                     <i class="tio-add-circle"></i>
                     <span class="text"><?php echo e(trans('messages.add')); ?> <?php echo e(trans('messages.new')); ?></span>
                 </a>
