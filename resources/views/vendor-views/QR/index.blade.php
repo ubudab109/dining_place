@@ -118,7 +118,7 @@ p {
     <div class="store_code" id="store_code-1" style="width:400px;border:1px solid #ccc;padding: 20px;background:#fff">
       <div class="row" style="padding: inherit;">
         <div class="qr_code_title_store" style="float:left;width:60%">
-          <p style="font-size: 27px;font-weight:1000;line-height: 30px; color: black">Scan QR Code Below To See Our Menu</p>
+          <p style="font-size: 27px;font-weight:1000;line-height: 30px; color: black" id="title_text"></p>
         </div>
         <div class="qr_code_logo_store" style="float:left;width:40%; text-align:right">
           <img src="{{asset('storage/restaurant/'.$restaurant->logo)}}" width="90">
@@ -126,7 +126,6 @@ p {
       </div>
       <div class="wcfm-clearfix"></div>
       <div class="row" style="padding: inherit; color: black">
-        <p class="qr_code_desc_store">Title <span id="title_text"></span> </p>
         <p class="qr_code_desc_store">Table Number <span id="number_table"></span> </p>
       </div>
       <br>
