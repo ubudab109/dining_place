@@ -3,7 +3,6 @@
 /public/storage
 /storage/*.key
 /storage/framework/sessions/*
-/storage/framework/views/*.php
 /vendor
 /storage
 .env
