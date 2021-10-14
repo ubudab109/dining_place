@@ -362,12 +362,12 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::post('store', 'SubscriptionController@store')->name('store');
             Route::post('update/{id}', 'SubscriptionController@update')->name('update');
             Route::delete('delete/{id}', 'SubscriptionController@destroy')->name('delete');
-            // Route::post('store', 'BannerController@store')->name('store');
-            // Route::get('edit/{banner}', 'BannerController@edit')->name('edit');
-            // Route::post('update/{banner}', 'BannerController@update')->name('update');
-            // Route::get('status/{id}/{status}', 'BannerController@status')->name('status');
-            // Route::delete('delete/{banner}', 'BannerController@delete')->name('delete');
-            // Route::post('search', 'BannerController@search')->name('search');
+        });
+
+        Route::group(['prefix'  => 'restaurant-type'], function(){
+            Route::get('','RestaurantTypeController@index')->name('type.index');
+            Route::post('store','RestaurantTypeController@store')->name('type.store');
+            Route::delete('{id}','RestaurantTypeController@destroy')->name('type.destroy');
         });
     });
 });

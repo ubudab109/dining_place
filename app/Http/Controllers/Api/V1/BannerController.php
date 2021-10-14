@@ -20,13 +20,23 @@ class BannerController extends Controller
         }
         $zone_id= $request->header('zoneId');
         $banners = BannerLogic::get_banners($zone_id);
-        $campaigns = Campaign::whereHas('restaurants', function($query)use($zone_id){
-            $query->where('zone_id', $zone_id);
-        })->running()->active()->get();
+        $campaigns = Campaign::running()->active()->get();
         try {
             return response()->json(['campaigns'=>$campaigns,'banners'=>$banners], 200);
         } catch (\Exception $e) {
             return response()->json([], 200);
         }
+    }
+
+    public function getHomePageBanner()
+    {
+        $dataBanner = [
+            asset('assets/landing/image/Header-WEB.png'),
+            asset('assets/landing/image/1-1.png'),
+            asset('assets/landing/image/2-1.png'),
+            asset('assets/landing/image/32.png'),
+        ];
+
+        return response()->json($dataBanner, 200);
     }
 }

@@ -11,9 +11,9 @@ class RestaurantLogic
 {
 
 
-    public static function get_restaurants($limit = 10, $offset = 1, $zone_id, $filter)
+    public static function get_restaurants($limit = 10, $offset = 1, $filter)
     {
-        $paginator = Restaurant::with('discount')->where('zone_id', $zone_id)
+        $paginator = Restaurant::with('discount')->with('restaurantCategory.type')->with('language.languages')
         ->when($filter=='delivery', function($q){
             return $q->delivery();
         })

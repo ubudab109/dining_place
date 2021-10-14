@@ -14,15 +14,15 @@ class RestaurantController extends Controller
 {
     public function get_restaurants(Request $request, $filter_data="all")
     {
-        if (!$request->hasHeader('zoneId')) {
-            $errors = [];
-            array_push($errors, ['code' => 'zoneId', 'message' => 'Zone id is required!']);
-            return response()->json([
-                'errors' => $errors
-            ], 403);
-        }
-        $zone_id= $request->header('zoneId');
-        $restaurants = RestaurantLogic::get_restaurants($request['limit'], $request['offset'], $zone_id, $filter_data);
+        // if (!$request->hasHeader('zoneId')) {
+        //     $errors = [];
+        //     array_push($errors, ['code' => 'zoneId', 'message' => 'Zone id is required!']);
+        //     return response()->json([
+        //         'errors' => $errors
+        //     ], 403);
+        // }
+        // $zone_id= $request->header('zoneId');
+        $restaurants = RestaurantLogic::get_restaurants($request['limit'], $request['offset'], $filter_data);
         $restaurants['restaurants'] = Helpers::restaurant_data_formatting($restaurants['restaurants'], true);
 
         return response()->json($restaurants, 200);

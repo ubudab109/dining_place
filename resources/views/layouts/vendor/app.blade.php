@@ -136,7 +136,7 @@
     @yield('styler')
 </head>
 
-<body class="footer-offset">
+<body>
 
 {{--loader--}}
 <div class="container">
@@ -424,27 +424,7 @@
 </div>
 <!-- ========== END MAIN CONTENT ========== -->
 
-<footer class="dark-bg">
-<<<<<<< Updated upstream
-    <div class="container py-5">
-        <div class="row">
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <a href="https://mydiningplace.com/contact-us/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Contact Us</a>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <a href="https://mydiningplace.com/help-center/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Help Center</a>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <a href="https://mydiningplace.com/category/career/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Career</a>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <a href="https://mydiningplace.com/terms-of-use/" target="_blank" class="text-uppercase font-weight-bold mb-4 text-white">Terms and Conditions</a>
-            </div>
-            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-                <a href="https://mydiningplace.com/privacy-policy/" target="_blank"class="text-uppercase font-weight-bold mb-4 text-white">Privacy Policy</a>
-            </div>
-            <div class="col-lg-2 col-md-4 mb-lg-0">
-=======
+<footer class="dark-bg mt-6">
     <div class="container-fluid py-5">
         <div class="row" style="font-size: 10px;">
             <div class="col-lg-8 col-md-4 mb-lg-0" style="font-size: 12px;">
@@ -467,7 +447,6 @@
                 </ul>
             </div>
             <div class="col-lg-2 col-md-4 mb-lg-0" style="font-size: 14px;">
->>>>>>> Stashed changes
                 <ul class="list-inline">
                     <li class="list-inline-item mr-3"><a title="twitter"><i class="fab fa-1x fa-twitter text-white"></i></a></li>
                     <li class="list-inline-item mr-3"><a title="facebook"><i class="fab fa-1x fa-facebook-f text-white"></i></a></li>
@@ -477,11 +456,7 @@
             </div>
         </div>
         
-<<<<<<< Updated upstream
-        <div class="text-left">
-=======
         <div class="text-left" style="font-size: 12px;">
->>>>>>> Stashed changes
             <p class="mb-0 py-2 text-white">Copyright © 2020 <a href="https://mydiningplace.com/" style="color: #F67280 !important;">mydiningplace.com</a> All Rights Reserved</p>
         </div>
     </div>

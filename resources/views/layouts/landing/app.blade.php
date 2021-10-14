@@ -146,8 +146,6 @@
         .navbar-vertical .navbar-nav.nav-tabs .active .nav-link, .navbar-vertical .navbar-nav.nav-tabs .active.nav-link {
             border-left-color: #C6FFC1;
         }
-<<<<<<< Updated upstream
-=======
 
         .dark-bg {
             background-color: #161616;
@@ -172,7 +170,6 @@
         .hover-red:hover {
             color: #F67280 !important;
         }
->>>>>>> Stashed changes
     </style>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     @yield('styler')
@@ -310,133 +307,7 @@
 
 @yield('content')
 
-<footer>
-    <div class="footer-div">
-        <!-- Footer Start -->
-        <footer class="footer-background text-white text-lg-start">
-            <!-- Grid container -->
-            <div class="container">
-                <!--Grid row-->
-                <div class="row d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-3 mb-md-0 company_details">
-                        <div
-                            class="row d-flex justify-content-center justify-content-md-start text-center text-md-left">
-                            <div class="col-md-12 col-sm-12 d-flex justify-content-center justify-content-md-start text-center text-md-left"
-                                 style="padding: 0">
-                                <a class="" href="#">
-                                    @php($logo=\App\CentralLogics\Helpers::get_settings('logo'))
-                                    <img class="rounded float-left"
-                                         onerror="this.src='{{asset('assets/admin/img/160x160/img2.jpg')}}'"
-                                         src="{{asset('storage/app/business/'.$logo)}}"
-                                         style="max-width: 200px;max-height: 75px">
-                                </a>
-                            </div>
-                        </div>
-
-<<<<<<< Updated upstream
-                        <div class="footer-article-div">
-                                <span class="footer-article">
-                                    {{__('messages.footer_article')}}
-                                </span>
-                        </div>
-
-                        <div class="mt-4">
-                            <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-linkedin"></i></a>
-                            <a href="#" class="text-white" style="margin-left: 44px"><i
-                                    class="fab fa-skype"></i></a>
-                        </div>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <div class="col-lg-2 col-md-2 mb-0 mb-md-0"></div>
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-2 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">{{__('messages.support')}}</span>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="{{route('about-us')}}" class="footer-item text-white">{{__('messages.about_us')}}</a>
-                            </li>
-                            <li>
-                                <a href="{{route('contact-us')}}" class="footer-item text-white">{{__('messages.contact_us')}}</a>
-                            </li>
-                            <li>
-                                <a href="{{route('privacy-policy')}}" class="footer-item text-white">{{__('messages.privacy_policy')}}</a>
-                            </li>
-                            <li>
-                                <a href="{{route('terms-and-conditions')}}" class="footer-item text-white">{{__('messages.terms_and_condition')}}</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <!--Grid column-->
-                    <div class="col-lg-2 col-md-2 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">Download</span>
-
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="https://play.google.com" class="footer-item text-white">Play Store</a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="https://www.apple.com/app-store/" class="footer-item text-white">App Store</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-
-                    <!--Grid column-->
-                    <div class="col-lg-3 col-md-3 mb-md-0 footer-items">
-                        <span class="footer-title text-uppercase mb-4">Contact Us</span>
-
-                        <ul class="list-unstyled mb-0">
-                            <li>
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-map-marker-alt mr-2"></i>
-                                    <span>{{\App\CentralLogics\Helpers::get_settings('address')}}</span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-envelope MR-1"></i>
-                                    <span class="ml-1">{{\App\CentralLogics\Helpers::get_settings('email_address')}}</span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#!" class="footer-item text-white">
-                                    <i class="fas fa-phone MR-1"></i>
-                                    <span class="ml-1">{{\App\CentralLogics\Helpers::get_settings('phone')}}</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <hr class="hr-footer-m">
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="text-center" style="background-color: rgba(0, 0, 0, 0.2);font-size: 12px">
-                {{\App\CentralLogics\Helpers::get_settings('footer_text')}}
-                <a class="text-white" href="#">{{\App\CentralLogics\Helpers::get_settings('business_name')}}</a>
-            </div>
-        </footer>
-=======
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<footer class="dark-bg">
+<footer class="dark-bg mt-5">
     <div class="container-fluid py-5">
         <div class="row" style="font-size: 10px;">
             <div class="col-lg-8 col-md-4 mb-lg-0" style="font-size: 12px;">
@@ -468,26 +339,20 @@
             </div>
         </div>
         
-        <div class="text-left ml-3" style="font-size: 12px;">
+        <div class="text-left" style="font-size: 12px;">
             <p class="mb-0 py-2 text-white">Copyright © 2020 <a href="https://mydiningplace.com/" style="color: #F67280 !important;">mydiningplace.com</a> All Rights Reserved</p>
         </div>
->>>>>>> Stashed changes
     </div>
 </footer>
+
 
 
 <!-- Scrips Starts -->
 @include('sweetalert::alert')
 
-<<<<<<< Updated upstream
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
-<script src="{{asset('assets/admin')}}/js/vendor.min.js"></script>
-=======
 {{-- <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script> --}}
 <script src="{{URL::asset('assets/admin')}}/js/vendor.min.js"></script>
->>>>>>> Stashed changes
 
 <!-- JS Front -->
 <script src="{{asset('assets/admin')}}/js/theme.min.js"></script>

@@ -118,6 +118,7 @@ Route::group(['namespace' => 'Api\V1'], function () {
 
     Route::group(['prefix' => 'banners'], function () {
         Route::get('/', 'BannerController@get_banners');
+        Route::get('/home', 'BannerController@getHomePageBanner');
     });
 
 

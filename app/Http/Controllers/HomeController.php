@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Socialite;
 use Alert;
+use App\Models\RestaurantCategories;
+use App\Models\SubscriptionPayment;
 
 class HomeController extends Controller
 {
@@ -117,64 +119,55 @@ class HomeController extends Controller
 
     public function postSubcriptionRegFree(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'f_name' => 'required',
-            'restaurant_name' => 'required',
-            'address' => 'required',
-            'email' => 'required|unique:vendors',
-            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|unique:vendors',
-            'password' => 'required|min:6',
-            'logo' => 'required',
-            'tax' => 'required',
-        ], [
-            'f_name.required' => 'First name is required!'
-        ]);
-        $request->latitude = '-8.266598913066758';
-        $request->longitude = '115.14055616687938';
-        $request->zone_id = 1;
+        $vendorData = [
+            'f_name'    => $request->f_name,
+            'l_name'    => $request->l_name,
+            'email'     => $request->email,
+            'phone'     => $request->phone,
+            'password'  => bcrypt($request->password)
+        ];
+        $vendor = Vendor::create($vendorData);
 
-        if($request->zone_id)
-        {
-            $point = new Point($request->latitude, $request->longitude);
-            $zone = Zone::contains('coordinates', $point)->where('id', $request->zone_id)->first();
-            if(!$zone){
-                $validator->getMessageBag()->add('latitude', 'Coordinates out of zone!');
-                return back()->withErrors($validator)
-                        ->withInput();
-            }
+        $restaurantData = [
+            'name'              => $request->restaurant_name,
+            'slug'              => Str::slug($request->restaurant_name),
+            'phone'             => $request->phone,
+            'email'             => $request->email,
+            'logo'              => Helpers::upload('restaurant/', 'png', $request->file('logo')),
+            'cover_photo'       => Helpers::upload('restaurant/cover/', 'png', $request->file('cover_photo')),
+            'address'           => $request->address,
+            'latitude'          => $request->latitude,
+            'longitude'         => $request->longitude,
+            'vendor_id'         => $vendor->id,
+            'zone_id'           => $request->zone_id,
+            'tax'               => $request->tax,
+            'subscription_id'   => $request->subsId,
+            'type'              => $request->type,
+        ];
+
+        $restaurant = Restaurant::create($restaurantData);
+        foreach ($request->input('categories') as $val) {
+            $data = [
+                'restaurant_id' => $restaurant->id,
+                'type_id'       => (int)$val
+            ];
+            RestaurantCategories::create($data);
         }
-        if ($validator->fails()) {
-            return back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $vendor = new Vendor();
-        $vendor->f_name = $request->f_name;
-        $vendor->l_name = $request->l_name;
-        $vendor->email = $request->email;
-        $vendor->phone = $request->phone;
-        $vendor->password = bcrypt($request->password);
-        $vendor->save();
 
-        $restaurant = new Restaurant;
-        $restaurant->name = $request->restaurant_name;
-        $restaurant->slug = Str::slug($request->restaurant_name);
-        $restaurant->phone = $request->phone;
-        $restaurant->email = $request->email;
-        $restaurant->logo = Helpers::upload('restaurant/', 'png', $request->file('logo'));
-        $restaurant->cover_photo = Helpers::upload('restaurant/cover/', 'png', $request->file('cover_photo'));
-        $restaurant->address = $request->address;
-        $restaurant->latitude = $request->latitude;
-        $restaurant->longitude = $request->longitude;
-        $restaurant->vendor_id = $vendor->id;
-        $restaurant->zone_id = $request->zone_id;
-        $restaurant->tax = $request->tax;
+        $dataSubsPayment = [
+            'external_id'       => $request->externalId, //
+            'subs_id'           => $request->subsId,
+            'status'            => $request->status, //
+            'payment_type'      => 'Xendit',
+            'price'             => $request->price,
+            'restaurant_id'     => $restaurant->id,
+            'vendor_id'         => $vendor->id,
+        ];
 
-        $restaurant->save();
-        // $restaurant->zones()->attach($request->zone_ids);
-        // Toastr::success(trans('messages.vendor').trans('messages.added_successfully'));
+        SubscriptionPayment::create($dataSubsPayment);
+        Alert::success('Success', 'Register Success');
 
-        return redirect('vendor-panel/auth/login');
+        return redirect('/');
     }
 
     public static function get_settings($name)

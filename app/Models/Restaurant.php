@@ -42,6 +42,7 @@ class Restaurant extends Model
         'subscription_id',
         'payment_website',
         'language_id',
+        'type'
     ];
 
     protected $casts = [
@@ -63,6 +64,12 @@ class Restaurant extends Model
         'food_section',
     ];
     
+
+    public function restaurantCategory()
+    {
+        return $this->hasMany(RestaurantCategories::class, 'restaurant_id', 'id');
+    }
+
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);

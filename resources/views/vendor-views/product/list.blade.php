@@ -14,12 +14,15 @@
                 <div class="col-sm mb-2 mb-sm-0">
                     <h1 class="page-header-title"><i class="tio-filter-list"></i> {{__('messages.food')}} {{__('messages.list')}}</h1>
                 </div>
-                <a href="{{route('vendor.food.add-new')}}" class="btn btn-pink pull-right"><i
-                                class="tio-add-circle"></i> {{__('messages.add')}} {{__('messages.new')}} {{__('messages.food')}}</a>
+                
             </div>
         </div>
         <!-- End Page Header -->
         <div class="row gx-2 gx-lg-3">
+            <div class="col-4 pull-right">
+                <a href="{{route('vendor.food.add-new')}}" class="btn btn-pink pull-right"><i
+                                class="tio-add-circle"></i> {{__('messages.add')}} {{__('messages.new')}} {{__('messages.food')}}</a>
+            </div>
             <div class="col-sm-12 col-lg-12 mb-3 mb-lg-2">
                 <!-- Card -->
                 <div class="card">

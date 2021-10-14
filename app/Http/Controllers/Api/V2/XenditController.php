@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Api\V2;
 use App\CentralLogics\Helpers;
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\RestaurantCategories;
 use App\Models\Subscription;
 use App\Models\SubscriptionPayment;
 use App\Models\Vendor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Xendit\Xendit;
 use Illuminate\Support\Str;
 
@@ -26,6 +28,10 @@ class XenditController extends Controller
 
     public function createVa(Request $request)
     {
+        $request->validate([
+            'categories'    => 'array'
+        ]);
+
         DB::beginTransaction();
         try {
             Xendit::setApiKey($this->token);
@@ -40,45 +46,6 @@ class XenditController extends Controller
                 'is_single_use'     => true,
             ];
             $createVa = \Xendit\VirtualAccounts::create($params);
-    
-            $vendorData = [
-                'f_name'    => $request->f_name,
-                'l_name'    => $request->l_name,
-                'email'     => $request->email,
-                'phone'     => $request->phone,
-                'password'  => bcrypt($request->password)
-            ];
-            $vendor = Vendor::create($vendorData);
-    
-            $restaurantData = [
-                'name'              => $request->restaurant_name,
-                'slug'              => Str::slug($request->restaurant_name),
-                'phone'             => $request->phone,
-                'email'             => $request->email,
-                'logo'              => Helpers::upload('restaurant/', 'png', $request->file('logo')),
-                'cover_photo'       => Helpers::upload('restaurant/cover/', 'png', $request->file('cover_photo')),
-                'address'           => $request->address,
-                'latitude'          => $request->latitude,
-                'longitude'         => $request->longitude,
-                'vendor_id'         => $vendor->id,
-                'zone_id'           => $request->zone_id,
-                'tax'               => $request->tax,
-                'subscription_id'   => $request->subsId
-            ];
-    
-            $restaurant = Restaurant::create($restaurantData);
-    
-            $dataSubsPayment = [
-                'external_id'       => $externalId,
-                'subs_id'           => $request->subsId,
-                'status'            => $createVa['status'],
-                'payment_type'      => 'Xendit',
-                'price'             => $request->price,
-                'restaurant_id'     => $restaurant->id,
-                'vendor_id'         => $vendor->id,
-            ];
-    
-            SubscriptionPayment::create($dataSubsPayment);
             
             DB::commit();
     
